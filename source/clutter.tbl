@@ -1,0 +1,4940 @@
+//
+// clutter.tbl
+//
+// file to specify clutter characteristics
+//
+// $Class Name     - The name of the clutter class
+// $V3D Filename   - The name of the V3D file which is rendered for this item
+// $Debris Filename - (OPTIONAL) The name of the V3D file that is the debris for this item
+// $Debris Sound Set: - (OPTIONAL) The name of the custom sound set for the debris to use when colliding with the world
+// $Corpse Class Name - (OPTIONAL)The '$Class Name' of a clutter item used for the corpse
+// $Emitter        - (OPTIONAL) The name of the particle emitter (from emitters.tbl)
+// $Emitter Life:  - (OPTIONAL) How long the emitter lasts in seconds (-1 for forever)
+// $Material       - Material type for object, one of: rock, metal, flesh, water, lava, solid, sand, ice, glass
+// $Radius         - (OPTIONAL) the radius of this object, overrides the vmesh radius
+// $Life           - Hit points of the clutter item (use -1 for invulnerable)
+// $Damage Type Factor:	  "damage type (see weapons.tbl)"  <factor>		// (OPTIONAL) damage by this type of weapon is scaled by this factor for this entity type
+// $Sound          - (OPTIONAL) Looping sound attached to clutter
+// $Use Sound      - (OPTIONAL) Sound played when clutter is used (trigger must contain clutter UID in the "Use Clutter UID" field)
+// $Explode Anim          (OPTIONAL) - explosion that plays when object dies
+// $Explode Anim Radius   (OPTIONAL) - radius of the explosion
+// $Explode Damage:			(OPTIONAL) - damage applied to nearby objects when clutter explodes
+// $Explode Offset:       (OPTIONAL) - offset (in local coords) of the explosion from the object center
+// $Glare:					  (OPTIONAL) - "TestGlare01a"
+// $Flags          - "collectable"		clutter can be collected by AI in AI_MODE_COLLECTING
+//                 - "collide_weapon"	clutter only collides with weapons
+//                 - "collide_object"	clutter collides with all sorts of stuff
+//                 - "is_screen"       clutter object can be used for security camera output
+//						 - "shatters"		   if present, will switch to Corpse class when shot with a bullet (and spawn glass shards), but will switch to debris when shot with rocket
+//						 - "has_alpha"			clutter has alpha in its textures, and needs to be sorted accordingly
+//						 - "can_carry"			clutter can be carried by ai in their left or right hand
+// $Screen Width:    (OPTIONAL)	width of bitmap (in pixels) that is used to display image on screen (is_screen flag must be set)
+// $Screen Height:   (OPTIONAL)	height of bitmap (in pixels) that is used to display image on screen (is_screen flag must be set)
+// $Debris Velocity:	(OPTIONAL) The velocity of the debris that spawns when the clutter is destroyed
+// $RFE Level1:    - (OPTIONAL) The name of the sub-directory where this item will appear in the editor
+// $RFE Level2:    - (OPTIONAL) The name of the second-level directory for the editor.
+//                 -            Any objects having a Level2 tag, must also have a corresponding Level1 tag.
+// $Light Color    - (OPTIONAL) RGBA of light attached to this light fixture
+// $Light Type     - (OPTIONAL) 'Omnidirectional', 'Circular', or 'Tube'
+// $Light Range    - (OPTIONAL) 
+// $Light FOV Range - (OPTONAL) for 'Circular' lights
+// $Light FOV Dropoff - (OPTIONAL) for 'Circular' lights
+// $Light Algo     - (OPTIONAL) Attenuation algorithm - "linear", "squared", "cosine", or "sqrt"
+// $Light Width   - (OPTIONAL) for 'Tube' lights
+// $Light On Intensity - (OPTIONAL) (0.00 - 10.00) Intensity of this light
+// $Light Off Intensity - (OPTIONAL) (0.00 - 10.00) Intensity of this light
+// $Light Dynamic - (OPTIONAL) is this light dynamic? true or false
+// $Light Shadow  - (OPTIONAL) Light casts shadows?
+// $Light Runtime Shadow - (OPTIONAL) Does this light cast real-time shadows?
+// $Light Offset  - (OPTIONAL) How much (in the forward direction) this clutter's light is offset from the prop point/center
+//	$Skin:			- (OPTIONAL) The list of skins that go with this piece of clutter
+//    +Glare:		- (OPTIONAL) a different glare for this skin
+//
+// ------------------------------------------------
+
+#Clutter
+
+// ------------------------------------------------
+// Furniture
+// ------------------------------------------------
+
+$Class Name:      "officebookcase"
+$V3D Filename:    "officebookcase.V3D"
+$Material:        "wood"
+$Life:            40
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Use Sound:            "Use Book"
+$Flags:           ("collide_object")
+$Use:             "play_sound"
+	+radius:       3.0
+$RFE Level1:	  "Furniture"
+
+$Class Name:            "Com_Chair01"
+$V3D Filename:				"Com_Chair01.V3D"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"small debris bounce"
+$Corpse Class Name:		"Com_Chair01_Corpse"
+$Material:					"metal"
+$Life:						160
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Explode Anim:         "Grate Break"
+$Explode Anim Radius:  .4
+$Flags:						("collide_object")
+$Debris Velocity:      3.7
+$RFE Level1:			   "Furniture"
+
+$Class Name:           "Com_Chair01_Corpse"
+$V3D Filename:         "Com_Chair01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Furniture"
+
+$Class Name:				"counter"
+$V3D Filename:				"counter1.v3d"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"small debris bounce"
+$Corpse Class Name:		"counter_corpse"
+$Material:					"metal"
+$Life:						200
+$Flags:						("collide_object")
+$Debris Velocity:			3.7
+$RFE Level1:				"Furniture"
+
+$Class Name:      "counter_corpse"
+$V3D Filename:    "counter_corpse.v3d"
+$Material:        "metal"
+$Life:           -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "coffeesmokedtbl_corpse"
+$V3D Filename:    "coffeesmokedtbl_corpse.V3D"
+$Material:        "rock"
+$Life:           -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:			"coffeetable1"
+$V3D Filename:			"coffeesmokedtbl.V3D"
+$Debris Filename:		"coffeesmoketbl_debris.V3D"
+$Debris Sound Set:		"Wood Break"
+$Corpse Class Name:		"coffeesmokedtbl_corpse"
+$Material:				"glass"
+$Life:					-1
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Explode Anim:			"glassboom"
+$Explode Anim Radius:	12
+$Flags:					("collide_object")
+$Debris Velocity:		1.5
+$RFE Level1:			"Furniture"
+
+$Class Name:      "coffeetable1Alt"
+$V3D Filename:    "coffeesmokedtblAlt.V3D"
+$Debris Filename:		"coffeesmoketbl_debris.V3D"
+$Debris Sound Set:		"Wood Break"
+$Corpse Class Name:		"coffeesmokedtbl_corpse"
+$Material:				"glass"
+$Life:					-1
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Explode Anim:			"glassboom"
+$Explode Anim Radius:	12
+$Flags:					("collide_object")
+$Debris Velocity:		1.5
+$RFE Level1:			"Furniture"
+
+$Class Name:      "coffeetable2"
+$V3D Filename:    "coffeesmokedtbl2.V3D"
+$Debris Filename:		"coffeesmoketbl_debris.V3D"
+$Debris Sound Set:		"Wood Break"
+$Corpse Class Name:		"coffeesmokedtbl_corpse"
+$Material:				"glass"
+$Life:					-1
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Explode Anim:			"glassboom"
+$Explode Anim Radius:	12
+$Flags:					("collide_object")
+$Debris Velocity:		1.5
+$RFE Level1:			"Furniture"
+
+$Class Name:      "bench01"
+$V3D Filename:    "bench.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            40
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "bench01ALT"
+$V3D Filename:    "benchALT.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            40
+$Damage Type Factor:		"bash"						0.0
+$Damage Type Factor:		"bullet"					0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Medical Bed"
+$V3D Filename:    "medbed1.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:                 -1
+$Damage Type Factor:		"bash"						0.0
+$Damage Type Factor:		"bullet"					0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .4
+$Flags:           ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "officetable1"
+$V3D Filename:    "cubetable1.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Damage Type Factor:		"bash"						0.0
+$Damage Type Factor:		"bullet"					0.0
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Cafeteria Table"
+$V3D Filename:    "cafetable1.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set:  "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Damage Type Factor:		"bash"						0.0
+$Damage Type Factor:		"bullet"					0.0
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Cafeteria Table ALT"
+$V3D Filename:    "cafetable1ALT.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Damage Type Factor:		"bash"						0.0
+$Damage Type Factor:		"bullet"					0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"						0.0
+$Damage Type Factor:		"energy"					0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Cafeteria Chair"
+$V3D Filename:    "cafechair1.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:                 90
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Explode Anim:    "explosion 1"
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Doctor's Desk"
+$V3D Filename:    "docdesk1.V3D"
+$Debris Filename: "bench_debris.v3d"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "offchair"
+$V3D Filename:    "offchair01.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:                 -1
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Explode Anim:    "explosion 1"
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "comfychair"
+$V3D Filename:    "comfychair1.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "comfychair2"
+$V3D Filename:    "comfychair2.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            -1
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Guard Chair"
+$V3D Filename:    "guardchair01.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:            80
+$Damage Type Factor:		"bash"					0.0
+$Damage Type Factor:		"bullet"				0.0
+$Damage Type Factor:		"fire"					0.0
+$Damage Type Factor:		"energy"				0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "swivchair"
+$V3D Filename:    "swilchair01.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "metal"
+$Life:                 -1
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Explode Anim:    "explosion 1"
+$Flags:           ("collide_object")
+$Debris Velocity:      1
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "offdoor"
+$V3D Filename:    "officedoor.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "wood"
+$Life:            40
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:				"offbookcase"
+$V3D Filename:				 "bookcase1.V3D"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"Wood Break"
+$Material:					"wood"
+$Life:						 180
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Use Sound:             "Use Book"
+$Flags:						("collide_object")
+$Debris Velocity:       3
+$Use:						   "play_sound"
+	+radius:					3.0
+$RFE Level1:				"Furniture"
+
+$Class Name:				"file cabinet1"
+$V3D Filename:				"filecabinet1.V3D"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"Wood Break"
+$Material:					"wood"
+$Life:						200
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:						("collide_object")
+$Debris Velocity:			2
+$RFE Level1:				"Furniture"
+
+$Class Name:      "file cabinet2"
+$V3D Filename:    "filecabinet2.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Wood Break"
+$Material:        "wood"
+$Life:            180
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:				"offtable"
+$V3D Filename:				"officetable.V3D"
+$Corpse Class Name:		"tablecorpse"
+$Material:					"wood"
+$Life:						 -1
+$Damage Type Factor:		"bash"		0.0
+$Damage Type Factor:		"bullet"	0.0
+$Damage Type Factor:		"fire"		0.0
+$Explode Damage:			20
+$Flags:						("collide_object")
+$RFE Level1:				"Furniture"
+
+$Class Name:       "tablecorpse"
+$V3D Filename:     "offtable_corpse.V3D"
+$Debris Sound Set: "Metal Break"
+$Material:         "metal"
+$Life:             -1
+$Flags:            ("collide_object")
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "Medical Lockers"
+$V3D Filename:    "Medlockers1.V3D"
+$Debris Sound Set: "Metal Break"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "Toilet"
+$V3D Filename:    "toilet1.V3D"
+$Debris Filename: "toilet_debris.v3d"
+$Debris Sound Set: "solid clatter"
+$Material:        "solid"
+$Life:            185
+$Use Sound:       "Use Toilet"
+$Flags:           ("collide_weapon")
+$Use:             "play_sound"
+	+radius:       2.0
+$Debris Velocity:      1
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "Urinal"
+$V3D Filename:    "toilet2.V3D"
+$Debris Filename: "toilet_debris.v3d"
+$Debris Sound Set: "solid clatter"
+$Material:        "solid"
+$Life:            185
+$Use Sound:       "Use Urinal"
+$Flags:           ("collide_weapon")
+$Use:             "play_sound"
+	+radius:       2.0
+$Debris Velocity:      1
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "Urinal2"
+$V3D Filename:    "toilet4.V3D"
+$Debris Filename: "toilet_debris.v3d"
+$Debris Sound Set: "solid clatter"
+$Material:        "solid"
+$Life:            185
+$Use Sound:       "Use Urinal"
+$Flags:           ("collide_weapon")
+$Use:             "play_sound"
+	+radius:       2.0
+$Debris Velocity:      1
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "Toilet2"
+$V3D Filename:    "toilet3.V3D"
+$Debris Filename: "toilet_debrisB.v3d"
+$Debris Sound Set: "solid clatter"
+$Material:        "solid"
+$Life:            185
+$Use Sound:       "Use Toilet"
+$Flags:           ("collide_weapon")
+$Use:             "play_sound"
+	+radius:       2.0
+$Debris Velocity:      1
+$RFE Level1:	   "Furniture"
+
+$Class Name:      "posh_chair"
+$V3D Filename:    "poshchair.V3D"
+$Debris Filename: "screen_debris.V3D"
+$Debris Sound Set: "Metal Break"
+$Material:        "metal"
+$Life:                 90
+$Damage Type Factor:   "bash"       0.0
+$Damage Type Factor:   "bullet"     0.0
+$Damage Type Factor:   "fire"       0.0
+$Damage Type Factor:   "energy"     0.0
+$Explode Anim:    "explosion 1"
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "sofa2"
+$V3D Filename:    "sofa2.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "sofa3"
+$V3D Filename:    "sofa1.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "sofa3ALT"
+$V3D Filename:    "sofa1ALT.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Endtable"
+$V3D Filename:    "endtable1.V3D"
+$Material:        "wood"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "posh_desk"
+$V3D Filename:    "poshdesk.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+$Class Name:      "Food Trough"
+$V3D Filename:    "trough1.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Furniture"
+
+
+// ------------------------------------------------
+// Lights
+// ------------------------------------------------
+
+$Class Name:           "chinese_lamp"
+$V3D Filename:         "ChineseLamp01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+$Class Name:           "lantern_ball"
+$V3D Filename:         "lanternball.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+$Skin:                 "blue"        ("lantern01_blu.tga")
+$Skin:                 "red"         ("lantern01_red.tga")
+
+$Class Name:           "lantern_box"
+$V3D Filename:         "lanternbox.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .2
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+$Skin:                 "blue"        ("lantern02_blu.tga")
+$Skin:                 "red"         ("lantern02_red.tga")
+
+$Class Name:           "Dbl Fluorescent"
+$V3D Filename:         "doubleflour1.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "glass"
+$Life:                 230
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .8
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+
+$Class Name:           "glowstick"
+$V3D Filename:         "glowstick.V3D"
+$Material:             "metal"
+$Life:                 20
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:				   "glowstickglare"
+$Flags:                ("collide_object")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          3
+$Light Algo:           "linear"
+$Light Color:          {252,176,101,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+$Skin:                 "clean"         ("mtl_archway04.tga" "LightVolume_Grad01.tga")
+$Skin:                 "dirty"         ("dblflour2ndskin.tga" "LightVolume_Grad01.tga")
+
+
+$Class Name:           "spot1"
+$V3D Filename:         "spotlight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .2
+$Glare:				   "barndoorglare2"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+
+$Class Name:           "securitylightcone"
+$V3D Filename:         "securconelight.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:				   "securityspot"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	       "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255}
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+$Class Name:      "securlightbox"
+$V3D Filename:    "securlightbox.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:                ("collide_weapon")
+$RFE Level1:	  "Lights"
+
+$Class Name:           "Mine Light 1"
+$V3D Filename:         "MineLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					"TestGlare01a"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+$Class Name:           "Mine Light 1blue"
+$V3D Filename:         "MineLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					"TestGlare01b"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+$Skin:                 "Amber"         ("MineLight01.tga")
+$Skin:                 "Blue"          ("MineLight01Blue.tga")
+
+$Class Name:           "Mine Light 1 no glare"
+$V3D Filename:         "MineLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "WarmWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          2
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:	1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+$Skin:                 "Amber"         ("MineLight01.tga")
+$Skin:                 "Blue"          ("MineLight01Blue.tga")
+
+$Class Name:           "Mine Light 2"
+$V3D Filename:         "MineLight02.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .7
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .58
+$Light Algo:           "linear"
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.04
+
+$Class Name:           "Mine Light 2_Blue"
+$V3D Filename:         "MineLight2_Blue.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .7
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .58
+$Light Algo:           "linear"
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.04
+
+$Class Name:           "Mine Light 2_Amber"
+$V3D Filename:         "MineLight2_Amber.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .7
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .58
+$Light Algo:           "linear"
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.04
+
+$Class Name:           "minelight03"
+$V3D Filename:         "minelight03.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "minelt03glare"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+$Class Name:           "Mine Light 3"
+$V3D Filename:         "minelight03.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "minelt03glare"
+$Flags:                ("collide_weapon")
+$Debris Velocity:      3
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .32
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.08
+
+$Class Name:           "Mine Light 4"
+$V3D Filename:         "MineLight04.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .24
+$Light Algo:           "linear"
+$Light Width:          1.23
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+
+
+$Class Name:           "Double Mine Light 4"
+$V3D Filename:         "Double_MineLight04.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .24
+$Light Algo:           "linear"
+$Light Width:          1.23
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false`l
+
+$Class Name:           "Mine Light 5"
+$V3D Filename:         "LightFixture02D.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .5
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {255,192,248,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.14
+$Skin:                 "blue"         ("LightFix02blu_Parts02.tga")
+$Skin:                 "green"        ("LightFix02green_Parts02.tga")
+
+$Class Name:           "BIGcanyon_Light01"
+$V3D Filename:         "BIGcanyon_Light01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .8
+$Glare:					  "BIGcanyon_Light01_Glow"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {255,192,248,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.14
+
+$Class Name:           "Mine Light 6"
+$V3D Filename:         "LightFixture01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 140
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "WarmWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {248,252,184,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+$Skin:                 "Yellow"        ("LightFix01_Parts01.tga")
+$Skin:                 "Blue"          ("LightFix01_Parts02.tga")
+
+$Class Name:           "Tube Light"
+$V3D Filename:         "halllight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "WarmWedge01_NoVolume"
+//$Rod Glare:				  "Tube Light Rod Glare"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {232,252,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+$Skin:                 "Blue"          ("halllight2.tga")
+
+$Class Name:           "Tube Light 2"
+$V3D Filename:         "halllight02.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .24
+$Light Algo:           "linear"
+$Light Width:          1.23
+$Light Color:          {248,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+
+
+$Class Name:           "Tube Light No Glare"
+$V3D Filename:         "halllight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {255,249,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+
+$Class Name:           "Mine Light 8"
+$V3D Filename:         "LightFixture_Red01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "RedWedge01_NoVolume_Small"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {255,0,0,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.14
+$Skin:                 "Red"         ("LightFix_Red01_P01.tga")
+$Skin:                 "Blue"        ("LightFix_Blue01_P01.tga")
+ +Glare:             "CoolWedge01_NoVolume_Small"
+$Skin:                 "Amber"       ("LightFix_Amber01_P01.tga")
+ +Glare:             "AmberWedge01_NoVolume_Small"
+$Skin:                 "Yellow"      ("LightFix_Yellow01_P01.tga")
+ +Glare:             "AmberWedge01_NoVolume_Small"
+$Skin:                 "Green"       ("LightFix_Green01_P01.tga")
+ +Glare:             "GreenWedge01_NoVolume_Small"
+$Skin:                 "Pale"        ("LightFix_Pale01_P01.tga")
+ +Glare:             "CoolWedge01_NoVolume_Small"
+
+$Class Name:           "Wedge Light 1"
+$V3D Filename:         "WedgeLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge Light 1x"
+$V3D Filename:         "WedgeLight01x.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge LightRED"
+$V3D Filename:         "WedgeLight01RED.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+
+$Class Name:           "Wedge Light 2"
+$V3D Filename:         "WedgeLight02.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge Light 3"
+$V3D Filename:         "WedgeLight03.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+//$Glare:					  "Shoplight01_Glare01_WIDE"
+$Glare:					  "CoolWedge01_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge Light 3b"
+$V3D Filename:         "WedgeLight03b.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge_Wide01"
+$V3D Filename:         "Wedge_Wide01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .8
+$Glare:					  "CoolWedge02_SmallCone_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Wedge Light 4"
+$V3D Filename:         "WedgeLight04.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "Pole_Light_1_Clean"
+$V3D Filename:         "PoleLight01_Clean.V3D"
+$Material:             "metal"
+$Life:                 500
+$Glare:					  "BigBeamLight_Glare02_Widest"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          15
+$Light FOV Range:      45.00
+$Light FOV Dropoff:    25.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.00
+
+$Class Name:           "Pole_Light_1_Dirty"
+$V3D Filename:         "PoleLight01_Dirty.V3D"
+$Material:             "metal"
+$Life:                 500
+$Glare:					  "BigBeamLight_Glare02_Widest"
+$Flags:                ("collide_object")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          15
+$Light FOV Range:      45.00
+$Light FOV Dropoff:    25.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.00
+
+$Class Name:           "Long Light 1"
+$V3D Filename:         "LongLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:				"yellboom_metal"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          2
+$Light Algo:           "linear"
+$Light Color:          {255,255,255,255} 
+$Light On Intensity:   0.85
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+
+$Class Name:           "Glare Test Fixture"
+$V3D Filename:         "MineLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Glare:					  "TestGlare01"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          2
+$Light Algo:           "linear"
+$Light Color:          {255,255,128,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+
+$Class Name:           "Cargo Ship Light"
+$V3D Filename:         "Cargoship_Light.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 180
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "TestGlare04"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          40
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "RedBarLight"
+$V3D Filename:         "RedBarLight.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "RedWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Omnidirectional"
+$Light Range:          4
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,1,1,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+$Skin:                 "Red"        ("LightFix04_Red_P01.tga")
+$Skin:                 "Blue"       ("LightFix04_Blue_P01.tga")
+ +Glare:             "CoolWedge01_NoVolume"
+$Skin:                 "Light Blue" ("LightFix04_BlueA_P01.tga")
+ +Glare:			 "CoolWedge01_NoVolume"
+$Skin:                 "Amber"      ("LightFix04_Amber_P01.tga")
+ +Glare:             "WarmWedge01_NoVolume"
+$Skin:                 "Yellow"     ("LightFix04_Yellow_P01.tga")
+//$Skin:                 "Green"      ("LightFix04_Green_P01.tga")
+$Skin:                 "Pale"       ("LightFix04_Pale_P01.tga")
+ +Glare:             "CoolWedge01_NoVolume"
+		
+$Class Name:           "SlatLight01"
+$V3D Filename:         "SlatLight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "SlatLight01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Skin:                 "Amber"      ("SlatLight01_P01.tga")
+$Skin:                 "Blue"      ("SlatLight01_P01_Blue.tga")
+ +Glare:             "CoolWedge01_NoVolume"
+$Skin:                 "Blue"      ("SlatLightBlue_01.tga")
+ +Glare:             "CoolWedge01_NoVolume"  
+
+$Class Name:           "Port_Light01"
+$V3D Filename:         "Port_Light01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 150
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolSpot_WideBeam"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          200
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:      "Spotlight01"
+$V3D Filename:    "spotlight01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:        "metal"
+$Life:            40
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .1
+$Glare:					  "Shoplight01_Glare01_WIDE"
+$Flags:           ("collide_weapon")
+$Debris Velocity:      1.5
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          200
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:      "Spotlight02"
+$V3D Filename:    "spotlight02.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:        "metal"
+$Life:            40
+$Glare:					  "Shoplight01_Glare01_WIDE"
+$Flags:           ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          200
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:      "Spotlight03"
+$V3D Filename:    "spotlight03.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:        "metal"
+$Life:            40
+$Glare:					  "Shoplight01_Glare01_WIDE"
+$Flags:           ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Circular"
+$Light Range:          200
+$Light FOV Range:      1.00
+$Light FOV Dropoff:    1.00  
+$Light Algo:           "linear"
+$Light Color:          {232,255,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         -0.04
+
+$Class Name:           "OfficeLight_Lg01"
+$V3D Filename:         "LightFixture_OfficeLarge01.V3D"
+$Debris Filename:      "LightFix_OffLge01_Debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .9
+$Glare:					  "CoolWedge02_LG_NoVolume"
+$Flags:                ()
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {232,252,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+
+$Class Name:           "OfficeLight_Lg01F"
+$V3D Filename:         "LightFixture_OfficeLarge01F.V3D"
+$Debris Filename:      "LightFix_OffLge01_Debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .9
+$Glare:					  "CoolWedge02_LG_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {232,252,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+
+$Class Name:           "OfficeLightCan01"
+$V3D Filename:         "LightOfficeCan01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "metal"
+$Life:                 100
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .9
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "OfficeLightCan01_Single"
+$V3D Filename:         "LightOfficeCan01_Single.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "glass"
+$Life:                 40
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "OfficeLightCan01_Tripleplay"
+$V3D Filename:         "LightOfficeCan01_Tripleplay.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "glass"
+$Life:                 75
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .7
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "OfficeLightCan01_Quad"
+$V3D Filename:         "LightOfficeCan01_Quad.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "glass"
+$Life:                 100
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .9
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "OfficeLightCan01_Zwei"
+$V3D Filename:         "LightOfficeCan01_Zwei.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:             "glass"
+$Life:                 55
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:					"Ball Light01"
+$V3D Filename:					"balllight01.v3d"
+$Debris Filename:				"ballight_debris.V3D"
+$Debris Sound Set:			"small debris bounce"
+$Material:						"metal"
+$Life:							40
+$Explode Anim:					"yellboom"
+$Explode Anim Radius:		    0.5
+$Glare:							"CoolWedge01_SmallCone_NoVolume"
+$Flags:							("collide_weapon")
+$RFE Level1:					"Lights"
+$Light Type:					"Tube"
+$Light Range:					.25
+$Light Algo:					"linear"
+$Light Color:					{232,252,255,255} 
+$Light On Intensity:			1.00
+$Light Dynamic:				false
+$Light Shadow:					true
+$Light Runtime Shadow:		false
+$Light Offset:					0.0
+$Skin:                 "red"         ("light_fixture3.tga")
+	+Glare:             "Light_RedLargeGlo01"
+$Skin:                 "Blue"          ("light_fixture4.tga")
+	+Glare:             "CoolWedge01_NoVolume_Small"
+
+$Class Name:           "Admin_PoshLight01"
+$V3D Filename:         "Admin_PoshLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .55
+$Glare:					  "WarmWedge01_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {232,252,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+$Skin:                 "red"         ("Admin_PoshLight03_P01.tga")
+	+Glare:		           "Light_RedLargeGlo01"
+$Skin:                 "Blue"          ("Admin_PoshLight02_P01.tga")
+	+Glare:             "CoolWedge01_NoVolume_Small"
+
+$Class Name:           "BigBeamLight01"
+$V3D Filename:         "BigBeamLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .8
+$Glare:					  "BigBeamLight_Glare01"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "RunwayLight01"
+$V3D Filename:         "RunwayLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .3
+$Glare:					  "RedWedge01_NoVolume_Small"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Skin:                 "Yellowish"     ("RunwayLight01_P01_Yellowish.tga")
+$Skin:                 "Blue"          ("RunwayLight01_P01_Blue.tga")
+
+$Class Name:			  "BigBeamLight01_SmallBeam"
+$V3D Filename:         "BigBeamLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .8
+$Glare:					  "BigBeamLight_Glare01_SmallBeam"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "RunwayLight01_Larger"
+$V3D Filename:         "RunwayLight01_Larger.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .3
+$Glare:					  "RedWedge01_NoVolume_Small"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Skin:                 "Yellowish"     ("RunwayLight01_P01_Yellowish.tga")
+	+Glare:             "WarmWedge01_NoVolume"
+$Skin:                 "Blue"          ("RunwayLight01_P01_Blue.tga")
+	+Glare:             "CoolWedge01_NoVolume_Small"
+
+$Class Name:           "Wedge_TargetRange01"
+$V3D Filename:         "Wedge_TargetRange01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Glare:					  "BigBeamLight_Glare02_Wider"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "ShopLight01"
+$V3D Filename:         "ShopLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "Shoplight01_Glare01"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "ShopLight01_WIDE"
+$V3D Filename:         "ShopLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "Shoplight01_Glare01_WIDE"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "ShopLight01_WIDE_LONG"
+$V3D Filename:         "ShopLight01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "Shoplight01_Glare01_WIDE_LONG"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "ShopLight01_WARM_WIDE"
+$V3D Filename:         "ShopLight01_Warm.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .6
+$Glare:					  "ShopLight01_WARM_WIDE"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "Shoplight01_BIG"
+$V3D Filename:         "Shoplight01_BIG.V3D"
+$Debris Filename:      "LightFix_OffLge01_Debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .9
+$Glare:					  "Shoplight01_Glare01"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+
+$Class Name:           "TramLights01"
+$V3D Filename:         "TramLights01.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Glare:					  "TramLights01"
+$Flags:                ()
+$RFE Level1:	        "Lights"
+// $Skin:                 "Blue"      ("LightFix04_Amber_P01.tga")
+
+$Class Name:           "glare_center"
+$V3D Filename:         "glare_center.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Glare:					  "glare_center"
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "TramLights01_Lights"
+$V3D Filename:         "TramLights01_Lights.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Glare:					  "TramLights01"
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "TramLights01_Express"
+$V3D Filename:         "TramLights01_Express.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "Floor Lamp"
+$V3D Filename:         "officelamp.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Glare:					  "CoolWedge02_LG_NoVolume"
+$Flags:                ("collide_weapon")
+$RFE Level1:	        "Lights"
+$Light Type:           "Tube"
+$Light Range:          .25
+$Light Algo:           "linear"
+$Light Color:          {232,252,255,255} 
+$Light On Intensity:   1.00
+$Light Dynamic:        false
+$Light Shadow:         true
+$Light Runtime Shadow: false
+$Light Offset:         0.0
+
+$Class Name:           "volumelight10X10_01"
+$V3D Filename:         "volumelight10X10_01.v3d"
+$Material:             ""
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "volumelight10X37_01"
+$V3D Filename:         "volumelight10X37_01.v3d"
+$Material:             ""
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+$Class Name:           "volumeplane01_BIIG"
+$V3D Filename:         "volumeplane01_BIIG.V3D"
+$Material:             ""
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	        "Lights"
+
+volumeplane01_BIIG.V3D
+
+
+// ------------------------------------------------
+// Computers
+// ------------------------------------------------
+
+$Class Name:           "big_meddesk"
+$V3D Filename:         "big_meddesk.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Corpse Class Name:    "meddesk_Corpse"
+$Material:             "metal"
+$Life:                 300
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      8
+$RFE Level1:           "Computers"
+
+$Class Name:           "meddesk_corpse"
+$V3D Filename:         "meddesk_corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "cable"
+$V3D Filename:         "cables.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("has_alpha")
+$RFE Level1:           "Computers"
+    
+$Class Name:           "robotic_arm_corpse"
+$V3D Filename:         "robotic_arm_corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "robot_arm"
+$V3D Filename:         "roboticarm.V3D"
+$Corpse Class Name:    "robotic_arm_corpse"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "catscan"
+$V3D Filename:         "catscanner01.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_Scom01"
+$V3D Filename:         "Com_Scom01.V3D"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Corpse Class Name:    "Com_Scom01_Corpse"
+$Material:             "metal"
+$Life:                 400
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  3.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  8
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_Scom01_Corpse"
+$V3D Filename:         "Com_Scom01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_Scom_Memory01"
+$V3D Filename:         "Com_Scom_Memory01.V3D"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Corpse Class Name:    "Com_Scom_Mem01_Corpse"
+$Material:             "metal"
+$Life:                 180
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.7
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  5
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_Scom_Mem01_Corpse"
+$V3D Filename:         "Com_Scom_Mem01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_CtrlPanel01"
+$V3D Filename:         "Com_CtrlPanel01.V3D"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Corpse Class Name:    "Com_CtrlPanel01_Corpse"
+$Material:             "metal"
+$Life:                 290
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  4
+$RFE Level1:           "Computers"
+
+$Class Name:           "Com_CtrlPanel01_Corpse"
+$V3D Filename:         "Com_CtrlPanel01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"										
+
+$Class Name:           "clean_comp"
+$V3D Filename:         "clean_comp.v3d"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"large debris bounce"
+$Corpse Class Name:    "cleancomp_corpse"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  1.2
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  6
+$RFE Level1:           "Computers"
+
+$Class Name:           "cleancomp_corpse"
+$V3D Filename:         "cleancomp_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "clean_comp2"
+$V3D Filename:         "cleancomp1.v3d"
+$Corpse Class Name:    "cleancomp_corpse"
+$Material:             "metal"
+$Life:                 10
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "CentralComp_Slave01"
+$V3D Filename:         "CentralComp_Slave01.v3d"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Corpse Class Name:    "CentralComp_Slave01_corpse"
+$Material:             "metal"
+$Life:                 300
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  4
+$RFE Level1:           "Computers"
+
+$Class Name:           "CentralComp_Slave01_corpse"
+$V3D Filename:         "CentralComp_Slave01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Wall_Computer01"
+$V3D Filename:         "Wall_Computer01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "Wall_Computer01_corpse"
+$Material:             "metal"
+$Life:                 300
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  4
+$RFE Level1:           "Computers"
+
+$Class Name:           "Wall_Computer02"
+$V3D Filename:         "wallcomputer1.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  4
+$RFE Level1:           "Computers"
+
+$Class Name:           "Wall_Computer03"
+$V3D Filename:         "wallcomputer2.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  4
+$RFE Level1:           "Computers"
+
+$Class Name:           "Satellite Computer1"
+$V3D Filename:         "satcomputer1.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Satellite Computer2"
+$V3D Filename:         "satcomputer2.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Satellite Computer3"
+$V3D Filename:         "satcomputer3.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Missile Console1"
+$V3D Filename:         "missileconsole1.v3d"
+$Corpse Class Name:    "missile1_corpse"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Missile Console2"
+$V3D Filename:         "missileconsole2.v3d"
+$Corpse Class Name:    "missile2_corpse"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Missile Console3"
+$V3D Filename:         "missileconsole3.v3d"
+$Corpse Class Name:    "missile3_corpse"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "missile1_corpse"
+$V3D Filename:         "missile1_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "missile2_corpse"
+$V3D Filename:         "missile2_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "missile3_corpse"
+$V3D Filename:         "missile3_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "DesktopPC_Monitor"
+$V3D Filename:         "desktopPC_mon.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 80
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .5
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Computers"
+
+$Class Name:           "DesktopPC_CPU"
+$V3D Filename:         "desktopPC_CPU.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .5
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Computers"
+
+$Class Name:           "DesktopPC_Keyboard"
+$V3D Filename:         "desktopPC_key.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .4
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Computers"
+
+$Class Name:           "Standalone Console1"
+$V3D Filename:         "standalone1.v3d"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Standalone Console2"
+$V3D Filename:         "standalone2.v3d"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Wall_Computer01_corpse"
+$V3D Filename:         "Wall_Computer01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "TechTube01"
+$V3D Filename:         "TechTube01.v3d"
+$Corpse Class Name:    "TechTube01_corpse"
+$Material:             "metal"
+$Life:                 400
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "TechTube01_corpse"
+$V3D Filename:         "TechTube01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Computers"
+
+$Class Name:           "Disk"
+$V3D Filename:         "Disk.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("can_carry")
+$RFE Level1:           "Keys"
+
+
+// ------------------------------------------------
+// Consoles
+// ------------------------------------------------
+
+$Class Name:           "Blulitetechno"
+$V3D Filename:         "blulitetechno.v3d"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Corpse Class Name:    "Blulitetechno_Corpse"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:			  "yellboom_metal"
+$Explode Anim Radius:  .5
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Blulitetechno_Corpse"
+$V3D Filename:         "blulitetechno_corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Console_large01"
+$V3D Filename:         "Console_Large01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "Console_Large01_Corpse"
+$Material:             "metal"
+$Life:                 250
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  1.2
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      5
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Console_Large01_Corpse"
+$V3D Filename:         "Console_Large01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Console_Small01"
+$V3D Filename:         "Console_Small01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "Console_Small01_Corpse"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  1.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      1.9
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Console_Small01_Corpse"
+$V3D Filename:         "Console_Small01_Corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Consoles"
+
+$Class Name:           "ControlPanel01"
+$V3D Filename:         "ControlPanel01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "ControlPanel01_Corpse"
+$Material:             "metal"
+$Life:                 210
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2
+$Glare:			  "RedMini01_NoVolume"
+$Flags:             ("collide_object")
+$Debris Velocity:   2
+$RFE Level1:           "Consoles"
+
+$Class Name:           "ControlPanel01_Corpse"
+$V3D Filename:         "ControlPanel01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Consoles"
+
+
+$Class Name:           "Console_Thin01"
+$V3D Filename:         "Console_Thin01.v3d"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"large debris bounce"
+$Corpse Class Name:    "Console_Thin01_corpse"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  6
+$RFE Level1:           "Consoles"
+
+$Class Name:           "Console_Thin01_corpse"
+$V3D Filename:         "Console_Thin01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Consoles"
+
+// ------------------------------------------------
+// Keys
+// ------------------------------------------------
+
+$Class Name:           "keycard_demoK000"
+$V3D Filename:         "keycard_demoK000.VFX"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Keys"
+
+$Class Name:           "keycard"
+$V3D Filename:         "keycard.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("can_carry" "is_switch")
+$RFE Level1:           "Keys"
+
+// ------------------------------------------------
+// Machinery
+// ------------------------------------------------
+
+$Class Name:           "apclifter"
+$V3D Filename:         "Apclifter.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "vending_machine"
+$V3D Filename:         "vending_machine01.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Corpse Class Name:    "vending_corpse"
+$Material:             "metal"
+$Life:                 250
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  1.5
+$Flags:                ("collide_object")
+$Debris Velocity:      3.5
+$RFE Level1:           "Machinery"
+
+$Class Name:           "vending_corpse"
+$V3D Filename:         "vending_machine_corpse.V3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "liquid_canister"
+$V3D Filename:         "liquid_canister.V3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Corpse Class Name:    "can_corpse"
+$Material:             "metal"
+$Life:                 250
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Flags:                ("collide_object")
+$Debris Velocity:      3.5
+$RFE Level1:           "Machinery"
+
+$Class Name:           "can_corpse"
+$V3D Filename:         "can_corpse.V3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Valve Wheel"
+$V3D Filename:         "valve.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "AirCompressor01"
+$V3D Filename:         "AirCompressor01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:		"large debris bounce"
+$Corpse Class Name:    "AirCompressor01 Corpse"
+$Material:             "metal"
+$Life:                 300
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  1.2
+$Flags:                ("collide_object")
+$Debris Velocity:      4
+$RFE Level1:           "Machinery"
+
+$Class Name:           "AirCompressor01 Corpse"
+$V3D Filename:         "AirCompressor01_dam.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Com_BKgenerator01"
+$V3D Filename:         "Com_BKgenerator01.V3D"
+$Corpse Class Name:    "Com_BKgenerator01_corpse"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Com_BKgenerator01_Corpse"
+$V3D Filename:         "Com_BKgenerator01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Generator_Small01"
+$V3D Filename:         "Generator_Small01.v3d"
+$Corpse Class Name:    "Generator_Small01_Corpse"
+$Material:             "metal"
+$Life:                 350
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Generator_Small02"
+$V3D Filename:         "Generator_Small02.v3d"
+$Corpse Class Name:    "Generator_Small02_Corpse"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Generator_Small01_Corpse"
+$V3D Filename:         "Generator_Small01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Turbine01"
+$V3D Filename:         "Turbine01.V3d"
+$Corpse Class Name:    "Turbine01_Corpse"
+$Material:             "metal"
+$Life:                 600
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Turbine01_Corpse"
+$V3D Filename:         "Turbine01_Corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Pump01"
+$V3D Filename:         "Pump01.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "Pump01_corpse"
+$Material:             "metal"
+$Life:                 400
+$Damage Type Factor:   "explosive"    3.0
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Pump01_corpse"
+$V3D Filename:         "Pump01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Pump02"
+$V3D Filename:         "Pump02.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:    "Pump02_corpse"
+$Material:             "metal"
+$Life:                 450
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.5
+$RFE Level1:           "Machinery"
+
+$Class Name:           "Pump02_corpse"
+$V3D Filename:         "Pump02_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "LavaTester01"
+$V3D Filename:         "LavaTester01.v3d"
+$Corpse Class Name:    "LavaTester01_corpse"
+$Material:             "metal"
+$Life:                 600
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Glare:					  "RedMini01_NoVolume"
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+$Class Name:           "LavaTester01_corpse"
+$V3D Filename:         "LavaTester01_dbris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Machinery"
+
+
+// ------------------------------------------------
+// Misc
+// ------------------------------------------------
+
+$Class Name:           "cablesdang1"
+$V3D Filename:         "cables_dangling01.V3D"
+$Material:             "solid"
+$Life:                 19
+$Flags:                ()
+$RFE Level1:	       "misc"
+
+$Class Name:           "Shuttle Seat"
+$V3D Filename:         "shuttleseat1.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	       "misc"
+
+$Class Name:           "cablesdang2"
+$V3D Filename:         "cables_dangling02.V3D"
+$Material:             "solid"
+$Life:                 19
+$Flags:                ()
+$RFE Level1:	       "misc"
+
+$Class Name:           "cablesdang3"
+$V3D Filename:         "cables_dangling03.V3D"
+$Material:             "solid"
+$Life:                 19
+$Flags:                ()
+$RFE Level1:	       "misc"
+
+$Class Name:           "gas_can"
+$V3D Filename:         "gas_can.V3D"
+$Material:             "metal"
+$Life:                 19
+$Explode Anim:         "oil drum explode"
+$Explode Anim Radius:  3.0
+$Flags:                ("collide_object")
+$RFE Level1:	       "misc"
+
+$Class Name:           "phone"
+$V3D Filename:         "phone.V3D"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Material:             "metal"
+$Life:                 100
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .7
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:           "steelcan"
+$V3D Filename:         "SteelTrashCan.V3D"
+$Debris Filename:      "screen_debris.V3D"
+$Debris Sound Set:     "Tin Hit"
+$Material:             "metal"
+$Life:                 90
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .1
+$Flags:                ("collide_object")
+$Debris Velocity:      1
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "nuke"
+$V3D Filename:         "nuke.V3D"
+$Debris Filename:      ""
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "cart"
+$V3D Filename:         "cart.V3D"
+$Debris Filename:      "screen_debris.V3D"
+$Debris Sound Set:     "Wood Break"
+$Material:             "metal"
+$Life:                 90
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Gun1"
+$V3D Filename:         "gun1.V3D"
+$Debris Filename:      ""
+$Material:             "metal"
+$Life:                 30
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Gun2"
+$V3D Filename:         "gun2.V3D"
+$Debris Filename:      ""
+$Material:             "metal"
+$Life:                 30
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Gun3"
+$V3D Filename:         "gun3.V3D"
+$Debris Filename:      ""
+$Material:             "metal"
+$Life:                 30
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "pot1"
+$V3D Filename:         "pot1.V3D"
+$Debris Filename:      ""
+$Material:             "metal"
+$Life:                 30
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "pingpong"
+$V3D Filename:         "pingpongtbl.V3D"
+$Corpse Class Name:    "pingpongcorpse"
+$Material:             "wood"
+$Life:                  300
+$Damage Type Factor:   "bash"                      0.0
+$Damage Type Factor:   "bullet"					   0.0	
+$Damage Type Factor:   "fire"                      0.0
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "pingpongcorpse"
+$V3D Filename:         "pingpongtbl_corpse.V3D"
+$Material:             "wood"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "pooltable"
+$V3D Filename:         "pooltable.V3D"
+$Corpse Class Name:    "pooltblcorpse"
+$Material:             "metal"
+$Life:                  -1
+$Damage Type Factor:   "bash"                      0.0
+$Damage Type Factor:   "bullet"					   0.0	
+$Damage Type Factor:   "fire"                      0.0
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "pooltblcorpse"
+$V3D Filename:         "pooltable_corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "coffeemaker"
+$V3D Filename:         "coffeemaker.V3D"
+$Debris Filename:      "coffeemaker_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Use Sound:            "Use Coffee Maker"
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Use:                  "play_sound"
+	+radius:            2.0
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:      "Mars"
+$V3D Filename:    "mars.vfx"
+$Material:        ""
+$Life:            -1
+$Flags:           ()
+$RFE Level1:      "Misc"
+
+$Class Name:      "Mars2"
+$V3D Filename:    "mars02.v3d"
+$Material:        ""
+$Life:            -1
+$Flags:           ()
+$RFE Level1:      "Misc"
+
+$Class Name:           "beerbottle01"
+$V3D Filename:         "beerbottle01.V3D"
+$Debris Filename:      "beerbottle01_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 10
+$Explode Anim:         "beerbottleboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Soda Can1"
+$V3D Filename:         "sodacan1.V3D"
+$Debris Filename:      "beerbottle01_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "metal"
+$Life:                 10
+$Explode Anim:         "beerbottleboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Soda Can2"
+$V3D Filename:         "sodacan2.V3D"
+$Debris Filename:      "beerbottle01_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 10
+$Explode Anim:         "beerbottleboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "bottle1"
+$V3D Filename:         "bottle1.V3D"
+$Debris Filename:      "beerbottle01_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 10
+$Explode Anim:         "beerbottleboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "coffee mug01"
+$V3D Filename:         "mug1.V3D"
+$Debris Filename:      "mug_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 1
+$Explode Anim:         "genericsmallboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "coffee mug02"
+$V3D Filename:         "mug2.V3D"
+$Debris Filename:      "mug_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 1
+$Explode Anim:         "genericsmallboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Pillow1"
+$V3D Filename:         "pillow1.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Books1"
+$V3D Filename:         "books1.V3D"
+$Material:             "solid"
+$Life:                 1
+$Use Sound:            "Use Book"
+$Flags:                ("collide_object")
+$Use:                  "play_sound"
+	+radius:            2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Books2"
+$V3D Filename:         "books2.V3D"
+$Material:             "solid"
+$Life:                 1
+$Use Sound:            "Use Book"
+$Flags:                ("collide_object")
+$Use:                  "play_sound"
+	+radius:            2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Bones"
+$V3D Filename:         "bones1.V3D"
+$Material:             "rock"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Cafeteria Tray"
+$V3D Filename:         "cafetray1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Clipboard"
+$V3D Filename:         "clipboard1.V3D"
+$Debris Filename:      "clipboard_debris.v3d"
+$Material:             "wood"
+$Life:                 1
+$Flags:                ("collide_object" "can_carry")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Robot Part1"
+$V3D Filename:         "robotpart1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Robot Part2"
+$V3D Filename:         "robotpart2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Robot Part3"
+$V3D Filename:         "robotpart3.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Robot Part4"
+$V3D Filename:         "robotpart4.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Dice"
+$V3D Filename:         "dice1.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Shower Head"
+$V3D Filename:         "showerhead1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Luggage1"
+$V3D Filename:         "luggage1.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 400
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:           "Luggage2"
+$V3D Filename:         "luggage2.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 400
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:           "Luggage3"
+$V3D Filename:         "luggage3.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 400
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:           "Trash Can1"
+$V3D Filename:         "trashcan1.V3D"
+$Debris Filename:      "trash_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Material:             "metal"
+$Life:                 300
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  2
+$RFE Level1:           "Misc"
+
+$Class Name:           "Trash Can2"
+$V3D Filename:         "trashcan2.V3D"
+$Debris Filename:      "trash_debris.v3d"
+$Debris Sound Set:	  "large debris bounce"
+$Material:             "metal"
+$Life:                 300
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  2
+$RFE Level1:           "Misc"
+
+$Class Name:           "pencil"
+$V3D Filename:         "pencil1.V3D"
+$Material:             "solid"
+$Life:                 10
+$Explode Anim:         "beerbottleboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Space Phone"
+$V3D Filename:         "spacephone1.V3D"
+$Material:             "metal"
+$Life:                 40
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+// $Skin:                 "Broken2"         ("spacephone2.tga")
+// $Skin:                 "Broken3"          ("spacephone3.tga")
+
+$Class Name:           "Firehose"
+$V3D Filename:         "Firehose.V3D"
+$Debris Filename:		  "genericlight01_debris.V3D"
+$Debris Sound Set:	  "large debris bounce"
+$Material:             "metal"
+$Life:                 700
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      3
+$RFE Level1:           "Misc"
+
+$Class Name:           "Missile Console Glass"
+$V3D Filename:         "missileglass1.V3D"
+$Material:             "glass"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Missile Console Button"
+$V3D Filename:         "missilebutton1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:            "Mop"
+$V3D Filename:         "mop1.V3D"
+$Debris Filename:      "mop_debris.v3d"
+$Material:             "solid"
+$Life:                 10
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Bucket"
+$V3D Filename:         "bucket1.V3D"
+$Debris Filename:      "bucket_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "metal"
+$Life:                 40
+$Flags:                ("collide_object")
+$Debris Velocity:	     5
+$RFE Level1:           "Misc"
+
+$Class Name:           "Cardboard Box"
+$V3D Filename:         "cardboardbox1.V3D"
+$Debris Filename:      "cardboard_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 80
+$Explode Anim:         "crateboom"
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Misc"
+
+$Class Name:           "Wall_Calendar1"
+$V3D Filename:         "wallcal1.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Paper1"
+$V3D Filename:         "paper1.V3D"
+$Material:             "solid"
+$Life:                 1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Paper2"
+$V3D Filename:         "paper2.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Paper3"
+$V3D Filename:         "paper3.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "DrillBit"
+$V3D Filename:         "drillbit1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Watercooler"
+$V3D Filename:         "watercooler1.V3D"
+$Debris Filename:      "watercooler_debris.v3d"
+$Material:             "glass"
+$Life:                 210
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$Use Sound:            "Use Water Cooler"
+$Use:                  "play_sound"
+	+radius:            2.0
+$RFE Level1:           "Misc"
+
+$Class Name:           "Cooking Pan"
+$V3D Filename:         "pan1.V3D"
+$Debris Filename:      "pan_debris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Cart"
+$V3D Filename:         "cart1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Cooking Pot"
+$V3D Filename:         "pot1.V3D"
+$Debris Filename:      "pot_debris.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Drone Robot Dead"
+$V3D Filename:         "drone1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Vehicle Part 1"
+$V3D Filename:         "vehiclepart1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Vehicle Part 2"
+$V3D Filename:         "vehiclepart2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Admin Robot Dead"
+$V3D Filename:         "adminbot1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Wall_Calendar2"
+$V3D Filename:         "wallcal2.V3D"
+$Material:             "solid"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Elevator Button"
+$V3D Filename:         "elevatorbutton1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Elevator Button2"
+$V3D Filename:         "elevatorbutton3.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Elevator Indicator"
+$V3D Filename:         "elevatorbutton2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Tool1"
+$V3D Filename:         "tools1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Tool2"
+$V3D Filename:         "tools2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Tool3"
+$V3D Filename:         "tools3.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Body Bag"
+$V3D Filename:         "bodybag1.V3D"
+$Material:             "flesh"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Bag of Chow"
+$V3D Filename:         "bagofchow1.V3D"
+$Material:             "flesh"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Escape Pod"
+$V3D Filename:         "escapepod.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "BustedEscapePod"
+$V3D Filename:         "BustedEscapePod.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Reeper Skeleton"
+$V3D Filename:         "reeperskel1.V3D"
+$Material:             "rock"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "Clock"
+$V3D Filename:         "clock01.V3D"
+$Debris Filename:      "clock01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "glass"
+$Life:                 10
+//$Sound:                "Tick"
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .1
+$Flags:                ("collide_object" "is_clock")
+$Debris Velocity:	  	  .5
+$RFE Level1:           "Misc"
+
+$Class Name:           "camerabase"
+$V3D Filename:         "camerabase1.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "driller_cam"
+$V3D Filename:         "drillcam1.v3d"
+$Material:             "metal"
+$Life:                 40
+$Damage Type Factor:   "explosive" 0.0
+$Explode Anim:         "explosion 1"
+$Explode Anim Radius:  0.2
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Transport01_Tmp"
+$V3D Filename:         "Torpedo01.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Misc"
+
+$Class Name:           "riot_shield"
+$V3D Filename:         "Weapon_RiotShield.v3d"
+$Material:             "solid"
+$Life:                 1250
+$Flags:                ("collide_object" "collide_weapon")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Syringe"
+$V3D Filename:         "syringe1.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ("can_carry")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Welding Torch"
+$V3D Filename:         "welder1.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ("can_carry")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Syringe 2"
+$V3D Filename:         "syringe2.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "Scissors"
+$V3D Filename:         "scissors1.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ("collide_object")
+$RFE Level1:           "Misc"
+
+$Class Name:           "firehose"
+$V3D Filename:         "firehose.V3D"
+$Material:             "solid"
+$Life:                 60
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "misc"
+
+$Class Name:           "fake sub"
+$V3D Filename:         "fake_sub01.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "misc"
+
+// ------------------------------------------------
+// Office Stuff
+// ------------------------------------------------
+
+$Class Name:           "inout_box"
+$V3D Filename:         "inout_box.V3D"
+$Debris Filename:      "screen_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 80
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "officelamp"
+$V3D Filename:         "officelamp.V3D"
+$Debris Filename:      "screen_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 20
+$Glare:					"officelampglare"
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Waste Basket"
+$V3D Filename:         "wastebasket1.V3D"
+$Debris Filename:      "wastebasket1.V3D"
+$Debris Sound Set:     "Tin Hit"
+$Material:             "metal"
+$Life:                 10
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      6
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Office Picture1"
+$V3D Filename:         "portrait1.V3D"
+$Debris Filename:      "portrait_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "rock"
+$Life:                 10
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Office Picture2"
+$V3D Filename:         "portrait2.V3D"
+$Debris Filename:      "portrait_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "rock"
+$Life:                 10
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Ashtray1"
+$V3D Filename:         "ashtray1.V3D"
+$Debris Filename:	     "ashtray_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 10
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Mini Fridge"
+$V3D Filename:         "minifridge1.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Corpse Class Name:    "minifridge_corpse"
+$Material:             "metal"
+$Life:                 200
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .3
+$Flags:                ("collide_object")
+$Debris Velocity:      2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "minifridge_corpse"
+$V3D Filename:         "minifridge_corpse.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Microwave"
+$V3D Filename:         "microwave1.V3D"
+$Debris Filename:      "microwave_debris.V3D"
+$Material:             "metal"
+$Life:                 145
+$Use Sound:            "Use Microwave"
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .5
+$Flags:                ("collide_object")
+$Use:                  "play_sound"
+	+radius:            2.0
+$Debris Velocity:      2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Plate1"
+$V3D Filename:         "plate1.V3D"
+$Material:             "solid"
+$Life:                 10
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Coffee Machine"
+$V3D Filename:         "coffeemachine1.V3D"
+$Material:             "metal"
+$Life:                 25
+$Use Sound:            "Use Coffee Maker"
+$Flags:                ("collide_object")
+$Use:                  "play_sound"
+	+radius:            2.0
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Name Plate1"
+$V3D Filename:         "nameplate1.V3D"
+$Debris Filename:      "mug_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 10
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Name Plate2"
+$V3D Filename:         "nameplate2.V3D"
+$Debris Filename:      "mug_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 10
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Name Plate3"
+$V3D Filename:         "nameplate3.V3D"
+$Debris Filename:      "mug_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 10
+$Flags:                ("collide_object")
+$Debris Velocity:	  	  2
+$RFE Level1:           "Office Stuff"
+
+$Class Name:           "Water Fountain"
+$V3D Filename:         "waterfountain1.V3D"
+$Debris Filename:	     "waterfount_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "rock"
+$Life:                 190
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .6
+$Flags:                ("collide_object")
+$RFE Level1:           "Office Stuff"
+
+
+// ------------------------------------------------
+// Screens
+// ------------------------------------------------
+
+$Class Name:           "screenhen7"
+$V3D Filename:         "screenhenbig3.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen6"
+$V3D Filename:         "screenhenbig2.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen5"
+$V3D Filename:         "screenhenbig1.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen4"
+$V3D Filename:         "screen_hensmall4.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen3"
+$V3D Filename:         "screen_hensmall3.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen2"
+$V3D Filename:         "screen_hen2.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "screenhen1"
+$V3D Filename:         "screen_hen1.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "medscreen01"
+$V3D Filename:         "medtv01.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:      1.5
+$RFE Level1:           "Screens"
+
+$Class Name:           "Mirror01"
+$V3D Filename:         "mirror01.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Screen Width:         128
+$Screen Height:        128
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "screen1"
+$V3D Filename:         "screen1.v3d"
+$Material:             "metal"
+$Life:                 50
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$RFE Level1:           "Misc"
+
+$Class Name:           "smallscreen"
+$V3D Filename:         "smallscreen01.V3D"
+$Debris Filename:      "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "medscreen02"
+$V3D Filename:         "medtv02.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "Screen01"
+$V3D Filename:         "redglobescreen.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "Screen02"
+$V3D Filename:         "blugridscreen01.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "Screen03"
+$V3D Filename:         "monitor01.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Screen Width:         128
+$Screen Height:        128
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "Screen04"
+$V3D Filename:         "monitor02.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "Screen05"
+$V3D Filename:         "monitor03.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Debris Sound Set:     "glass break"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "screenboom"
+$Explode Anim Radius:  0.5
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+
+$Class Name:           "CommScreen"
+$V3D Filename:         "CommScreen.V3D"
+$Debris Filename:		  "screen_debris.v3d"
+$Material:             "glass"
+$Life:                 30
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  1
+$Flags:                ("is_screen" "collide_object")
+$Use:                   "monitor"
+	+radius:             2.5
+$Debris Velocity:      1
+$RFE Level1:           "Screens"
+$Skin: 		       "Static01" ("ComScreen01.tga")
+$Skin: 		       "Static02" ("ComScreen02.tga")
+$Skin: 		       "Animated01" ("ComAnim01.vbm")
+$Skin: 		       "Animated01" ("ComAnim02.vbm")
+
+
+// ------------------------------------------------
+// Structural
+// ------------------------------------------------
+
+$Class Name:           "lightsupport"
+$V3D Filename:         "hanginglitesupport.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "gatsmoke"
+$Flags:                ("has_alpha" "collide_object")
+$Debris Velocity:      1
+$RFE Level1:           "Structural"
+
+$Class Name:           "grate"
+$V3D Filename:         "grate.V3D"
+$Debris Filename:      "grate_debris.v3d"
+$Material:             "metal"
+$Life:                 30
+$Explode Anim:         "grate break"
+$Flags:                ("collide_object")
+$Debris Velocity:      1
+$RFE Level1:           "Structural"
+
+$Class Name:           "Duct Grate Cover"
+$V3D Filename:         "grateduct1.V3D"
+$Material:             "metal"
+$Life:                 30
+$Explode Anim:         "grate break"
+$Flags:                ("collide_object")
+$Debris Velocity:      1
+$RFE Level1:           "Structural"
+
+$Class Name:           "stationglass"
+$V3D Filename:         "sstat_glass.v3d"
+$Debris Filename:      "sstat_glass_debris.v3d"
+$Material:             "glass"
+$Life:                 10
+$Explode Anim:			  "Glassboom"
+$Flags:                ("collide_object")
+$RFE Level1:           "Structural"
+
+$Class Name:           "I-Beam"
+$V3D Filename:         "I-Beam01.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Structural"
+
+$Class Name:           "girder_01"
+$V3D Filename:         "girder_01.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Structural"
+
+$Class Name:           "fence"
+$V3D Filename:         "fence.V3D"
+$Material:             "metal"
+$Life:                 40
+$Flags:                ()
+$RFE Level1:           "Structural"
+
+$Class Name:           "pylon01"
+$V3D Filename:         "pylon01.v3d"
+$Corpse Class Name:    "pylon01 corpse"
+$Material:             "rock"
+$Life:                 100
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:                ("collide_object")
+$RFE Level1:           "Structural"
+
+$Class Name:           "pylon01 corpse"
+$V3D Filename:         "pylon01_corpse.v3d"
+$Emitter:              "pylon smoke"
+$Emitter Life:         10.0
+$Material:             "rock"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Structural"
+
+// ------------------------------------------------
+// Tools
+// ------------------------------------------------
+
+$Class Name:           "weldingequip"
+$V3D Filename:         "weldingequip1.V3D"
+$Material:             "metal"
+$Life:                 100
+$Damage Type Factor:   "bash"                      0.0
+$Explode Anim:         "objectboom3"
+$Explode Anim Radius:  3
+$Flags:                ("collide_object")
+$RFE Level1:           "Tools"
+
+
+$Class Name:           "bigtoolbox"
+$V3D Filename:         "bigtoolbox.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Corpse Class Name:    "bigtoolcorpse"
+$Material:             "metal"
+$Life:                 180
+$Damage Type Factor:   "bash"                      0.0
+$Damage Type Factor:   "bullet"					   0.0	
+$Damage Type Factor:   "fire"                      0.0
+$Explode Anim:         "Grate Break"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      2.3
+$RFE Level1:           "Tools"
+
+$Class Name:           "bigtoolcorpse"
+$V3D Filename:         "bigtoolbox_corpse.V3D"
+$Emitter:              "bigtoolbox"
+$Emitter Life:         10.0
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 1"
+$V3D Filename:    "minertool1.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object" "can_carry")
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 1 Destroy"
+$V3D Filename:    "minertool1destroy.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object")
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 2"
+$V3D Filename:    "minertool2.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object" "can_carry")
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 2 Destroy"
+$V3D Filename:    "minertool2destroy.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object")
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 3"
+$V3D Filename:    "minertool3.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object" "can_carry")
+$RFE Level1:           "Tools"
+
+$Class Name:      "Miner Tool 3 Destroy"
+$V3D Filename:    "minertool3destroy.V3D"
+$Material:        "metal"
+$Life:            40
+$Flags:           ("collide_object")
+$RFE Level1:           "Tools"
+
+$Class Name:			  "Fire Extinguisher"
+$V3D Filename:			  "firextinguisher1.V3D"
+$Debris Filename:	     "firext_debris.v3d"
+$Debris Sound Set:     "small debris bounce"
+$Material:				  "metal"
+$Life:					  80
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object" "can_carry")
+$RFE Level1:           "Tools"
+
+// ------------------------------------------------
+// Natural
+// ------------------------------------------------
+
+	// ------------------------------------------------
+	// Natural -> Plants
+	// ------------------------------------------------
+	
+	$Class Name:           "largevine02"
+	$V3D Filename:         "largevine02.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "largevines"
+	$V3D Filename:         "largevines.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "danglingplant1"
+	$V3D Filename:         "veg_dangling1.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "danglingplant2"
+	$V3D Filename:         "veg_dangling2.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "danglingplant3"
+	$V3D Filename:         "veg_dangling3.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "danglingplant4"
+	$V3D Filename:         "veg_dangling4.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "danglingplant5"
+	$V3D Filename:         "veg_dangling5.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "marsblob"
+	$V3D Filename:         "veg_marsblob.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+	$Explode Anim:         "marsblobdeath"
+	$Explode Anim Radius:  1
+	$Flags:                ("has_alpha" "collide_object")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "waterplant01"
+	$V3D Filename:         "waterplants01.VFX"
+	$Material:             "flesh"
+	$Life:                 20
+    $Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "Grass 1"
+	$V3D Filename:         "grass_v02.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "Veg_FernLeaf01"
+	$V3D Filename:         "Veg_FernLeaf01.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+	$RFE Level1:           "Natural"
+	$RFE Level2:           "Plants"
+
+	$Class Name:           "Veg_Plant01"
+	$V3D Filename:         "Veg_Plant01.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Veg_Plant02"
+	$V3D Filename:         "Veg_Plant02.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Potted Plant01"
+	$V3D Filename:         "pottedplant01.v3d"
+	$Debris Filename:	     "genericlight01_debris.V3D"
+	$Debris Sound Set:     "small debris bounce"
+	$Material:             "rock"
+	$Life:                 80
+	$Explode Anim:         "Glass Explode_B"
+	$Explode Anim Radius:  1
+	$Flags:                ("has_alpha" "collide_object")
+	$Debris Velocity:      3.6
+   $RFE Level1:          "Natural"
+   $RFE Level2:          "Plants"
+
+	$Class Name:           "Potted Plant02"
+	$V3D Filename:         "pottedplant02.v3d"
+	$Debris Filename:	     "pottedplant02_debris.v3d"
+	$Debris Sound Set:     "small debris bounce"
+	$Material:             "rock"
+	$Life:                 80
+	$Explode Anim:         "Glass Explode_B"
+	$Explode Anim Radius:  1
+	$Flags:					  ("collide_object")
+	$Debris Velocity:      3.6
+	$RFE Level1:           "Natural"
+   $RFE Level2:           "Plants"
+
+	$Class Name:           "Potted Plant03"
+	$V3D Filename:         "pottedplant03.v3d"
+	$Debris Filename:	     "genericlight01_debris.V3D"
+	$Debris Sound Set:     "small debris bounce"
+	$Material:             "rock"
+	$Life:                 80
+	$Explode Anim:         "Glass Explode_B"
+	$Explode Anim Radius:  1
+	$Flags:                ("collide_object")
+	$Debris Velocity:      1.6
+   $RFE Level1:           "Natural"
+   $RFE Level2:           "Plants"
+
+	$Class Name:           "Potted Plant04"
+	$V3D Filename:         "pottedplant04.v3d"
+	$Debris Filename:	   "pottedplant04_debris.v3d"
+	$Debris Sound Set:     "small debris bounce"
+	$Material:             "rock"
+	$Life:                 80
+	$Explode Anim:         "Glass Explode_B"
+	$Explode Anim Radius:  1
+	$Flags:                ("collide_object")
+	$Debris Velocity:      1.6
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+
+	$Class Name:           "Veg_Bush01"
+	$V3D Filename:         "Veg_Bush01.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Veg_Bush02"
+	$V3D Filename:         "Veg_Bush02.V3D"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Veg_Tree01"
+	$V3D Filename:         "Veg_Tree01.V3D"
+	$Material:             "flesh"
+	$Life:                 100
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Tall Tree"
+	$V3D Filename:         "talltree1.V3D"
+	$Material:             "flesh"
+	$Life:                 100
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines"
+	$V3D Filename:         "vines01.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines Brown"
+	$V3D Filename:         "vines01_v1.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines Blue"
+	$V3D Filename:         "vines01_v2.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines02"
+	$V3D Filename:         "vines02.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines02 Brown"
+	$V3D Filename:         "vines02_v1.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	$Class Name:           "Vines02 Blue"
+	$V3D Filename:         "vines02_v2.v3d"
+	$Material:             "flesh"
+	$Life:                 20
+	$Flags:                ("has_alpha")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Plants"
+
+	// ------------------------------------------------
+	// Natural - Rocks
+	// ------------------------------------------------
+
+	$Class Name:           "Shard 1"
+	$V3D Filename:         "shard00.v3d"
+	$Material:             "rock"
+	$Life:                 4
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  0.5
+	$Flags:                ()
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Shard 2"
+	$V3D Filename:         "shard01.v3d"
+	$Material:             "rock"
+	$Life:                 4
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  1
+	$Flags:                ("collectable")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Shard 3"
+	$V3D Filename:         "shard02.v3d"
+	$Material:             "rock"
+	$Life:                 4
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  1.5
+	$Flags:                ("collectable")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Shard 4"
+	$V3D Filename:         "shard03.v3d"
+	$Material:             "rock"
+	$Life:                 4
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  2
+	$Flags:                ()
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Shard 5"
+	$V3D Filename:         "shard04.v3d"
+	$Material:             "rock"
+	$Life:                 4
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  2.5
+	$Flags:                ()
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Shard 6"
+	$V3D Filename:         "shard05.v3d"
+	$Material:             "rock"
+	$Life:                 40
+	$Explode Anim:         "rock crumble"
+	$Explode Anim Radius:  3
+	$Flags:                ()
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Cement Chunk Burnt"
+	$V3D Filename:         "cemshardburnt.v3d"
+	$Material:             "rock"
+	$Life:                 -1
+	$Flags:                ("collide_object")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Small Cement Chunk"
+	$V3D Filename:         "cemshardsml.v3d"
+	$Material:             "rock"
+	$Life:                 -1
+	$Flags:                ("collide_object")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	$Class Name:           "Hard Cement Chunk"
+	$V3D Filename:         "cemshardrok.v3d"
+	$Material:             "rock"
+	$Life:                 -1
+	$Flags:                ("collide_object")
+    $RFE Level1:           "Natural"
+    $RFE Level2:           "Rocks"
+
+	// ------------------------------------------------
+	// Natural -> Water
+	// ------------------------------------------------
+
+	$Class Name:      "fountain"
+	$V3D Filename:    "Ultor_fountain.VFX"
+	$Material:        "water"
+	$Life:            -1
+	$Explode Anim:    "icicleboom"
+	$Flags:           ("has_alpha")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+
+	$Class Name:      "icicle1"
+	$V3D Filename:    "icicle01.V3D"
+	$Material:        "glass"
+	$Life:            10
+	$Explode Anim:    "icicleboom"
+	$Explode Anim Radius: 1.0
+	$Flags:           ("collide_object")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+
+	$Class Name:      "icicle2"
+	$V3D Filename:    "icicle02.V3D"
+	$Material:        "glass"
+	$Life:            10
+	$Explode Anim:    "icicleboom"
+	$Explode Anim Radius: 1.0
+	$Flags:           ("collide_object")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+    
+	$Class Name:      "icicle3"
+	$V3D Filename:    "icicle03.V3D"
+	$Material:        "glass"
+	$Life:            10
+	$Explode Anim:    "icicleboom"
+	$Explode Anim Radius: 1.0
+	$Flags:           ("collide_object")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+
+	$Class Name:      "icicle4"
+	$V3D Filename:    "icicle04.V3D"
+	$Material:        "glass"
+	$Life:            10
+	$Explode Anim:    "icicleboom"
+	$Explode Anim Radius: 1.0
+	$Flags:           ("collide_object")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+
+	$Class Name:      "icicle5"
+	$V3D Filename:    "icicle05.V3D"
+	$Material:        "glass"
+	$Life:            10
+	$Explode Anim:    "icicleboom"
+	$Explode Anim Radius: 1.0
+	$Flags:           ("collide_object")
+   $RFE Level1:      "Natural"
+   $RFE Level2:      "Water"
+
+// ------------------------------------------------
+// Storage
+// ------------------------------------------------
+
+$Class Name:           "nano_canister"
+$V3D Filename:         "nanotech.v3d"
+$Debris Filename:      "plastic_crate01_debris.v3d"
+$Material:             "solid"
+$Life:                 180
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  .7
+$Flags:                ("collide_object" "is_switch")
+$Debris Velocity:	     2
+$RFE Level1:	       "Storage"
+
+
+$Class Name:           "Square Plastic Crate"
+$V3D Filename:         "plastic_crate01.V3D"
+$Debris Filename:      "plastic_crate01_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 150
+$Explode Anim:         "crateboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:	     2
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Long Plastic Crate"
+$V3D Filename:         "plastic_crate02.V3D"
+$Debris Filename:      "plastic_crate01_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 150
+$Explode Anim:         "crateboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:	     1.6
+$RFE Level1:	        "Storage"
+
+$Class Name:           "Ultor Crate Small"
+$V3D Filename:         "crate.v3d"
+$Debris Filename:      "crate_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 190
+$Explode Anim:         "crateboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:	     1
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Ultor Crate Yellow"
+$V3D Filename:         "crate.v3d"
+$Debris Filename:      "crate_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 150
+$Explode Anim:         "crateboom"
+$Explode Anim Radius:  1
+$Flags:                ("collide_object")
+$Debris Velocity:	     1
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Ultor Barrel Yellow"
+$V3D Filename:         "barrel.v3d"
+$Debris Filename:      "barrel_debris.v3d"
+$Debris Sound Set:     "large debris bounce"
+$Material:             "solid"
+$Life:                 200
+$Explode Anim:         "crateboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      1.9
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Oil Drum"
+$V3D Filename:         "OilDrum01.v3d"
+$Debris Filename:      "oildrum01_debris.v3d"
+$Material:             "metal"
+$Life:                 19
+$Explode Anim:         "oil drum explode"
+$Explode Anim Radius:  3.0
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Oil Drum Fire"
+$V3D Filename:         "oildrumflamer.v3d"
+$Emitter:              "barrelfire"
+$Emitter:              "barrelfire"
+$Emitter:              "barrelfire"
+$Emitter:              "barrelfire"
+$Emitter:              "barrelsmoke"
+$Material:             "metal"
+$Life:                 19
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Sound:                "Burning"
+$Explode Anim:         "oil drum explode"
+$Explode Anim Radius:  3.0
+$Flags:                ("collide_object")
+$RFE Level1:	        "Storage"
+
+$Class Name:           "Icy OilDrum"
+$V3D Filename:         "icyoildrum.V3D"
+$Material:             "metal"
+$Life:                 19
+$Explode Anim:         "oil drum explode"
+$Explode Anim Radius:  3.0
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Pallet"
+$V3D Filename:         "Pallet.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Cable Spool"
+$V3D Filename:         "CableSpool.v3d"
+$Debris Filename:      "spool_debris.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Damage Type Factor:		"bash"		0.0
+$Damage Type Factor:		"bullet"	0.0
+$Explode Anim:         "objectboom"
+$Explode Anim Radius:  2.0
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Fuel Tank"
+$V3D Filename:         "FuelTank.v3d"
+$Debris Filename:      "genericbigdebris.V3D"
+$Corpse Class Name:    "Fuel Tank Corpse"
+$Material:             "metal"
+$Life:                 125
+$Damage Type Factor:		"bash"		0.0
+$Damage Type Factor:		"bullet"	0.0
+$Damage Type Factor:		"fire"		0.0
+$Damage Type Factor:		"energy"	0.0
+$Explode Anim:         "objectboom2"
+$Explode Anim Radius:  6
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Fuel Tank Corpse"
+$V3D Filename:         "FuelTank_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Lockers"
+$V3D Filename:         "Lockers.v3d"
+$Corpse Class Name:    "Lockers Corpse"
+$Material:             "metal"
+$Life:                 125
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Lockers Corpse"
+$V3D Filename:         "locker_corpse.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Turret Barricade"
+$V3D Filename:         "turret_barracade.v3d"
+$Material:             "rock"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Metal Debris 1"
+$V3D Filename:         "flatmtl02.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+$Class Name:           "Metal Debris 2"
+$V3D Filename:         "flatmtlshrapnel02.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:	       "Storage"
+
+
+// ------------------------------------------------
+// Medical Equipment
+// ------------------------------------------------
+
+$Class Name:				"cryotube"
+$V3D Filename:				"cryotube.V3D"
+$Debris Filename:			"genericlight01_debris.V3D"
+$Debris Sound Set:		"large debris bounce"
+$Corpse Class Name:		"cryotube_corpse"
+$Material:					"metal"
+$Life:						160
+$Explode Anim:				"yellboom_metal"
+$Explode Anim Radius:  .9
+$Flags:						("collide_object")
+$Debris Velocity:	  	   6
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$RFE Level1:			   "Medical Equipment"
+
+$Class Name:      "cryotube_corpse"
+$V3D Filename:    "cryotube_corpse.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Medical Equipment"
+
+$Class Name:      "mutant_patient"
+$V3D Filename:    "mutant_patient.V3D"
+$Debris Filename: ""
+$Material:        "flesh"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Medical Equipment"
+
+$Class Name:				"IV"
+$V3D Filename:				"IV.V3D"
+$Debris Filename:			"iv_debris.v3d"
+$Material:					"metal"
+$Life:						120
+$Explode Anim:				"Glass Explode_B"
+$Explode Anim Radius:	.4
+$Flags:						("collide_object")
+$Debris Velocity:			1
+$RFE Level1:				"Medical Equipment"
+
+
+$Class Name:      "Vat1"
+$V3D Filename:    "Vat1.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Material:        "metal"
+$Life:            10
+$Flags:           ("collide_object" "is_switch")
+$RFE Level1:	  "Medical Equipment"
+
+$Class Name:           "surgical_light"
+$V3D Filename:         "surgical_light.v3d"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 160
+$Explode Anim:         "yellboom_metal"
+$Explode Anim Radius:  0.8
+$Glare:					  "surgical_light"
+$Flags:                ("collide_object")
+$Debris Velocity:		  2
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:      "surgical_corpse"
+$V3D Filename:    "surgical_corpse.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Medical Equipment"
+
+$Class Name:      "Med Desk"
+$V3D Filename:    "meddesk1.V3D"
+$Material:        "metal"
+$Life:            -1
+$Flags:           ("collide_object")
+$RFE Level1:	  "Medical Equipment"
+
+$Class Name:           "Doctor Tool1"
+$V3D Filename:         "doctools1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Doctor Tool2"
+$V3D Filename:         "doctools2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "medical_cabinet"
+$V3D Filename:         "medical_cabinet.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "work_table"
+$V3D Filename:         "work_table.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Doctor Tool3"
+$V3D Filename:         "doctools3.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Doctor Tray"
+$V3D Filename:         "doctray1.V3D"
+$Debris Filename:      "doctray1.V3D"
+$Debris Sound Set:     "Tin Hit"
+$Material:             "metal"
+$Life:                 -1
+$Explode Anim:         "Tin Hit Sound"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$Debris Velocity:      3.7
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Operating Table"
+$V3D Filename:         "opertable1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Operating Table2"
+$V3D Filename:         "opertable2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Operating patient2"
+$V3D Filename:         "optable2_patient.V3D"
+$Material:             "flesh"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Operation Patient"
+$V3D Filename:         "op_patient.V3D"
+$Material:             "flesh"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Medical Cabinet1"
+$V3D Filename:         "medcase1.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:		"medcase1_corpse"
+$Material:             "metal"
+$Life:                 150
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:                ("collide_object")
+$Debris Velocity:      6
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Medical Cabinet2"
+$V3D Filename:         "medcase2.V3D"
+$Debris Filename:      "genericlight01_debris.V3D"
+$Debris Sound Set:     "large debris bounce"
+$Corpse Class Name:	   "medcase2_corpse"
+$Material:             "metal"
+$Life:                 150
+$Damage Type Factor:		"bash"							0.0
+$Damage Type Factor:		"bullet"							0.0
+$Damage Type Factor:		"armor piercing bullet"		0.0
+$Damage Type Factor:		"fire"							0.0
+$Damage Type Factor:		"energy"							0.0
+$Flags:                ("collide_object")
+$Debris Velocity:      6
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "medcase1_corpse"
+$V3D Filename:         "medcase1_corp.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "medcase2_corpse"
+$V3D Filename:         "medcase2_corp.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Medical Monitor"
+$V3D Filename:         "medmonitor1.V3D"
+$Debris Filename:      "screen_debris.V3D"
+$Debris Sound Set:     "small debris bounce"
+$Material:             "metal"
+$Life:                 120
+$Explode Anim:         "yellboom"
+$Explode Anim Radius:  .4
+$Flags:                ("collide_object")
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Medical Hologram1"
+$V3D Filename:         "hologram1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Medical Equipment"
+
+$Class Name:           "Medical Hologram2"
+$V3D Filename:         "hologram2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Medical Equipment"
+
+// ------------------------------------------------
+// Switches
+// ------------------------------------------------
+
+$Class Name:           "hitechswitch2"
+$V3D Filename:         "hitechswitch2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"  	     ("elevatorbutton1.tga")
+$Skin:                 "On"   	     ("elevatorbutton2.tga")
+
+
+$Class Name:           "hitechswitch1"
+$V3D Filename:         "hitechswitch1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"  	     ("hitech2prtswitch_off.tga")
+$Skin:                 "On"   	     ("hitech2prtswitch_on.tga")
+
+$Class Name:           "Console Button01"
+$V3D Filename:         "consolebutton1.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"  	     ("consolebutton1.tga")
+$Skin:                 "On"   	     ("consolebutton1A.tga")
+
+$Class Name:           "Console Button02"
+$V3D Filename:         "consolebutton2.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"  	     ("consolebutton2.tga")
+$Skin:                 "On"   	     ("consolebutton2A.tga")
+
+$Class Name:           "switchyellow1"
+$V3D Filename:         "switchyellow1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("switchyellow1_off.tga")
+$Skin:                 "On"          ("switchyellow1_on.tga")
+
+$Class Name:           "switchblu2"
+$V3D Filename:         "switchblu2.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("switchblu2_off.tga")
+$Skin:                 "On"          ("switchblu2_on.tga")
+
+
+$Class Name:           "switchblu1"
+$V3D Filename:         "switchblu1.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("switchblu1_off.tga")
+$Skin:                 "On"          ("switchblu1_on.tga")
+
+
+$Class Name:           "mushbutton"
+$V3D Filename:         "mushbutton.V3D"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+
+
+$Class Name:           "AirlockSwitch"
+$V3D Filename:         "AirlockSwitch.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("AirSwitch_Front.tga" "AirSwitch_Off.tga")
+$Skin:                 "On"          ("AirSwitch_Front.tga" "AirSwitch_On.tga")
+
+$Class Name:           "2PartSwitch"
+$V3D Filename:         "2PartSwitch.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object" "is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("2partswitch_Back.tga" "2partswitch_Off.tga" "2partswitch_Sides.tga")
+$Skin:                 "On"          ("2partswitch_Back.tga" "2partswitch_On.tga" "2partswitch_Sides.tga")
+
+$Class Name:           "2PartSwitch02"
+$V3D Filename:         "2PartSwitch02.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("collide_object" "is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("2pt_Switch02_Off.tga")
+$Skin:                 "On"          ("2pt_Switch02_On.tga")
+
+$Class Name:           "ElevatorSwitch"
+$V3D Filename:         "Elev_Switch.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"         ("elevbutton_off.tga")
+$Skin:                 "Up"          ("elevbutton_up.tga")
+$Skin:                 "Down"        ("elevbutton_down.tga")
+
+$Class Name:           "ElevatorSwitch2"
+$V3D Filename:         "Elev_Switch.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:           "Switches"
+$Skin:                 "Off"  	     ("elevbutt02_on.tga")
+$Skin:                 "On"   	     ("elevbutt02_off.tga")
+
+
+$Class Name:           "LightSwitch01"
+$V3D Filename:         "LightSwitch01.VFX"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:	       "Switches"
+
+$Class Name:           "LightSwitch_Off"
+$V3D Filename:         "LightSwitch_Standin_Off.VFX"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:	       "Switches"
+
+$Class Name:           "LightSwitch_On"
+$V3D Filename:         "LightSwitch_Standin_on.VFX"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ("is_switch")
+$RFE Level1:	       "Switches"
+
+// ------------------------------------------------
+// Weapons
+// ------------------------------------------------
+
+$Class Name:           "turret_base"
+$V3D Filename:         "sturret_body.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Weapons"
+
+$Class Name:           "turret_base_plain"
+$V3D Filename:         "sturret_body_plain.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Weapons"
+
+$Class Name:           "turret_head_damaged"
+$V3D Filename:         "sentry_turret01_dam.v3d"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Weapons"
+
+// ------------------------------------------------
+// Cutscenes
+// ------------------------------------------------
+
+$Class Name:           "Cutscene06_fx"
+$V3D Filename:         "Cutscene06_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+$Class Name:           "Cutscene07_fx"
+$V3D Filename:         "Cutscene07_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+$Class Name:           "Cutscene07A_fx"
+$V3D Filename:         "Cutscene07A_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+$Class Name:           "Cutscene07B_fx"
+$V3D Filename:         "Cutscene07B_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+$Class Name:           "Cutscene08_fx"
+$V3D Filename:         "Cutscene08_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+$Class Name:           "Cutscene09_fx"
+$V3D Filename:         "Cutscene09_fx.vfx"
+$Material:             "metal"
+$Life:                 -1
+$Flags:                ()
+$RFE Level1:           "Cutscenes"
+
+#End

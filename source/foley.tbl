@@ -1,0 +1,2689 @@
+//
+// foley.tbl
+//
+// file to specify sounds & parameters, or entire sets of sounds/parameters
+//
+//
+// $Name:				name of sound or sound set
+// $Sounds:				(OPTIONAL) number of sounds in this entry: 1 if not specified; must be an even number if specified (for left/right stereo channels)
+// $Material:			(OPTIONAL) which material this sound (or set of sounds) is associated with (if any)
+// $Sound:				<filename> <min_dist> <volume>
+//    .
+//    .
+//    .
+// $Sound:				(add addition $Sound: entries for each sound in the set)
+//
+
+#Entity Sounds
+
+// Character Section
+// -----------------------------------------------------------------------------------------------------------------------
+// Player Foley Sounds
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Default Footstep"
+$Sounds:			4
+$Material:			"default"
+$Sound:				"Walk_Solid_01.wav"		8 0.4
+$Sound:				"Walk_Solid_02.wav"		8 0.4
+$Sound:				"Walk_Solid_03.wav"		8 0.4
+$Sound:				"Walk_Solid_04.wav"		8 0.4
+$Sound:				"Walk_Solid_05.wav"		8 0.4
+$Sound:				"Walk_Solid_06.wav"		8 0.4
+
+$Name:				"Rock Footstep"
+$Sounds:		6
+$Material:			"rock"
+$Sound:				"Walk_Gravel_01.wav"	8 0.5
+$Sound:				"Walk_Gravel_02.wav"	8 0.5
+$Sound:				"Walk_Gravel_03.wav"	8 0.5
+$Sound:				"Walk_Gravel_04.wav"	8 0.5
+$Sound:				"Walk_Gravel_05.wav"	8 0.5
+$Sound:				"Walk_Gravel_06.wav"	8 0.5
+
+$Name:				"Metal Footstep"
+$Sounds:			6
+$Material:			"metal"
+$Sound:				"Walk_Metal_01.wav"		8 0.5
+$Sound:				"Walk_Metal_02.wav"		8 0.5
+$Sound:				"Walk_Metal_03.wav"		8 0.5
+$Sound:				"Walk_Metal_04.wav"		8 0.5
+$Sound:				"Walk_Metal_05.wav"		8 0.5
+$Sound:				"Walk_Metal_06.wav"		8 0.5
+
+$Name:				"Solid Footstep"
+$Sounds:			4
+$Material:			"solid"
+$Sound:				"Walk_Solid_01.wav"		8 0.4
+$Sound:				"Walk_Solid_02.wav"		8 0.4
+$Sound:				"Walk_Solid_03.wav"		8 0.4
+$Sound:				"Walk_Solid_04.wav"		8 0.4
+$Sound:				"Walk_Solid_05.wav"		8 0.4
+$Sound:				"Walk_Solid_06.wav"		8 0.4
+
+$Name:				"Water Footstep"
+$Sounds:			4
+$Material:			"water"
+$Sound:				"Walk_Water_01.wav"		8 0.4
+$Sound:				"Walk_Water_02.wav"		8 0.4
+$Sound:				"Walk_Water_03.wav"		8 0.4
+$Sound:				"Walk_Water_04.wav"		8 0.4
+
+$Name:				"Ice Footstep"
+$Sounds:			4
+$Material:			"ice"
+$Sound:				"Walk_Ice_01.wav"		8 0.4
+$Sound:				"Walk_Ice_02.wav"		8 0.4
+$Sound:				"Walk_Ice_03.wav"		8 0.4
+$Sound:				"Walk_Ice_04.wav"		8 0.4
+$Sound:				"Walk_Ice_05.wav"		8 0.4
+$Sound:				"Walk_Ice_06.wav"		8 0.4
+
+$Name:				"Glass Footstep"
+$Sounds:			4
+$Material:			"glass"
+$Sound:				"Walk_Glass_01.wav"		8 0.4
+$Sound:				"Walk_Glass_02.wav"		8 0.4
+$Sound:				"Walk_Glass_03.wav"		8 0.4
+$Sound:				"Walk_Glass_04.wav"		8 0.4
+$Sound:				"Walk_Glass_05.wav"		8 0.4
+$Sound:				"Walk_Glass_06.wav"		8 0.4
+
+$Name:				"Broken Glass Footstep"
+$Sounds:           4
+$Sound:				"Walk_BrokenGlass_01.wav"	8 0.4
+$Sound:				"Walk_BrokenGlass_02.wav"	8 0.4
+$Sound:				"Walk_BrokenGlass_03.wav"	8 0.4
+$Sound:				"Walk_BrokenGlass_04.wav"	8 0.4
+$Sound:				"Walk_BrokenGlass_05.wav"	8 0.4
+$Sound:				"Walk_BrokenGlass_06.wav"	8 0.4
+
+$Name:				"Default Climb"
+$Sounds:			2
+$Material:			"default"
+$Sound:				"Climb_Left.wav"		8 0.6
+$Sound:				"Climb_Right.wav"		8 0.6
+
+$Name:				"Ladder Climb"
+$Sounds:			2
+$Material:			"ladder"
+$Sound:				"Climb_Left.wav"		8 0.6
+$Sound:				"Climb_Right.wav"		8 0.6
+
+$Name:				"Chain-Fence Climb"
+$Sounds:			2
+$Material:			"chain fence"
+$Sound:				"Climb_F_Left.wav"		8 0.6
+$Sound:				"Climb_F_Right.wav"		8 0.6
+
+$Name:				"Crawl Footstep"
+$Sounds:			3
+$Sound:				"crawl_01.wav"		6 0.3
+$Sound:				"crawl_02.wav"		6 0.3
+$Sound:				"crawl_03.wav"		6 0.3
+$Sound:				"crawl_04.wav"		6 0.3
+
+$Name:				"Jump"
+$Sound:				"jump_04.wav"		8 0.5
+
+$Name:				"Default Land"
+$Material:			"default"
+$Sound:				"jumpland_01.wav"		8 0.5
+
+$Name:				"Metal Land"
+$Material:			"metal"
+$Sound:				"jumpland_02.wav"		8 0.5
+
+$Name:				"Solid Land"
+$Material:			"solid"
+$Sound:				"jumpland_03.wav"		8 0.5
+
+$Name:				"Water Land"
+$Material:			"water"
+$Sound:				"jumpland_04.wav"		8 0.5
+
+$Name:				"Glass Land"
+$Material:			"glass"
+$Sound:				"jumpland_06.wav"		8 0.5
+
+$Name:				"Player Small Pain"
+$Sounds:			4
+$Sound:				"Player_Smpain_01.wav"		6 0.9
+$Sound:				"Player_Smpain_02.wav"		6 0.9
+$Sound:				"Player_Smpain_03.wav"		6 0.9
+$Sound:				"Player_Smpain_04.wav"		6 0.9
+
+$Name:				"Player Large Pain"
+$Sounds:			4
+$Sound:				"Player_Lgpain_01.wav"		6 0.9
+$Sound:				"Player_Lgpain_02.wav"		6 0.9
+$Sound:				"Player_Lgpain_03.wav"		6 0.9
+$Sound:				"Player_Lgpain_04.wav"		6 0.9
+
+$Name:				"Player Die"
+$Sounds:			6
+$Sound:				"Player_Die_01.wav"		6 0.9
+$Sound:				"Player_Die_02.wav"		6 0.9
+$Sound:				"Player_Die_03.wav"		6 0.9
+$Sound:				"Player_Die_04.wav"		6 0.9
+$Sound:				"Player_Die_05.wav"		6 0.9
+$Sound:				"Player_Die_06.wav"		6 0.9
+
+$Name:				"Impact Death"
+$Sound:				"death_hit1.wav"		8 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+// Character Foley Sounds
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Male Hum 1"
+$Sounds:			2
+$Sound:				"Gen_Idle_Hum_01.wav"	7 0.9
+$Sound:				"Gen_Idle_Hum_02.wav"	7 0.9
+
+$Name:				"Male Hum 2"
+$Sounds:			2
+$Sound:				"GEN_HEN_Hum_01.wav"	7 0.9
+$Sound:				"GEN_HEN_Hum_02.wav"	7 0.9
+
+$Name:				"Female Hum"
+$Sounds:			2
+$Sound:				"Gen_Eos_Hum_01.wav"	7 0.9
+$Sound:				"Gen_Eos_Hum_02.wav"	7 0.9
+
+$Name:				"Character Squash"
+$Sounds:			4
+$Sound:				"squash_01.wav"			7 0.9
+$Sound:				"squash_02.wav"			7 0.9
+$Sound:				"squash_03.wav"			7 0.9
+$Sound:				"squash_04.wav"			7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Admm Alert"
+$Sounds:          7
+$Sound:				"Admm_Alert_01.wav"       7 0.9
+$Sound:				"Admm_Alert_02.wav"       7 0.9
+$Sound:				"Admm_Alert_03.wav"       7 0.9
+$Sound:				"Admm_Alert_04.wav"       7 0.9
+$Sound:				"Admm_Alert_05.wav"       7 0.9
+$Sound:				"Admm_Alert_06.wav"       7 0.9
+$Sound:				"Admm_Alert_07.wav"       7 0.9
+
+$Name:				"Admm Cower"
+$Sounds:          6
+$Sound:				"Admm_Cower_01.wav"       7 0.9
+$Sound:				"Admm_Cower_02.wav"       7 0.9
+$Sound:				"Admm_Cower_03.wav"       7 0.9
+$Sound:				"Admm_Cower_04.wav"       7 0.9
+$Sound:				"Admm_Cower_05.wav"       7 0.9
+$Sound:				"Admm_Cower_06.wav"       7 0.9
+
+$Name:				"Admm Panic"
+$Sounds:          5
+$Sound:				"Admm_Panic_01.wav"       7 0.9
+$Sound:				"Admm_Panic_02.wav"       7 0.9
+$Sound:				"Admm_Panic_03.wav"       7 0.9
+$Sound:				"Admm_Panic_04.wav"       7 0.9
+$Sound:				"Admm_Panic_05.wav"       7 0.9
+
+$Name:				"Admm Small Pain"
+$Sounds:          5
+$Sound:				"Admm_Smpain_01.wav"       7 0.9
+$Sound:				"Admm_Smpain_02.wav"       7 0.9
+$Sound:				"Admm_Smpain_03.wav"       7 0.9
+$Sound:				"Admm_Smpain_04.wav"       7 0.9
+$Sound:				"Admm_Smpain_05.wav"       7 0.9
+
+$Name:				"Admm Large Pain"
+$Sounds:          5
+$Sound:				"Admm_Lgpain_01.wav"       7 0.9
+$Sound:				"Admm_Lgpain_02.wav"       7 0.9
+$Sound:				"Admm_Lgpain_03.wav"       7 0.9
+$Sound:				"Admm_Lgpain_04.wav"       7 0.9
+$Sound:				"Admm_Lgpain_05.wav"       7 0.9
+
+$Name:				"Admm Flee"
+$Sounds:          5
+$Sound:				"Admm_Ulert_01.wav"       7 0.9
+$Sound:				"Admm_Ulert_04.wav"       7 0.9
+$Sound:				"Admm_Alert_01.wav"       7 0.9
+$Sound:				"Admm_Alert_03.wav"       7 0.9
+$Sound:				"Admm_Alert_05.wav"       7 0.9
+
+$Name:				"Admm Time"
+$Sounds:          5
+$Sound:				"Admm_Timeo_01.wav"       7 0.9
+$Sound:				"Admm_Timeo_02.wav"       7 0.9
+$Sound:				"Admm_Timeo_03.wav"       7 0.9
+$Sound:				"Admm_Timeo_04.wav"       7 0.9
+$Sound:				"Admm_Timeo_05.wav"       7 0.9
+
+$Name:				"Admm Ulert"
+$Sounds:          5
+$Sound:				"Admm_Ulert_01.wav"       7 0.9
+$Sound:				"Admm_Ulert_02.wav"       7 0.9
+$Sound:				"Admm_Ulert_03.wav"       7 0.9
+$Sound:				"Admm_Ulert_04.wav"       7 0.9
+$Sound:				"Admm_Ulert_05.wav"       7 0.9
+
+$Name:				"Admm Use"
+$Sounds:          5
+$Sound:				"Admm_Use_01.wav"       7 0.9
+$Sound:				"Admm_Use_02.wav"       7 0.9
+$Sound:				"Admm_Use_03.wav"       7 0.9
+$Sound:				"Admm_Use_04.wav"       7 0.9
+$Sound:				"Admm_Use_05.wav"       7 0.9
+
+$Name:				"Admin Squash"
+$Sounds:          2
+$Sound:				"Admin_Squash_01.wav"      7 0.9
+$Sound:				"Admin_Squash_02.wav"      7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Admf Alert"
+$Sounds:          5
+$Sound:				"Admf_Alert_01.wav"       7 0.9
+$Sound:				"Admf_Alert_02.wav"       7 0.9
+$Sound:				"Admf_Alert_03.wav"       7 0.9
+$Sound:				"Admf_Alert_04.wav"       7 0.9
+$Sound:				"Admf_Alert_05.wav"       7 0.9
+
+$Name:				"Admf Cower"
+$Sounds:          5
+$Sound:				"Admf_Cower_01.wav"       7 0.9
+$Sound:				"Admf_Cower_02.wav"       7 0.9
+$Sound:				"Admf_Cower_03.wav"       7 0.9
+$Sound:				"Admf_Cower_04.wav"       7 0.9
+$Sound:				"Admf_Cower_05.wav"       7 0.9
+
+$Name:				"Admf Panic"
+$Sounds:          5
+$Sound:				"Admf_Panic_01.wav"       7 0.9
+$Sound:				"Admf_Panic_02.wav"       7 0.9
+$Sound:				"Admf_Panic_03.wav"       7 0.9
+$Sound:				"Admf_Panic_04.wav"       7 0.9
+$Sound:				"Admf_Panic_05.wav"       7 0.9
+
+$Name:				"Admf Small Pain"
+$Sounds:          5
+$Sound:				"Admf_Smpain_01.wav"       7 0.9
+$Sound:				"Admf_Smpain_02.wav"       7 0.9
+$Sound:				"Admf_Smpain_03.wav"       7 0.9
+$Sound:				"Admf_Smpain_04.wav"       7 0.9
+$Sound:				"Admf_Smpain_05.wav"       7 0.9
+
+$Name:				"Admf Large Pain"
+$Sounds:          5
+$Sound:				"Admf_Lgpain_01.wav"       7 0.9
+$Sound:				"Admf_Lgpain_02.wav"       7 0.9
+$Sound:				"Admf_Lgpain_03.wav"       7 0.9
+$Sound:				"Admf_Lgpain_04.wav"       7 0.9
+$Sound:				"Admf_Lgpain_05.wav"       7 0.9
+
+$Name:				"Admf Flee"
+$Sounds:          5
+$Sound:				"Admf_Alert_01.wav"       7 0.9
+$Sound:				"Admf_Alert_03.wav"       7 0.9
+$Sound:				"Admf_Cower_03.wav"       7 0.9
+$Sound:				"Admf_Cower_02.wav"       7 0.9
+$Sound:				"Admf_Alert_05.wav"       7 0.9
+
+$Name:				"Admf Time"
+$Sounds:          5
+$Sound:				"Admf_Timeo_01.wav"       7 0.9
+$Sound:				"Admf_Timeo_02.wav"       7 0.9
+$Sound:				"Admf_Timeo_03.wav"       7 0.9
+$Sound:				"Admf_Timeo_04.wav"       7 0.9
+$Sound:				"Admf_Timeo_05.wav"       7 0.9
+
+$Name:				"Admf Ulert"
+$Sounds:          4
+$Sound:				"Admf_Ulert_01.wav"       7 0.9
+$Sound:				"Admf_Ulert_02.wav"       7 0.9
+$Sound:				"Admf_Ulert_03.wav"       7 0.9
+$Sound:				"Admf_Ulert_04.wav"       7 0.9
+
+$Name:				"Admf Use"
+$Sounds:          5
+$Sound:				"Admf_Use_01.wav"       7 0.9
+$Sound:				"Admf_Use_02.wav"       7 0.9
+$Sound:				"Admf_Use_03.wav"       7 0.9
+$Sound:				"Admf_Use_04.wav"       7 0.9
+$Sound:				"Admf_Use_05.wav"       7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Medic Alert"
+$Sounds:          5
+$Sound:				"Med_Alert_01.wav"		7 0.9
+$Sound:				"Med_Alert_02.wav"		7 0.9
+$Sound:				"Med_Alert_03.wav"		7 0.9
+$Sound:				"Med_Alert_04.wav"		7 0.9
+$Sound:				"Med_Alert_05.wav"		7 0.9
+
+$Name:				"Medic Cower"
+$Sounds:          6
+$Sound:				"Med_Cower_01.wav"		7 0.9
+$Sound:				"Med_Cower_02.wav"		7 0.9
+$Sound:				"Med_Cower_03.wav"		7 0.9
+$Sound:				"Med_Cower_04.wav"		7 0.9
+$Sound:				"Med_Cower_05.wav"		7 0.9
+$Sound:				"Med_Cower_06.wav"		7 0.9
+
+$Name:				"Medic Gone"
+$Sounds:          5
+$Sound:				"Med_Gone_01.wav"		7 0.9
+$Sound:				"Med_Gone_02.wav"		7 0.9
+$Sound:				"Med_Gone_03.wav"		7 0.9
+$Sound:				"Med_Gone_04.wav"		7 0.9
+$Sound:				"Med_Gone_05.wav"		7 0.9
+
+$Name:				"Medic Panic"
+$Sounds:          5
+$Sound:				"Med_Panic_01.wav"		7 0.9
+$Sound:				"Med_Panic_02.wav"		7 0.9
+$Sound:				"Med_Panic_03.wav"		7 0.9
+$Sound:				"Med_Panic_04.wav"		7 0.9
+$Sound:				"Med_Panic_05.wav"		7 0.9
+
+$Name:				"Medic Small Pain"
+$Sounds:          5
+$Sound:				"Med_Smpain_01.wav"		7 0.9
+$Sound:				"Med_Smpain_02.wav"		7 0.9
+$Sound:				"Med_Smpain_03.wav"		7 0.9
+$Sound:				"Med_Smpain_04.wav"		7 0.9
+$Sound:				"Med_Smpain_05.wav"		7 0.9
+
+$Name:				"Medic Large Pain"
+$Sounds:          5
+$Sound:				"Med_Lgpain_01.wav"		7 0.9
+$Sound:				"Med_Lgpain_02.wav"		7 0.9
+$Sound:				"Med_Lgpain_03.wav"		7 0.9
+$Sound:				"Med_Lgpain_04.wav"		7 0.9
+$Sound:				"Med_Lgpain_05.wav"		7 0.9
+
+$Name:				"Medic Flee"
+$Sounds:          5
+$Sound:				"Med_Cower_01.wav"		7 0.9
+$Sound:				"Med_Cower_03.wav"		7 0.9
+$Sound:				"Med_Cower_05.wav"		7 0.9
+$Sound:				"Med_Cower_06.wav"		7 0.9
+$Sound:				"Med_Panic_01.wav"		7 0.9
+
+$Name:				"Medic Time"
+$Sounds:          8
+$Sound:				"Med_Timeo_01.wav"		7 0.9
+$Sound:				"Med_Timeo_02.wav"		7 0.9
+$Sound:				"Med_Timeo_03.wav"		7 0.9
+$Sound:				"Med_Timeo_04.wav"		7 0.9
+$Sound:				"Med_Timeo_05.wav"		7 0.9
+$Sound:				"Med_Timeo_06.wav"		7 0.9
+$Sound:				"Med_Timeo_07.wav"		7 0.9
+$Sound:				"Med_Timeo_08.wav"		7 0.9
+
+$Name:				"Medic Ulert"
+$Sounds:          5
+$Sound:				"Med_Ulert_01.wav"		7 0.9
+$Sound:				"Med_Ulert_02.wav"		7 0.9
+$Sound:				"Med_Ulert_03.wav"		7 0.9
+$Sound:				"Med_Ulert_04.wav"		7 0.9
+$Sound:				"Med_Ulert_05.wav"		7 0.9
+
+$Name:				"Medic Use"
+$Sounds:          9
+$Sound:				"Med_Use_01.wav"		7 0.9
+$Sound:				"Med_Use_02.wav"		7 0.9
+$Sound:				"Med_Use_03.wav"		7 0.9
+$Sound:				"Med_Use_04.wav"		7 0.9
+$Sound:				"Med_Use_05.wav"		7 0.9
+$Sound:				"Med_Use_06.wav"		7 0.9
+$Sound:				"Med_Use_07.wav"		7 0.9
+$Sound:				"Med_Use_08.wav"		7 0.9
+$Sound:				"Med_Use_09.wav"		7 0.9
+
+$Name:				"Medic Usenw"
+$Sounds:          6
+$Sound:				"Med_Usenw_01.wav"		7 0.9
+$Sound:				"Med_Usenw_02.wav"		7 0.9
+$Sound:				"Med_Usenw_03.wav"		7 0.9
+$Sound:				"Med_Usenw_04.wav"		7 0.9
+$Sound:				"Med_Usenw_05.wav"		7 0.9
+$Sound:				"Med_Usenw_06.wav"		7 0.9
+
+$Name:				"Med Idle Foley"
+$Sound:				"Medic_Idle.wav"		7 0.9
+
+$Name:				"Med Heal Foley"
+$Sound:				"Medic_Heal.wav"		7 0.9
+
+$Name:				"Med Death Foley"
+$Sound:				"Medic_Death.wav"		7 0.9
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Merc Alert"
+$Sounds:			7
+$Sound:				"Merc_Alert_01.wav"		7 0.9
+$Sound:				"Merc_Alert_02.wav"		7 0.9
+$Sound:				"Merc_Alert_03.wav"		7 0.9
+$Sound:				"Merc_Alert_04.wav"		7 0.9
+$Sound:				"Merc_Alert_05.wav"		7 0.9
+$Sound:				"Merc_Alert_06.wav"		7 0.9
+$Sound:				"Merc_Alert_07.wav"		7 0.9
+
+$Name:				"Merc Battle 1"
+$Sounds:			7
+$Sound:				"Merc_Batt1_01.wav"		7 0.9
+$Sound:				"Merc_Batt1_02.wav"		7 0.9
+$Sound:				"Merc_Batt1_03.wav"		7 0.9
+$Sound:				"Merc_Batt1_04.wav"		7 0.9
+$Sound:				"Merc_Batt1_05.wav"		7 0.9
+$Sound:				"Merc_Batt1_06.wav"		7 0.9
+$Sound:				"Merc_Batt1_07.wav"		7 0.9
+
+$Name:				"Merc Battle 2"
+$Sounds:			9
+$Sound:				"Merc_Batt2_01.wav"		7 0.9
+$Sound:				"Merc_Batt2_02.wav"		7 0.9
+$Sound:				"Merc_Batt2_03.wav"		7 0.9
+$Sound:				"Merc_Batt2_04.wav"		7 0.9
+$Sound:				"Merc_Batt2_05.wav"		7 0.9
+$Sound:				"Merc_Batt2_06.wav"		7 0.9
+$Sound:				"Merc_Batt2_07.wav"		7 0.9
+$Sound:				"Merc_Batt2_08.wav"		7 0.9
+$Sound:				"Merc_Batt2_09.wav"		7 0.9
+
+$Name:				"Merc Cower"
+$Sounds:			6
+$Sound:				"Merc_Cower_01.wav"		7 0.9
+$Sound:				"Merc_Cower_02.wav"		7 0.9
+$Sound:				"Merc_Cower_03.wav"		7 0.9
+$Sound:				"Merc_Cower_04.wav"		7 0.9
+$Sound:				"Merc_Cower_05.wav"		7 0.9
+$Sound:				"Merc_Cower_06.wav"		7 0.9
+
+$Name:				"Merc Panic"
+$Sounds:			5
+$Sound:				"Merc_Panic_01.wav"		7 0.9
+$Sound:				"Merc_Panic_02.wav"		7 0.9
+$Sound:				"Merc_Panic_03.wav"		7 0.9
+$Sound:				"Merc_Panic_04.wav"		7 0.9
+$Sound:				"Merc_Panic_05.wav"		7 0.9
+
+$Name:				"Merc Small Pain"
+$Sounds:			5
+$Sound:				"Merc_Smpain_01.wav"	7 0.9
+$Sound:				"Merc_Smpain_02.wav"	7 0.9
+$Sound:				"Merc_Smpain_03.wav"	7 0.9
+$Sound:				"Merc_Smpain_04.wav"	7 0.9
+$Sound:				"Merc_Smpain_05.wav"	7 0.9
+
+$Name:				"Merc Large Pain"
+$Sounds:			5
+$Sound:				"Merc_Lgpain_01.wav"	7 0.9
+$Sound:				"Merc_Lgpain_02.wav"	7 0.9
+$Sound:				"Merc_Lgpain_03.wav"	7 0.9
+$Sound:				"Merc_Lgpain_04.wav"	7 0.9
+$Sound:				"Merc_Lgpain_05.wav"	7 0.9
+
+$Name:				"Merc Flee"
+$Sounds:			5
+$Sound:				"Merc_Batt2_02.wav"		7 0.9
+$Sound:				"Merc_Cower_06.wav"		7 0.9
+$Sound:				"Merc_Lgpain_04.wav"		7 0.9
+$Sound:				"Merc_Lgpain_05.wav"		7 0.9
+$Sound:				"Merc_Laugh_02.wav"		7 0.9
+
+// -------------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Miner Alert"
+$Sounds:			4
+$Sound:				"Min_Alert_01.wav"		7 0.9
+$Sound:				"Min_Alert_02.wav"		7 0.9
+$Sound:				"Min_Alert_03.wav"		7 0.9
+$Sound:				"Min_Alert_04.wav"		7 0.9
+
+$Name:				"Miner Battle 2"
+$Sounds:			7
+$Sound:				"Min_Batt2_01.wav"		7 0.9
+$Sound:				"Min_Batt2_02.wav"		7 0.9
+$Sound:				"Min_Batt2_03.wav"		7 0.9
+$Sound:				"Min_Batt2_04.wav"		7 0.9
+$Sound:				"Min_Batt2_05.wav"		7 0.9
+$Sound:				"Min_Batt2_06.wav"		7 0.9
+$Sound:				"Min_Batt2_07.wav"		7 0.9
+
+$Name:				"Miner Cower"
+$Sounds:			6
+$Sound:				"Min_Cower_01.wav"		7 0.9
+$Sound:				"Min_Cower_02.wav"		7 0.9
+$Sound:				"Min_Cower_03.wav"		7 0.9
+$Sound:				"Min_Cower_04.wav"		7 0.9
+$Sound:				"Min_Cower_05.wav"		7 0.9
+$Sound:				"Min_Cower_06.wav"		7 0.9
+
+$Name:				"Miner Panic"
+$Sounds:			5
+$Sound:				"Min_Panic_01.wav"		7 0.9
+$Sound:				"Min_Panic_02.wav"		7 0.9
+$Sound:				"Min_Panic_03.wav"		7 0.9
+$Sound:				"Min_Panic_04.wav"		7 0.9
+$Sound:				"Min_Panic_05.wav"		7 0.9
+
+$Name:				"Miner Flee"
+$Sounds:			5
+$Sound:				"Min_Cower_01.wav"		7 0.9
+$Sound:				"Min_Cower_02.wav"		7 0.9
+$Sound:				"Min_Cower_06.wav"		7 0.9
+$Sound:				"Min_Panic_04.wav"		7 0.9
+$Sound:				"Min_Panic_05.wav"		7 0.9
+
+$Name:				"Miner Timeo"
+$Sounds:			6
+$Sound:				"Min_Timeo_01.wav"		7 0.9
+$Sound:				"Min_Timeo_02.wav"		7 0.9
+$Sound:				"Min_Timeo_03.wav"		7 0.9
+$Sound:				"Min_Timeo_04.wav"		7 0.9
+$Sound:				"Min_Timeo_05.wav"		7 0.9
+$Sound:				"Min_Timeo_06.wav"		7 0.9
+
+$Name:				"Miner Ulert"
+$Sounds:          6
+$Sound:				"Min_Ulert_01.wav"		7 0.9
+$Sound:				"Min_Ulert_02.wav"		7 0.9
+$Sound:				"Min_Ulert_03.wav"		7 0.9
+$Sound:				"Min_Ulert_04.wav"		7 0.9
+$Sound:				"Min_Ulert_05.wav"		7 0.9
+$Sound:				"Min_Ulert_06.wav"		7 0.9
+
+$Name:				"Miner Use"
+$Sounds:          5
+$Sound:				"Min_Use_01.wav"		7 0.9
+$Sound:				"Min_Use_02.wav"		7 0.9
+$Sound:				"Min_Use_03.wav"		7 0.9
+$Sound:				"Min_Use_04.wav"		7 0.9
+$Sound:				"Min_Use_05.wav"		7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Fminer Alert"
+$Sounds:			4
+$Sound:				"Minf_Alert_01.wav"		7 0.9
+$Sound:				"Minf_Alert_02.wav"		7 0.9
+$Sound:				"Minf_Alert_03.wav"		7 0.9
+$Sound:				"Minf_Alert_04.wav"		7 0.9
+
+$Name:				"Fminer Battle 2"
+$Sounds:			5
+$Sound:				"Minf_Batt2_01.wav"		7 0.9
+$Sound:				"Minf_Batt2_02.wav"		7 0.9
+$Sound:				"Minf_Batt2_03.wav"		7 0.9
+$Sound:				"Minf_Batt2_04.wav"		7 0.9
+$Sound:				"Minf_Batt2_05.wav"		7 0.9
+
+$Name:				"Fminer Cower"
+$Sounds:			4
+$Sound:				"Minf_Cower_01.wav"		7 0.9
+$Sound:				"Minf_Cower_02.wav"		7 0.9
+$Sound:				"Minf_Cower_03.wav"		7 0.9
+$Sound:				"Minf_Cower_04.wav"		7 0.9
+
+$Name:				"Fminer Panic"
+$Sounds:			4
+$Sound:				"Minf_Panic_01.wav"		7 0.9
+$Sound:				"Minf_Panic_02.wav"		7 0.9
+$Sound:				"Minf_Panic_03.wav"		7 0.9
+$Sound:				"Minf_Panic_04.wav"		7 0.9
+
+$Name:				"Fminer Flee"
+$Sounds:			4
+$Sound:				"Minf_Batt2_03.wav"		7 0.9
+$Sound:				"Minf_Batt2_01.wav"		7 0.9
+$Sound:				"Minf_Cower_02.wav"		7 0.9
+$Sound:				"Minf_Cower_03.wav"		7 0.9
+
+$Name:				"Fminer Timeo"
+$Sounds:			5
+$Sound:				"Minf_Timeo_01.wav"		7 0.9
+$Sound:				"Minf_Timeo_02.wav"		7 0.9
+$Sound:				"Minf_Timeo_03.wav"		7 0.9
+$Sound:				"Minf_Timeo_04.wav"		7 0.9
+$Sound:				"Minf_Timeo_05.wav"		7 0.9
+
+$Name:				"Fminer Ulert"
+$Sounds:          3
+$Sound:				"Minf_Ulert_01.wav"		7 0.9
+$Sound:				"Minf_Ulert_02.wav"		7 0.9
+$Sound:				"Minf_Ulert_03.wav"		7 0.9
+
+$Name:				"Fminer Use"
+$Sounds:          5
+$Sound:				"Minf_Use_01.wav"		7 0.9
+$Sound:				"Minf_Use_02.wav"		7 0.9
+$Sound:				"Minf_Use_03.wav"		7 0.9
+$Sound:				"Minf_Use_04.wav"		7 0.9
+$Sound:				"Minf_Use_05.wav"		7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Nurse Alert"
+$Sounds:          6
+$Sound:				"Nur_Alert_01.wav"		7 0.9
+$Sound:				"Nur_Alert_02.wav"		7 0.9
+$Sound:				"Nur_Alert_03.wav"		7 0.9
+$Sound:				"Nur_Alert_04.wav"		7 0.9
+$Sound:				"Nur_Alert_05.wav"		7 0.9
+$Sound:				"Nur_Alert_06.wav"		7 0.9
+
+$Name:				"Nurse Cower"
+$Sounds:          6
+$Sound:				"Nur_Cower_01.wav"		7 0.9
+$Sound:				"Nur_Cower_02.wav"		7 0.9
+$Sound:				"Nur_Cower_03.wav"		7 0.9
+$Sound:				"Nur_Cower_04.wav"		7 0.9
+$Sound:				"Nur_Cower_05.wav"		7 0.9
+$Sound:				"Nur_Cower_06.wav"		7 0.9
+
+$Name:				"Nurse Gone"
+$Sounds:          5
+$Sound:				"Nur_Gone_01.wav"		7 0.9
+$Sound:				"Nur_Gone_02.wav"		7 0.9
+$Sound:				"Nur_Gone_03.wav"		7 0.9
+$Sound:				"Nur_Gone_04.wav"		7 0.9
+$Sound:				"Nur_Gone_05.wav"		7 0.9
+
+$Name:				"Nurse Time"
+$Sounds:          10
+$Sound:				"Nur_Timeo_01.wav"		7 0.9
+$Sound:				"Nur_Timeo_02.wav"		7 0.9
+$Sound:				"Nur_Timeo_03.wav"		7 0.9
+$Sound:				"Nur_Timeo_04.wav"		7 0.9
+$Sound:				"Nur_Timeo_05.wav"		7 0.9
+$Sound:				"Nur_Timeo_06.wav"		7 0.9
+$Sound:				"Nur_Timeo_07.wav"		7 0.9
+$Sound:				"Nur_Timeo_08.wav"		7 0.9
+$Sound:				"Nur_Timeo_09.wav"		7 0.9
+$Sound:				"Nur_Timeo_10.wav"		7 0.9
+
+$Name:				"Nurse Use"
+$Sounds:          8
+$Sound:				"Nur_Use_01.wav"		7 0.9
+$Sound:				"Nur_Use_02.wav"		7 0.9
+$Sound:				"Nur_Use_03.wav"		7 0.9
+$Sound:				"Nur_Use_04.wav"		7 0.9
+$Sound:				"Nur_Use_05.wav"		7 0.9
+$Sound:				"Nur_Use_06.wav"		7 0.9
+$Sound:				"Nur_Use_07.wav"		7 0.9
+$Sound:				"Nur_Use_08.wav"		7 0.9
+
+$Name:				"Nurse Usenw"
+$Sounds:          6
+$Sound:				"Nur_Usenw_01.wav"		7 0.9
+$Sound:				"Nur_Usenw_02.wav"		7 0.9
+$Sound:				"Nur_Usenw_03.wav"		7 0.9
+$Sound:				"Nur_Usenw_04.wav"		7 0.9
+$Sound:				"Nur_Usenw_05.wav"		7 0.9
+$Sound:				"Nur_Usenw_06.wav"		7 0.9
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Tech Alert"
+$Sounds:			7
+$Sound:				"Tech_Alert_01.wav"		7 0.9
+$Sound:				"Tech_Alert_02.wav"		7 0.9
+$Sound:				"Tech_Alert_03.wav"		7 0.9
+$Sound:				"Tech_Alert_04.wav"		7 0.9
+$Sound:				"Tech_Alert_05.wav"		7 0.9
+$Sound:				"Tech_Alert_06.wav"		7 0.9
+$Sound:				"Tech_Alert_07.wav"		7 0.9
+
+$Name:				"Tech Cower"
+$Sounds:			10
+$Sound:				"Tech_Cower_01.wav"		7 0.9
+$Sound:				"Tech_Cower_02.wav"		7 0.9
+$Sound:				"Tech_Cower_03.wav"		7 0.9
+$Sound:				"Tech_Cower_04.wav"		7 0.9
+$Sound:				"Tech_Cower_05.wav"		7 0.9
+$Sound:				"Tech_Cower_06.wav"		7 0.9
+$Sound:				"Tech_Cower_07.wav"		7 0.9
+$Sound:				"Tech_Cower_08.wav"		7 0.9
+$Sound:				"Tech_Cower_09.wav"		7 0.9
+$Sound:				"Tech_Cower_10.wav"		7 0.9
+
+$Name:				"Tech Small Pain"
+$Sounds:			5
+$Sound:				"Tech_Smpain_01.wav"	7 0.9
+$Sound:				"Tech_Smpain_02.wav"	7 0.9
+$Sound:				"Tech_Smpain_03.wav"	7 0.9
+$Sound:				"Tech_Smpain_04.wav"	7 0.9
+$Sound:				"Tech_Smpain_05.wav"	7 0.9
+
+$Name:				"Tech Large Pain"
+$Sounds:			5
+$Sound:				"Tech_Lgpain_01.wav"	7 0.9
+$Sound:				"Tech_Lgpain_02.wav"	7 0.9
+$Sound:				"Tech_Lgpain_03.wav"	7 0.9
+$Sound:				"Tech_Lgpain_04.wav"	7 0.9
+$Sound:				"Tech_Lgpain_05.wav"	7 0.9
+
+$Name:				"Tech Time"
+$Sounds:			10
+$Sound:				"Tech_Timeo_01.wav"		7 0.9
+$Sound:				"Tech_Timeo_02.wav"		7 0.9
+$Sound:				"Tech_Timeo_03.wav"		7 0.9
+$Sound:				"Tech_Timeo_04.wav"		7 0.9
+$Sound:				"Tech_Timeo_05.wav"		7 0.9
+$Sound:				"Tech_Timeo_06.wav"		7 0.9
+$Sound:				"Tech_Timeo_07.wav"		7 0.9
+$Sound:				"Tech_Timeo_08.wav"		7 0.9
+$Sound:				"Tech_Timeo_09.wav"		7 0.9
+$Sound:				"Tech_Timeo_10.wav"		7 0.9
+
+$Name:				"Tech Ulert"
+$Sounds:			6
+$Sound:				"Tech_Ulert_01.wav"		7 0.9
+$Sound:				"Tech_Ulert_02.wav"		7 0.9
+$Sound:				"Tech_Ulert_03.wav"		7 0.9
+$Sound:				"Tech_Ulert_04.wav"		7 0.9
+$Sound:				"Tech_Ulert_05.wav"		7 0.9
+$Sound:				"Tech_Ulert_06.wav"		7 0.9
+
+$Name:				"Tech Use"
+$Sounds:			10
+$Sound:				"Tech_Use_01.wav"		7 0.9
+$Sound:				"Tech_Use_02.wav"		7 0.9
+$Sound:				"Tech_Use_03.wav"		7 0.9
+$Sound:				"Tech_Use_04.wav"		7 0.9
+$Sound:				"Tech_Use_05.wav"		7 0.9
+$Sound:				"Tech_Use_06.wav"		7 0.9
+$Sound:				"Tech_Use_07.wav"		7 0.9
+$Sound:				"Tech_Use_08.wav"		7 0.9
+$Sound:				"Tech_Use_09.wav"		7 0.9
+$Sound:				"Tech_Use_10.wav"		7 0.9
+
+$Name:				"Tech Panic"
+$Sounds:			5
+$Sound:				"Tech_Panic_01.wav"	7 0.9
+$Sound:				"Tech_Panic_02.wav"	7 0.9
+$Sound:				"Tech_Panic_03.wav"	7 0.9
+$Sound:				"Tech_Panic_04.wav"	7 0.9
+$Sound:				"Tech_Panic_05.wav"	7 0.9
+
+$Name:				"Tech Flee"
+$Sounds:			5
+$Sound:				"Tech_Panic_02.wav"	7 0.9
+$Sound:				"Tech_Cower_01.wav"	7 0.9
+$Sound:				"Tech_Cower_04.wav"	7 0.9
+$Sound:				"Tech_Cower_07.wav"	7 0.9
+$Sound:				"Tech_Alert_02.wav"	7 0.9
+
+$Name:				"Tech1 Idle"
+$Sound:				"Tech_Idle.wav"        7 0.9
+
+$Name:				"Tech Death Spin L"
+$Sound:				"Tech_Death_Spin_L.wav" 7 0.9
+
+$Name:				"Tech Death Spin R"
+$Sound:				"Tech_Death_Spin_R.wav" 7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Grdc Alert"
+$Sounds:			9
+$Sound:				"Grdc_Alert_01.wav"		7 0.9
+$Sound:				"Grdc_Alert_02.wav"		7 0.9
+$Sound:				"Grdc_Alert_03.wav"		7 0.9
+$Sound:				"Grdc_Alert_04.wav"		7 0.9
+$Sound:				"Grdc_Alert_05.wav"		7 0.9
+$Sound:				"Grdc_Alert_06.wav"		7 0.9
+$Sound:				"Grdc_Alert_07.wav"		7 0.9
+$Sound:				"Grdc_Alert_08.wav"		7 0.9
+$Sound:				"Grdc_Alert_09.wav"		7 0.9
+
+$Name:				"Grdc Batt1"
+$Sounds:			10
+$Sound:				"Grdc_Batt1_01.wav"		7 0.9
+$Sound:				"Grdc_Batt1_02.wav"		7 0.9
+$Sound:				"Grdc_Batt1_03.wav"		7 0.9
+$Sound:				"Grdc_Batt1_04.wav"		7 0.9
+$Sound:				"Grdc_Batt1_05.wav"		7 0.9
+$Sound:				"Grdc_Batt1_06.wav"		7 0.9
+$Sound:				"Grdc_Batt1_07.wav"		7 0.9
+$Sound:				"Grdc_Batt1_08.wav"		7 0.9
+$Sound:				"Grdc_Batt1_09.wav"		7 0.9
+$Sound:				"Grdc_Batt1_10.wav"		7 0.9
+
+$Name:				"Grdc Batt2"
+$Sounds:			10
+$Sound:				"Grdc_Batt2_01.wav"		7 0.9
+$Sound:				"Grdc_Batt2_02.wav"		7 0.9
+$Sound:				"Grdc_Batt2_03.wav"		7 0.9
+$Sound:				"Grdc_Batt2_04.wav"		7 0.9
+$Sound:				"Grdc_Batt2_05.wav"		7 0.9
+$Sound:				"Grdc_Batt2_06.wav"		7 0.9
+$Sound:				"Grdc_Batt2_07.wav"		7 0.9
+$Sound:				"Grdc_Batt2_08.wav"		7 0.9
+$Sound:				"Grdc_Batt2_09.wav"		7 0.9
+$Sound:				"Grdc_Batt2_10.wav"		7 0.9
+
+$Name:				"Grdc Cower"
+$Sounds:			9
+$Sound:				"Grdc_Cower_01.wav"		7 0.9
+$Sound:				"Grdc_Cower_02.wav"		7 0.9
+$Sound:				"Grdc_Cower_03.wav"		7 0.9
+$Sound:				"Grdc_Cower_04.wav"		7 0.9
+$Sound:				"Grdc_Cower_05.wav"		7 0.9
+$Sound:				"Grdc_Cower_06.wav"		7 0.9
+$Sound:				"Grdc_Cower_07.wav"		7 0.9
+$Sound:				"Grdc_Cower_09.wav"		7 0.9
+$Sound:				"Grdc_Cower_10.wav"		7 0.9
+
+$Name:				"Grdc Panic"
+$Sounds:			5
+$Sound:				"Grdc_Panic_01.wav"		7 0.9
+$Sound:				"Grdc_Panic_02.wav"		7 0.9
+$Sound:				"Grdc_Panic_03.wav"		7 0.9
+$Sound:				"Grdc_Panic_04.wav"		7 0.9
+$Sound:				"Grdc_Panic_05.wav"		7 0.9
+
+$Name:				"Grdc Small Pain"
+$Sounds:			5
+$Sound:				"Grdc_Smpain_02.wav"		7 0.9
+$Sound:				"Grdc_Smpain_01.wav"		7 0.9
+$Sound:				"Grdc_Smpain_03.wav"		7 0.9
+$Sound:				"Grdc_Smpain_04.wav"		7 0.9
+$Sound:				"Grdc_Smpain_05.wav"		7 0.9
+
+$Name:				"Grdc Large Pain"
+$Sounds:			5
+$Sound:				"Grdc_Lgpain_01.wav"		7 0.9
+$Sound:				"Grdc_Lgpain_02.wav"		7 0.9
+$Sound:				"Grdc_Lgpain_03.wav"		7 0.9
+$Sound:				"Grdc_Lgpain_04.wav"		7 0.9
+$Sound:				"Grdc_Lgpain_05.wav"		7 0.9
+
+$Name:				"Grdc Flee"
+$Sounds:			5
+$Sound:				"Grdc_Batt1_07.wav"		7 0.9
+$Sound:				"Grdc_Panic_01.wav"		7 0.9
+$Sound:				"Grdc_Cower_09.wav"		7 0.9
+$Sound:				"Grdc_Cower_07.wav"		7 0.9
+$Sound:				"Grdc_Cower_04.wav"		7 0.9
+
+$Name:				"Grdc Ulert"
+$Sounds:			5
+$Sound:				"Grdc_Ulert_01.wav"		7 0.9
+$Sound:				"Grdc_Ulert_02.wav"		7 0.9
+$Sound:				"Grdc_Ulert_03.wav"		7 0.9
+$Sound:				"Grdc_Ulert_05.wav"		7 0.9
+$Sound:				"Grdc_Ulert_06.wav"		7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Grd Alert"
+$Sounds:			10
+$Sound:				"Grd_Alert_01.wav"		7 0.9
+$Sound:				"Grd_Alert_02.wav"		7 0.9
+$Sound:				"Grd_Alert_03.wav"		7 0.9
+$Sound:				"Grd_Alert_04.wav"		7 0.9
+$Sound:				"Grd_Alert_05.wav"		7 0.9
+$Sound:				"Grd_Alert_06.wav"		7 0.9
+$Sound:				"Grd_Alert_07.wav"		7 0.9
+$Sound:				"Grd_Alert_08.wav"		7 0.9
+$Sound:				"Grd_Alert_09.wav"		7 0.9
+$Sound:				"Grd_Alert_10.wav"		7 0.9
+
+$Name:				"Grd Batt1"
+$Sounds:			9
+$Sound:				"Grd_Batt1_01.wav"		7 0.9
+$Sound:				"Grd_Batt1_02.wav"		7 0.9
+$Sound:				"Grd_Batt1_03.wav"		7 0.9
+$Sound:				"Grd_Batt1_04.wav"		7 0.9
+$Sound:				"Grd_Batt1_05.wav"		7 0.9
+$Sound:				"Grd_Batt1_06.wav"		7 0.9
+$Sound:				"Grd_Batt1_07.wav"		7 0.9
+$Sound:				"Grd_Batt1_08.wav"		7 0.9
+$Sound:				"Grd_Batt1_09.wav"		7 0.9
+
+$Name:				"Grd Batt2"
+$Sounds:			10
+$Sound:				"Grd_Batt2_01.wav"		7 0.9
+$Sound:				"Grd_Batt2_02.wav"		7 0.9
+$Sound:				"Grd_Batt2_03.wav"		7 0.9
+$Sound:				"Grd_Batt2_04.wav"		7 0.9
+$Sound:				"Grd_Batt2_05.wav"		7 0.9
+$Sound:				"Grd_Batt2_06.wav"		7 0.9
+$Sound:				"Grd_Batt2_07.wav"		7 0.9
+$Sound:				"Grd_Batt2_08.wav"		7 0.9
+$Sound:				"Grd_Batt2_09.wav"		7 0.9
+$Sound:				"Grd_Batt2_10.wav"		7 0.9
+
+$Name:				"Grd Cower"
+$Sounds:			10
+$Sound:				"Grd_Cower_01.wav"		7 0.9
+$Sound:				"Grd_Cower_02.wav"		7 0.9
+$Sound:				"Grd_Cower_03.wav"		7 0.9
+$Sound:				"Grd_Cower_04.wav"		7 0.9
+$Sound:				"Grd_Cower_05.wav"		7 0.9
+$Sound:				"Grd_Cower_06.wav"		7 0.9
+$Sound:				"Grd_Cower_07.wav"		7 0.9
+$Sound:				"Grd_Cower_08.wav"		7 0.9
+$Sound:				"Grd_Cower_09.wav"		7 0.9
+$Sound:				"Grd_Cower_10.wav"		7 0.9
+
+$Name:				"Grd Panic"
+$Sounds:			5
+$Sound:				"Grd_Panic_01.wav"		7 0.9
+$Sound:				"Grd_Panic_02.wav"		7 0.9
+$Sound:				"Grd_Panic_03.wav"		7 0.9
+$Sound:				"Grd_Panic_04.wav"		7 0.9
+$Sound:				"Grd_Panic_05.wav"		7 0.9
+
+$Name:				"Grd Small Pain"
+$Sounds:			5
+$Sound:				"Grd_Smpain_01.wav"		7 0.9
+$Sound:				"Grd_Smpain_02.wav"		7 0.9
+$Sound:				"Grd_Smpain_03.wav"		7 0.9
+$Sound:				"Grd_Smpain_04.wav"		7 0.9
+$Sound:				"Grd_Smpain_05.wav"		7 0.9
+
+$Name:				"Grd Large Pain"
+$Sounds:			5
+$Sound:				"Grd_Lgpain_01.wav"		7 0.9
+$Sound:				"Grd_Lgpain_02.wav"		7 0.9
+$Sound:				"Grd_Lgpain_03.wav"		7 0.9
+$Sound:				"Grd_Lgpain_04.wav"		7 0.9
+$Sound:				"Grd_Lgpain_05.wav"		7 0.9
+
+$Name:				"Grd Flee"
+$Sounds:			5
+$Sound:				"Grd_Cower_02.wav"		7 0.9
+$Sound:				"Grd_Cower_07.wav"		7 0.9
+$Sound:				"Grd_Cower_08.wav"		7 0.9
+$Sound:				"Grd_Cower_10.wav"		7 0.9
+$Sound:				"Grd_Panic_01.wav"		7 0.9
+
+$Name:				"Grd Ulert"
+$Sounds:			5
+$Sound:				"Grd_Ulert_01.wav"		7 0.9
+$Sound:				"Grd_Ulert_02.wav"		7 0.9
+$Sound:				"Grd_Ulert_03.wav"		7 0.9
+$Sound:				"Grd_Ulert_04.wav"		7 0.9
+$Sound:				"Grd_Ulert_05.wav"		7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Ultor Idle"
+$Sound:				"ultor_idle_hithead.wav"		7 0.9
+
+$Name:				"Ultor Idle2"
+$Sound:				"ultor_idle_look.wav"			7 0.9
+
+$Name:				"Ultor Idle3"
+$Sound:				"ult3_idle_handstretch.wav"		7 0.9
+
+$Name:				"Ultor Idle4"
+$Sound:				"ult3_idle_radarlook.wav"		7 0.9
+
+$Name:				"Ultor Idle5"
+$Sound:				"ult3_idle_legscratch.wav"		7 0.9
+
+$Name:				"Ultor Draw"
+$Sound:				"ultor_draw.wav"				7 0.9
+ 
+$Name:				"Ultor Guard Hum"
+$Sounds:			2
+$Sound:				"Gen_Grd_Hum_01.wav"			7 0.9
+$Sound:				"Gen_Grd_Hum_02.wav"			7 0.9
+   
+$Name:				"Ultor Guard Startle"
+$Sounds:			2
+$Sound:				"startle_01.wav"        7 0.9
+$Sound:				"startle_02.wav"        7 0.9
+
+$Name:				"Ultor Commander Startle"
+$Sounds:			2
+$Sound:				"startle_01.wav"        7 0.9
+$Sound:				"startle_02.wav"        7 0.9
+
+$Name:				"Ultor Reload"
+$Sound:				"ultor_reload.wav"      7 0.9
+
+$Name:				"Ultor Reload2"
+$Sound:				"ult3_idle_reload.wav"	7 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:				"Masako Small Pain"
+$Sounds:			4
+$Sound:				"Mas_Smpain_01.wav"		7 0.9
+$Sound:				"Mas_Smpain_02.wav"		7 0.9
+$Sound:				"Mas_Smpain_03.wav"		7 0.9
+$Sound:				"Mas_Smpain_04.wav"		7 0.9
+
+$Name:				"Masako Small Pain"
+$Sounds:			4
+$Sound:				"Mas_Lgpain_01.wav"		7 0.9
+$Sound:				"Mas_Lgpain_02.wav"		7 0.9
+$Sound:				"Mas_Lgpain_03.wav"		7 0.9
+$Sound:				"Mas_Lgpain_04.wav"		7 0.9
+
+$Name:				"Masako Die"
+$Sound:				"Mas_Die.wav"           10 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:				"Eos Small Pain"
+$Sounds:			2
+$Sound:				"EOS_Smpain_01.wav"	7 0.9
+$Sound:				"EOS_Smpain_02.wav"	7 0.9
+
+$Name:				"Eos Large Pain"
+$Sounds:			2
+$Sound:				"EOS_Lgmpain_01.wav"	7 0.9
+$Sound:				"EOS_Lgmpain_02.wav"	7 0.9
+
+$Name:				"Capek Small Pain"
+$Sounds:			4
+$Sound:				"Capk_Lgpain_01.wav"	7 0.9
+$Sound:				"Capk_Lgpain_02.wav"	7 0.9
+$Sound:				"Capk_Lgpain_03.wav"	7 0.9
+$Sound:				"Capk_Lgpain_04.wav"	7 0.9
+
+$Name:				"Capek Large Pain"
+$Sounds:			4
+$Sound:				"Capk_Lgpain_01.wav"	7 0.9
+$Sound:				"Capk_Lgpain_02.wav"	7 0.9
+$Sound:				"Capk_Lgpain_03.wav"	7 0.9
+$Sound:				"Capk_Lgpain_04.wav"	7 0.9
+
+$Name:				"Minerf Small Pain"
+$Sounds:			5
+$Sound:				"Minf_Smpain_01.wav"		6 0.9
+$Sound:				"Minf_Smpain_02.wav"		6 0.9
+$Sound:				"Minf_Smpain_03.wav"		6 0.9
+$Sound:				"Minf_Smpain_04.wav"		6 0.9
+$Sound:				"Minf_Smpain_05.wav"		6 0.9
+
+$Name:				"Minerf Large Pain"
+$Sounds:			5
+$Sound:				"Minf_Lgpain_01.wav"		6 0.9
+$Sound:				"Minf_Lgpain_02.wav"		6 0.9
+$Sound:				"Minf_Lgpain_03.wav"		6 0.9
+$Sound:				"Minf_Lgpain_04.wav"		6 0.9
+$Sound:				"Minf_Lgpain_05.wav"		6 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:				"Human Death Alternate 1"
+$Sound:				"HumanDeath_Alternate.wav"           7 0.9
+
+$Name:				"Human Death Backward 1"
+$Sound:				"HumanDeath_Backward.wav"            7 0.9
+
+$Name:				"Human Death Blast Backward 1"
+$Sound:				"HumanDeath_BlastBackward.wav"       7 0.9
+
+$Name:				"Human Death Blast Forward 1"
+$Sound:				"HumanDeath_BlastForward.wav"        7 0.8
+
+$Name:				"Human Death Blast 2"
+$Sound:				"HumanDeath_Blast_02.wav"            7 0.9
+
+$Name:				"Human Death Chest 1"
+$Sound:				"HumanDeath_Chest_01.wav"            7 0.9
+
+$Name:				"Human Death Chest 2"
+$Sound:				"HumanDeath_Chest_02.wav"            7 0.9
+
+$Name:				"Human Death Chest Backward 1"
+$Sound:				"HumanDeath_ChestBackward.wav"       7 0.9
+
+$Name:				"Human Death Chest Forward 1"
+$Sound:				"HumanDeath_ChestForward.wav"        7 0.9
+
+$Name:				"Human Death Chest Forward 2"
+$Sound:				"HumanDeath_ChestForwardSlow.wav"    7 0.9
+
+$Name:				"Human Death Crouch 1"
+$Sound:				"HumanDeath_Crouch.wav"              7 0.9
+
+$Name:				"Human Death Crouch 2"
+$Sound:				"HumanDeath_Crouch_02.wav"           7 0.9
+
+$Name:				"Human Death Crouch Back 1"
+$Sound:				"HumanDeath_CrouchBack.wav"          7 0.9
+
+$Name:				"Human Death Forward 1"
+$Sound:				"HumanDeath_Forward.wav"             7 0.9
+
+$Name:				"Human Death Forward 2"
+$Sound:				"HumanDeath_Forward_02.wav"          7 0.9
+
+$Name:				"Human Death Generic 1"
+$Sound:				"HumanDeath_Generic.wav"             7 0.9
+
+$Name:				"Human Death Generic 2"
+$Sound:				"HumanDeath_Generic_02.wav"          7 0.9
+
+$Name:				"Human Death Generic 3"
+$Sound:				"HumanDeath_Generic_03.wav"          7 0.9
+
+$Name:				"Human Death Generic 4"
+$Sound:				"HumanDeath_Generic_04.wav"          7 0.9
+
+$Name:				"Human Death Generic 5"
+$Sound:				"HumanDeath_Generic_05.wav"          7 0.9
+
+$Name:				"Human Death Head 2a"
+$Sound:				"HumanDeath_Head_02a.wav"            7 0.9
+
+$Name:				"Human Death Head 2b"
+$Sound:				"HumanDeath_Head_02b.wav"            7 0.9
+
+$Name:				"Human Death Head Backward 1"
+$Sound:				"HumanDeath_HeadBackward.wav"        7 0.9
+
+$Name:				"Human Death Head Backward 2"
+$Sound:				"HumanDeath_HeadBackward_02.wav"     7 0.9
+
+$Name:				"Human Death Head Forward 1"
+$Sound:				"HumanDeath_HeadForward.wav"         7 0.9
+
+$Name:				"Human Death Left 1"
+$Sound:				"HumanDeath_LegLeft.wav"             7 0.9
+
+$Name:				"Human Death Right 1"
+$Sound:				"HumanDeath_LegRight.wav"            7 0.9
+
+$Name:				"Human Death Leg 1"
+$Sound:				"HumanDeath_Leg_01.wav"              7 0.9
+
+$Name:				"Human Death Leg 2"
+$Sound:				"HumanDeath_Leg_02.wav"              7 0.9
+
+$Name:				"Human Death Leg 3"
+$Sound:				"HumanDeath_Leg_03.wav"              7 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Use Urinal"
+$Sounds:			2
+$Sound:				"use_Urinal_01.wav"   4 0.9
+$Sound:				"use_Urinal_02.wav"   4 0.9
+
+$Name:				"Use Toilet"
+$Sounds:			2
+$Sound:				"use_Toilet_01.wav"   4 0.9
+$Sound:				"use_Toilet_02.wav"   4 0.9
+
+$Name:				"Use Book"
+$Sounds:			2
+$Sound:				"use_Book_01.wav"   4 0.9
+$Sound:				"use_Book_02.wav"   4 0.9
+
+$Name:				"Use Coffee Maker"
+$Sound:				"use_coffee_maker.wav"   4 0.9
+
+$Name:				"Use Fountain"
+$Sounds:			2
+$Sound:				"use_Drinking_Fountain_01.wav"   4 0.9
+$Sound:				"use_Drinking_Fountain_02.wav"   4 0.9
+
+$Name:				"Use Magazine"
+$Sounds:			2
+$Sound:				"use_Magazine_01.wav"   4 0.9
+$Sound:				"use_Magazine_02.wav"   4 0.9
+
+$Name:				"Use Microwave"
+$Sound:				"use_Microwave_Large.wav"   4 0.9
+
+$Name:				"Use Sink"
+$Sounds:			2
+$Sound:				"use_Sink_01.wav"   4 0.9
+$Sound:				"use_Sink_02.wav"   4 0.9
+
+$Name:				"Use Water Cooler"
+$Sounds:			2
+$Sound:				"use_Water_Cooler_01.wav"   4 0.9
+$Sound:				"use_Water_Cooler_02.wav"   4 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+// Creature Section
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Reeper Alert"
+$Sounds:			2
+$Sound:				"reeper_alert_01.wav"   8 0.9
+$Sound:				"reeper_alert_02.wav"   8 0.9
+
+$Name:				"Reeper Attack"
+$Sounds:			2
+$Sound:				"reeper_attack_01.wav"   6 0.9
+$Sound:				"reeper_attack_02.wav"   6 0.9
+
+$Name:				"Reeper Pain"
+$Sounds:			2
+$Sound:				"reeper_pain_01.wav"   6 0.9
+$Sound:				"reeper_pain_02.wav"   6 0.9
+
+$Name:				"Reeper Die"
+$Sound:				"reeper_die.wav"       4 0.9
+
+$Name:				"Reeper Footstep"
+$Sounds:            4
+$Sound:				"reeper_foot_01.wav"   4 0.9
+$Sound:				"reeper_foot_02.wav"   4 0.9
+$Sound:				"reeper_foot_03.wav"   4 0.9
+$Sound:				"reeper_foot_04.wav"   4 0.9
+$Sound:				"reeper_foot_05.wav"   4 0.9
+$Sound:				"reeper_foot_06.wav"   4 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"BReeper alert"
+$Sound:				"breeper_alert.wav"   6 0.9
+
+$Name:				"Breeper Attack"
+$Sounds:			2
+$Sound:				"Breeper_attack_01.wav"   4 0.9
+$Sound:				"Breeper_attack_02.wav"   4 0.9
+
+$Name:				"Breeper Pain"
+$Sounds:			2
+$Sound:				"breeper_hit1.wav"      6 0.8
+$Sound:				"breeper_hit2.wav"      6 0.8
+
+$Name:				"BReeper Die"
+$Sound:				"breeper_die.wav"       4 0.7
+
+$Name:				"Breeper Footstep"
+$Sounds:            4
+$Sound:				"breeper_foot_01.wav"   4 0.7
+$Sound:				"breeper_foot_02.wav"   4 0.7
+$Sound:				"breeper_foot_03.wav"   4 0.7
+$Sound:				"breeper_foot_04.wav"   4 0.7
+$Sound:				"breeper_foot_05.wav"   4 0.7
+$Sound:				"breeper_foot_06.wav"   4 0.7
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"SCrea Attack"
+$Sounds:            2
+$Sound:				"SCrea_Attack_01.wav"     15 0.9
+$Sound:				"SCrea_Attack_02.wav"     15 0.9
+
+$Name:				"Sonar Attack"
+$Sound:			    "Sonar_Wave_02.wav"     15 1.0
+
+$Name:				"SCrea Pain"
+$Sounds:            4
+$Sound:				"Scre_pain_01.wav"     10 0.9
+$Sound:				"Scre_pain_02.wav"     10 0.9
+$Sound:				"Scre_pain_03.wav"     10 0.9
+$Sound:				"Scre_pain_04.wav"     10 0.9
+
+$Name:				"SCrea Ram"
+$Sounds:            2
+$Sound:				"Scre_ram_01.wav"     6 0.9
+$Sound:				"Scre_ram_02.wav"     6 0.9
+
+$Name:				"SCrea Ram Sub"
+$Sounds:            2
+$Sound:				"Scre_ramsub_01.wav"     6 0.9
+$Sound:				"Scre_ramsub_02.wav"     6 0.9
+
+$Name:				"SCrea Idle"
+$Sounds:            4
+$Sound:				"SCre_Idle_01.wav"     10 0.7
+$Sound:				"SCre_Idle_02.wav"     10 0.7
+$Sound:				"SCre_Idle_03.wav"     10 0.7
+$Sound:				"SCre_Idle_04.wav"     10 0.7
+
+$Name:				"SCrea Die"
+$Sound:				"Scre_die_01.wav"      10 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Mutant Alert"
+$Sound:				"Mutant_alert_01.wav"    4 0.9
+
+$Name:				"Mutant Attack"
+$Sounds:            2
+$Sound:				"Mutant_attack_01.wav"   4 0.8
+$Sound:				"Mutant_attack_02.wav"   4 0.8
+
+$Name:				"Mutant Death"
+$Sound:				"Mutant_death.wav"       4 0.9
+
+$Name:				"Mutant Hit Front"
+$Sound:				"Mutant_hit_front.wav"   4 0.9
+
+$Name:				"Mutant Hit Back"
+$Sound:				"Mutant_hit_back.wav"    4 0.9
+
+$Name:				"Mutant Idle"
+$Sounds:            2
+$Sound:				"Mutant_idle_01.wav"     3 0.6
+$Sound:				"Mutant_idle_02.wav"     3 0.6
+
+$Name:				"Mutant Pain"
+$Sounds:            2
+$Sound:				"Mutant_pain_01.wav"     4 0.9
+$Sound:				"Mutant_pain_02.wav"     4 0.9
+$Sound:				"Mutant_pain_03.wav"     4 0.9
+$Sound:				"Mutant_pain_04.wav"     4 0.9
+
+$Name:				"Mutant Swing"
+$Sound:				"Mutant_swing.wav"       4 0.9
+
+$Name:				"Mutant Squash"
+$Sounds:            2
+$Sound:				"Mutant_Squash_01.wav"    4 0.9
+$Sound:				"Mutant_Squash_02.wav"    4 0.9
+
+$Name:				"Mutant2 Attack"
+$Sound:				"Mutant2_attack.wav"      4 0.9
+
+$Name:				"Mutant2 Death"
+$Sound:				"Mutant2_death.wav"      4 0.9
+
+$Name:				"Mutant2 Idle"
+$Sound:				"Mutant2_idle.wav"       4 0.7
+
+$Name:				"Mutant2 Pain"
+$Sounds:            2
+$Sound:				"Mutant2_pain_01.wav"    4 0.9
+$Sound:				"Mutant2_pain_02.wav"    4 0.9
+
+$Name:				"Mutant2 Squash"
+$Sounds:            2
+$Sound:				"Mutant2_Squash_01.wav"    4 0.9
+$Sound:				"Mutant2_Squash_02.wav"    4 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Small Bot Alert"
+$Sound:				"smbot1_alert.wav"		6 0.8
+
+$Name:				"Small Bot Low Pain"
+$Sounds:			2
+$Sound:				"smbot1_hit1.wav"		6 0.9
+$Sound:				"smbot1_hit2.wav"		6 0.9
+
+$Name:				"Small Bot Death"
+$Sound:				"smbot2_die.wav"		6 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Med Bot Alert"
+$Sound:				"mdbot2_alert.wav"		6 0.8
+
+$Name:				"Med Bot Low Pain"
+$Sounds:			2
+$Sound:				"mdbot1_hit1.wav"		6 0.8
+$Sound:				"mdbot1_hit2.wav"		6 0.8
+
+$Name:				"Med Bot Low Pain Loud"
+$Sounds:			2
+$Sound:				"mdbot1_hit1.wav"		6 0.9
+$Sound:				"mdbot1_hit2.wav"		6 0.9
+
+$Name:				"Med Bot Med Pain"
+$Sounds:			2
+$Sound:				"mdbot1_hit2.wav"		6 0.8
+$Sound:				"mdbot1_hit3.wav"		6 0.8
+
+$Name:				"Med Bot Hi Pain"
+$Sounds:			2
+$Sound:				"mdbot1_hit3.wav"		6 0.8
+$Sound:				"mdbot1_hit4.wav"		6 0.8
+
+$Name:				"Med Bot Death"
+$Sound:				"mdbot2_alert.wav"		6 0.8
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Big Bot Alert"
+$Sound:				"Lgbot2_Alert.wav"		10 0.9
+
+$Name:				"Big Bot Alert Loud"
+$Sound:				"Lgbot2_Alert.wav"		10 0.9
+
+$Name:				"Big Bot Low Pain"
+$Sounds:			2
+$Sound:				"lgbot1_hit3.wav"		8 0.9
+$Sound:				"lgbot1_hit4.wav"		8 0.9
+
+$Name:				"Big Bot Death"
+$Sound:				"lgbot2_die.wav"		8 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Drone Attack"
+$Sound:				"Drone_Attack_01.wav"	8 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Cutter Pain"
+$Sounds:			2
+$Sound:				"cutter_hit1.wav"		6 0.9
+$Sound:				"cutter_hit2.wav"		6 0.9
+
+$Name:				"Cutter Death"
+$Sound:				"cutter_die.wav"		8 0.9
+
+$Name:				"Cutter Attack"
+$Sound:				"cutter_attack.wav"		6 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Grabber Pain"
+$Sounds:			2
+$Sound:				"grabber_hit1.wav"		6 0.9
+$Sound:				"grabber_hit2.wav"		6 0.9
+
+$Name:				"Grabber Alert"
+$Sound:				"grabber_alert.wav"		6 0.8
+
+$Name:				"Grabber Death"
+$Sound:				"grabber_die.wav"		6 0.9
+
+$Name:				"Grabber Grab"
+$Sound:				"grabber_pickup.wav"	6 0.7
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Spike Alert"
+$Sound:				"spike_alert.wav"		8 0.9
+
+$Name:				"Spike Low Pain"
+$Sounds:			2
+$Sound:				"spike_hit1.wav"		8 0.9
+$Sound:				"spike_hit2.wav"		8 0.9
+
+$Name:				"Spike Death"
+$Sound:				"spike_die.wav"			8 0.9
+
+$Name:				"Spike Open"
+$Sound:				"Spike_open.wav"		8 0.9
+
+$Name:				"Spike Attack"
+$Sound:				"spike_attack_01.wav"	8 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Snake Move"
+$Sounds:            4
+$Sound:				"Snake_Move_01.wav"	6  0.9
+$Sound:				"Snake_Move_02.wav"	6  0.9
+$Sound:				"Snake_Move_03.wav"	6  0.9
+$Sound:				"Snake_Move_04.wav"	6  0.9
+
+$Name:				"BSnake Spit"
+$Sound:				"RSnake_Spit.wav"	10 0.9
+
+$Name:				"BSnake Screech"
+$Sound:				"RSnake_screech.wav"	10  0.9
+
+$Name:				"BSnake Bite"
+$Sound:				"BSnake_Bite.wav"	10 1.0
+
+$Name:				"BSnake Spit"
+$Sound:				"RSnake_Spit.wav"	10  0.9
+
+$Name:				"RSnake Bite"
+$Sound:				"RSnake_Bite.wav"	10  1.0
+
+$Name:				"RSnake Spit"
+$Sound:				"RSnake_Spit.wav"	10  0.9
+
+$Name:				"RSnake Screech"
+$Sound:				"RSnake_screech.wav"	10  0.9
+
+$Name:				"Snake Low Pain"
+$Sound:				"RSnake_attack.wav"		8  0.9
+
+$Name:				"RSnake Death"
+$Sound:				"RSnake_death.wav"		10  0.9
+
+$Name:				"BSnake Death"
+$Sound:				"BSnake_death.wav"		20  1.0
+
+$Name:				"Spit Hit"
+$Sounds:			3
+$Sound:				"Spit_hit_01.wav"	    7 1.0
+$Sound:				"Spit_hit_02.wav"	    7 1.0
+$Sound:				"Spit_hit_03.wav"	    7 1.0
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Meca Open"
+$Sound:				"meca_open.wav"			6 0.9
+
+$Name:				"Meca Close"
+$Sound:				"meca_close.wav"		6 0.9
+
+$Name:				"Meca Close Soft"
+$Sound:				"meca_close.wav"		6 0.9
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Wing Flap"
+$Sounds:			4
+$Sound:				"Wing_Flap_01.wav"	    6 1.0
+$Sound:				"Wing_Flap_02.wav"	    6 1.0
+$Sound:				"Wing_Flap_03.wav"	    6 1.0
+$Sound:				"Wing_Flap_04.wav"	    6 1.0
+
+$Name:				"Bat Idle"
+$Sound:				"Bat_idle.wav"		    4 0.9
+
+$Name:				"Bat Idle"
+$Sound:				"Bat_idle.wav"		    4 0.9
+
+$Name:				"Bat Cry"
+$Sounds:			3
+$Sound:				"Bat_Cry1.wav"			4 0.9
+$Sound:				"Bat_Cry2.wav"			4 0.9
+$Sound:				"Bat_Cry3.wav"			4 0.9
+
+$Name:				"Bat Die"
+$Sounds:			3
+$Sound:				"Bat_Die1.wav"			8 0.9
+$Sound:				"Bat_Die2.wav"			8 0.9
+$Sound:				"Bat_Die3.wav"			8 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Admin bot alert"
+$Sound:				"Admin_bot_alert.wav"   2 0.9
+
+$Name:				"Admin bot hit"
+$Sound:				"Admin_bot_hit.wav"     2 0.9
+
+$Name:				"Admin bot die"
+$Sound:				"Admin_bot_die.wav"     2 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"TBot attack melee"
+$Sound:				"Tankbot_attack_melee.wav"		12 0.9
+
+$Name:				"TBot attack guns"
+$Sound:				"Tankbot_attack_guns.wav"		12 0.9
+
+$Name:				"Tank Bot Small Pain"
+$Sounds:			3
+$Sound:				"TankBot_Smpain_01.wav"			10 0.9
+$Sound:				"TankBot_Smpain_02.wav"			10 0.9
+$Sound:				"TankBot_Smpain_03.wav"			10 0.9
+
+$Name:				"Tank Bot Large Pain"
+$Sounds:			3
+$Sound:				"TankBot_Lgpain_01.wav"			10 0.9
+$Sound:				"TankBot_Lgpain_02.wav"			10 0.9
+$Sound:				"TankBot_Lgpain_03.wav"			10 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+// Weapons Section
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:            "Remote Charge Launch"
+$Sound:           "attach_01.wav"                  4 0.9
+
+$Name:            "Remote Charge Alt Launch"
+$Sound:           "switch_03.wav"                  4 0.9
+
+$Name:            "Remote Charge Hit Default"
+$Sound:           "boom_02.wav"                    6 0.9
+
+$Name:            "Charge Draw"
+$Sound:           "FP_charge_draw.wav"             4 0.9
+
+$Name:            "Charge Throw"
+$Sound:           "FP_charge_throw.wav"            4 0.9
+
+$Name:            "Charge Idle Rub"
+$Sound:           "FP_charge_idlerub.wav"          4 0.9
+
+$Name:            "Charge Idle Tap"
+$Sound:           "FP_charge_idletap.wav"          4 0.9
+
+$Name:            "Detonator Draw"
+$Sound:           "FP_detonator_draw.wav"          4 0.9
+
+$Name:            "Detonator Idle Check"
+$Sound:           "FP_det_idle_check.wav"          4 0.9
+
+$Name:            "Detonator Idle Stretch"
+$Sound:           "FP_det_idle_stretch.wav"        4 0.9
+
+$Name:            "Detonator Fire"
+$Sound:           "FP_detonator_fire.wav"          4 1.0
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Riot Attack"
+$Sound:           "FP_Riot_Attack.wav"              4 0.9
+
+$Name:            "Riot Attack Taser"
+$Sound:           "FP_Riot_Attack_Taser.wav"        4 0.9
+
+$Name:            "Riot Draw"
+$Sound:           "FP_Riot_Draw.wav"                4 0.9
+
+$Name:            "Riot Holster"
+$Sound:           "FP_Riot_Holster.wav"             4 0.9
+
+$Name:            "Riot Idle"
+$Sound:           "FP_Riot_Idle.wav"                4 0.9
+
+$Name:            "Riot Idle Hit"
+$Sound:           "FP_Riot_Idle_Hit.wav"            4 0.9
+
+$Name:            "Riot Idle Toss"
+$Sound:           "FP_Riot_Toss.wav"                4 0.9
+
+$Name:            "Riot Reload"
+$Sound:           "FP_Riot_Reload.wav"              4 0.9
+
+$Name:            "Riot Impact Default"
+$Sounds:          2
+$Sound:           "Riot_Impact_Rock_01.wav"        4 0.5
+$Sound:           "Riot_Impact_Rock_02.wav"        4 0.5
+
+$Name:            "Riot Impact Flesh"
+$Sounds:          2
+$Sound:           "Riot_Impact_Flesh_01.wav"       4 0.5
+$Sound:           "Riot_Impact_Flesh_02.wav"       4 0.5
+
+$Name:            "Riot Impact Metal"
+$Sounds:          2
+$Sound:           "Riot_Impact_Metal_01.wav"       4 0.5
+$Sound:           "Riot_Impact_Metal_02.wav"       4 0.5
+
+$Name:            "Riot Impact Rock"
+$Sounds:          2
+$Sound:           "Riot_Impact_Rock_01.wav"        4 0.5
+$Sound:           "Riot_Impact_Rock_02.wav"        4 0.5
+
+$Name:            "Riot Impact"
+$Sounds:          4
+$Sound:			  "Riot_Jolt_01.wav"	           6 0.9
+$Sound:			  "Riot_Jolt_02.wav"	           6 0.9
+$Sound:			  "Riot_Jolt_03.wav"	           6 0.9
+$Sound:			  "Riot_Jolt_04.wav"	           6 0.9
+
+$Name:            "Riot Spark"
+$Sounds:          3
+$Sound:           "Riot_Spark_01.wav"	           4 0.7
+$Sound:           "Riot_Spark_02.wav"              4 0.7
+$Sound:           "Riot_Spark_03.wav"              4 0.7
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Riot Shield Attack"
+$Sound:           "FP_Riotshield_Attack.wav"       4 0.9
+
+$Name:            "Riot Shield Idle Low"
+$Sound:           "FP_Riotshield_Idlelow.wav"      4 0.9
+
+$Name:            "Riot Shield Idle Flex"
+$Sound:           "FP_Riotshield_Flex.wav"         4 0.9
+
+$Name:            "Riot Shield Block"
+$Sound:           "FP_Riotshield_Block.wav"        4 0.9
+
+$Name:            "Riot Shield Impact"
+$Sounds:          4
+$Sound:           "rshield_impact_01.wav"	       4 0.8
+$Sound:           "rshield_impact_02.wav"          4 0.8
+$Sound:           "rshield_impact_03.wav"          4 0.8
+$Sound:           "rshield_impact_04.wav"          4 0.8
+
+$Name:            "Riot Shield Break"
+$Sound:           "wood_break_02.wav"           4 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Gun Hit Default"
+$Sounds:          4
+$Sound:           "gun_hit_default_01.wav"   4  0.8
+$Sound:           "gun_hit_default_02.wav"   4  0.8
+$Sound:           "gun_hit_default_03.wav"   4  0.8
+$Sound:           "gun_hit_default_04.wav"   4  0.8
+
+$Name:            "Gun Hit Flesh"
+$Sounds:          4
+$Sound:           "gun_hit_flesh_01.wav"     4  0.8
+$Sound:           "gun_hit_flesh_02.wav"     4  0.8
+$Sound:           "gun_hit_flesh_03.wav"     4  0.8
+$Sound:           "gun_hit_flesh_04.wav"     4  0.8
+
+$Name:            "Gun Hit Metal"
+$Sounds:          4
+$Sound:           "gun_hit_metal_01.wav"     4  0.8
+$Sound:           "gun_hit_metal_02.wav"     4  0.8
+$Sound:           "gun_hit_metal_03.wav"     4  0.8
+$Sound:           "gun_hit_metal_04.wav"     4  0.8
+
+$Name:            "Gun Hit Rock"
+$Sounds:          4
+$Sound:           "gun_hit_rock_01.wav"      4  0.8
+$Sound:           "gun_hit_rock_02.wav"      4  0.8
+$Sound:           "gun_hit_rock_03.wav"      4  0.8
+$Sound:           "gun_hit_rock_04.wav"      4  0.8
+
+$Name:            "Gun Hit Glass"
+$Sound:           "gun_hit_glass.wav"        4  0.6
+
+$Name:			  "Gun Hit Water"
+$Sounds:          4
+$Sound:           "gun_hit_water_01.wav"     4 1.0
+$Sound:           "gun_hit_water_02.wav"     4 1.0
+$Sound:           "gun_hit_water_03.wav"     4 1.0
+$Sound:           "gun_hit_water_04.wav"     4 1.0
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Glock Launch"
+$Sound:           "handgun_fire01.wav"           10 0.8
+
+$Name:            "Glock Switch"
+$Sound:           "handgun_switch.wav"           8 0.9
+
+$Name:            "Glock Alt Launch"
+$Sound:           "handgun_fire02.wav"           8 0.9
+
+$Name:            "Glock Fail"
+$Sound:           "handgun_click01.wav"          5 0.8
+
+$Name:			  "Glock Flex"
+$Sound:           "fp_glock_flex.wav"             5 0.8
+
+$Name:			  "Glock Look"
+$Sound:           "fp_glock_look.wav"             5 0.8
+
+$Name:			  "Glock Reload"
+$Sound:           "fp_glock_reload.wav"           5 0.8
+
+$Name:			  "Glock Draw"
+$Sound:           "fp_glock_draw.wav"             5 0.8
+
+$Name:			  "Glock Holster"
+$Sound:           "fp_glock_holster.wav"          5 0.8
+
+$Name:			  "Glock Ricochet"
+$Sounds:          6
+$Sound:           "ricochet_01.wav"   6  0.7
+$Sound:           "ricochet_02.wav"   6  0.7
+$Sound:           "ricochet_03.wav"   6  0.7
+$Sound:           "ricochet_04.wav"   6  0.7
+$Sound:           "ricochet_05.wav"   6  0.7
+$Sound:           "ricochet_06.wav"   6  0.7
+$Sound:           "ricochet_07.wav"   6  0.7
+$Sound:           "ricochet_08.wav"   6  0.7
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Silencer Launch"
+$Sound:           "silencer_01.wav"                10 0.7
+
+$Name:            "Silencer On"
+$Sound:           "FP_glock_silencer_on.wav"       5 0.8
+
+$Name:            "Silencer Off"
+$Sound:           "FP_glock_silencer_off.wav"       5 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Sniper Launch"
+$Sound:           "sniper_fire_01.wav"               10 0.8
+
+$Name:            "Sniper 2 Launch"
+$Sound:           "sniper_fire_02.wav"                10 0.8
+
+$Name:            "Sniper 2 Impact"
+$Sound:           "sniper_fire_03.wav"                6 0.9
+
+$Name:				"Sniper Scope Adjust"
+$Sound:           "fp_sniper_scope.wav"           4 0.8
+
+$Name:				"Sniper Scratch"
+$Sound:           "fp_sniper_scratch.wav"         4 0.8
+
+$Name:				"Sniper Reload"
+$Sound:           "fp_sniper_reload.wav"          4 0.8
+
+$Name:				"Sniper Draw"
+$Sound:           "fp_sniper_draw.wav"            4 0.8
+
+$Name:				"Sniper Holster"
+$Sound:           "fp_sniper_holster.wav"         4 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Rocket Launcher"
+$Sound:           "rocket_launch_01.wav"          12 0.8
+
+$Name:            "Rocket Alt Launch"
+$Sound:           "rocket_lob.wav"                12 0.8
+
+$Name:				"Rocket Fire"
+$Sound:           "fp_rocket_fire.wav"            10 0.8
+
+$Name:				"Rocket Draw"
+$Sound:           "fp_rocket_draw.wav"            5 0.8
+
+$Name:				"Rocket Holster"
+$Sound:           "fp_rocket_holster.wav"         5 0.8
+
+$Name:				"Rocket Screen Wipe"
+$Sound:           "fp_rocket_screenwipe.wav"      5 0.8
+
+$Name:				"Rocket Ammo Check"
+$Sound:           "fp_rocket_ammocheck.wav"       5 0.8
+
+$Name:				"Rocket Reload"
+$Sound:           "fp_rocket_reload.wav"          5 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Assault Attack"
+$Sound:           "assault_attack.wav"	       10  0.8
+
+$Name:            "Assault Decay"
+$Sound:           "assault_decay.wav"	       10  0.8
+
+$Name:            "Assault Loop"
+$Sound:           "assault_loop.wav"           10  0.8
+
+$Name:            "SAssault Attack"
+$Sound:           "assault2_attack.wav"	       10  0.8
+
+$Name:            "SAssault Decay"
+$Sound:           "assault2_decay.wav"	       10  0.8
+
+$Name:            "SAssault Loop"
+$Sound:           "assault2_loop.wav"          10  0.8
+
+$Name:            "SAssault Reload"
+$Sound:           "Fp_scopear_reload.wav"	    5  0.8
+
+$Name:            "SAssault Idle Turn"
+$Sound:           "Fp_scopear_idleturn.wav"	    5  0.8
+
+$Name:            "SAssault Idle Scope"
+$Sound:           "Fp_scopear_idlescope.wav"	5  0.8
+
+$Name:            "ARifle Ammo Check"
+$Sound:           "fp_asslt_ammocheck.wav"     5  0.8
+
+$Name:            "ARifle Grip Open"
+$Sound:           "Fp_asslt_gripopen.wav"      5  0.8
+
+$Name:            "ARifle Hand Stretch"
+$Sound:           "Fp_asslt_handstretch.wav"   5  0.8
+
+$Name:            "ARifle Reload"
+$Sound:           "Fp_asslt_reload.wav"        5  0.8
+
+$Name:            "ARifle Draw"
+$Sound:           "fp_sniper_draw.wav"         5  0.8
+
+$Name:            "ARifle Holster"
+$Sound:           "fp_sniper_holster.wav"      5  0.8
+
+$Name:			"Assault Ricochet"
+$Sounds:          6
+$Sound:          "ricochet_09.wav"             6  0.7
+$Sound:          "ricochet_10.wav"             6  0.7
+$Sound:          "ricochet_11.wav"             6  0.7
+$Sound:          "ricochet_12.wav"             6  0.7
+$Sound:          "ricochet_13.wav"             6  0.7
+$Sound:          "ricochet_14.wav"             6  0.7
+$Sound:          "ricochet_15.wav"             6  0.7
+$Sound:          "ricochet_16.wav"             6  0.7
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Machine Pistol Launch"
+$Sound:           "machine_loop.wav"             10 0.8
+
+$Name:            "Machine Pistol Alt Launch"
+$Sound:           "machine_loop_02.wav"          10 0.9
+
+$Name:            "Machine Pistol Reload Top"
+$Sound:           "Fp_mcpl_reload_top.wav"       5 0.9
+
+$Name:            "Machine Pistol Reload Bottom"
+$Sound:           "Fp_mcpl_reload_bottom.wav"    5 0.9
+
+$Name:            "Machine Pistol Switch"
+$Sound:           "Fp_mcpl_switch.wav"           5 0.9
+
+$Name:            "Machine Pistol Switch Back"
+$Sound:           "Fp_mcpl_switchback.wav"       5 0.9
+
+$Name:            "Machine Pistol Idletop Flex"
+$Sound:           "Fp_mcpl_idletop_flex.wav"     5 0.9
+
+$Name:            "Machine Pistol Idletop Hit"
+$Sound:           "Fp_mcpl_idletop_hit.wav"      5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "HMG Launch 1"
+$Sound:           "Heavymachinegun.wav"          10 0.9
+
+$Name:            "HMG Launch 2"
+$Sound:           "Heavymachinegun_02.wav"       10 0.9
+
+$Name:            "HMG Reload"
+$Sound:           "Fp_hmg_reload.wav"            5 0.9
+
+$Name:            "HMG Idle Check"
+$Sound:           "Fp_hmg_idlecheck.wav"         5 0.9
+
+$Name:            "HMG Idle Sweep"
+$Sound:           "Fp_hmg_idlesweep.wav"         5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Shotgun Fire"
+$Sound:           "Shotgun_01.wav"             10 0.8
+
+$Name:            "Shotgun Fire 2"
+$Sound:           "Shotgun_02.wav"             10 0.8
+
+$Name:			  "Shotgun Fire Slow"
+$Sound:           "fp_shotgun_fire_slow.wav"   10 0.8
+
+$Name:			  "Shotgun Reload"
+$Sound:           "fp_shotgun_reload.wav"    5 0.9
+
+$Name:			  "Shotgun Reload Finish"
+$Sound:           "fp_shotgun_reload_finish.wav"  5 0.9
+
+$Name:			  "Shotgun Idle Sweep"
+$Sound:           "fp_shotgun_idle_sweep.wav"  5 0.9
+
+$Name:			  "Shotgun Idle Stretch"
+$Sound:           "fp_shotgun_idle_stretch.wav"  5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:			  "Grenade Twist Throw"
+$Sound:           "fp_gren_twistthrow.wav"     5 0.9
+
+$Name:			  "Grenade PinPull Toss"
+$Sound:           "fp_gren_pinpulltoss.wav"    5 0.9
+
+$Name:			  "Grenade Idle Check"
+$Sound:           "fp_gren_idlecheck.wav"      5 0.9
+
+$Name:			  "Grenade Spin"
+$Sound:           "fp_gren_spin.wav"           5 0.9
+
+$Name:			  "Grenade Tick"
+$Sound:           "grenade_tick.wav"           5 0.8
+
+$Name:			  "Grenade Bounce"
+$Sounds:          4
+$Sound:           "gren_bounce_01.wav"         5 0.9
+$Sound:           "gren_bounce_02.wav"         5 0.9
+$Sound:           "gren_bounce_03.wav"         5 0.9
+$Sound:           "gren_bounce_04.wav"         5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:			  "Flame Thrower Ignite 1"
+$Sound:           "FT_Ignite_01.wav"             8 0.8
+
+$Name:			  "Flame Thrower Ignite 2"
+$Sound:           "FT_Ignite_02.wav"             8 0.8
+
+$Name:			  "Flame Thrower Ignite 3"
+$Sound:           "FT_Ignite_03.wav"             8 0.8
+
+$Name:			  "Flame Alt Fire"
+$Sound:           "FP_flame_altfire.wav"         8 0.8
+
+$Name:			  "Flame Thrower Burn"
+$Sounds:          2
+$Sound:           "FT_Burn_01.wav"               10 1.0
+$Sound:           "FT_Burn_02.wav"               10 1.0
+
+$Name:			  "Flame Switch"
+$Sound:           "FP_Flame_Switch.wav"          5 0.9
+
+$Name:			  "Flame Reload"
+$Sound:           "FP_Flame_Reload.wav"          5 0.9
+
+$Name:			  "Flame Idle Tap"
+$Sound:           "FP_flame_idletap.wav"         5 0.9
+
+$Name:			  "Flame Idle Check"
+$Sound:           "FP_flame_idlecheck.wav"       5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:			  "Rail Fire 1"
+$Sound:           "Rail_Fire_01.wav"             8 0.8
+
+$Name:			  "Rail Fail"
+$Sound:           "Rail_Fail.wav"                8 0.9
+
+$Name:			  "Rail Reload"
+$Sound:           "FP_Rail_Reload.wav"           6 0.9
+
+$Name:			  "Rail Idle Check"
+$Sound:           "FP_rail_idlecheck.wav"        6 0.9
+
+$Name:			  "Rail Idle Turn"
+$Sound:           "FP_rail_idleturn.wav"         6 0.9
+
+$Name:			  "Rail Rifle Hit"
+$Sound:           "Rail_Rifle_Hit.wav"         6 0.9
+
+$Name:            "Rail Flyby"
+$Sounds:          2
+$Sound:           "Rail_flyby_01.wav"        10  0.9
+$Sound:           "Rail_flyby_02.wav"        10  0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:			  "Shoulder Fire"
+$Sound:           "FP_Shol_Fire.wav"             12 0.8
+
+$Name:			  "Shoulder Hit Default"
+$Sound:           "Shol_Boom.wav"                20 0.9
+
+$Name:			  "Shoulder Idle Wipe"
+$Sound:           "FP_Shol_idlewipe.wav"         6 0.9
+
+$Name:			  "Shoulder Idle Monitor"
+$Sound:           "FP_Shol_idlemonitor.wav"      6 0.9
+
+$Name:			  "Shoulder Launch"
+$Sound:           "Shol_Launch.wav"              6 0.9
+
+$Name:			  "Shoulder Reload"
+$Sound:           "FP_shol_reload.wav"           6 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:			  "Jeep Gun Attack"
+$Sound:           "Vauss_04a.wav"            12 0.8
+
+$Name:			  "Jeep Gun Loop"
+$Sound:           "Vauss_04l.wav"            12 0.8
+
+$Name:			  "Jeep Gun Release"
+$Sound:           "Vauss_04r.wav"            12 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Weapon Geomod Small"
+$Sounds:          2
+$Sound:           "geomod_10.wav"            15 1.0
+$Sound:           "geomod_11.wav"            15 1.0
+
+
+$Name:            "Weapon Geomod Large"
+$Sounds:          2
+$Sound:           "geomod_12.wav"            30 1.0
+$Sound:           "geomod_13.wav"            30 1.0
+
+$Name:			  "Geomod Rumble"
+$Sound:			  "Quake_03.wav"             30 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Vauss1 Fire"
+$Sound:           "vauss_01.wav"              10 0.9
+
+$Name:            "Vauss2 Fire"
+$Sound:           "vauss_02.wav"              10 0.9
+
+$Name:            "Vauss3 Fire"
+$Sound:           "vauss_03.wav"              10 0.9
+
+$Name:            "Vauss5 Fire"
+$Sound:           "vauss_05.wav"              10 0.95
+9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Distant Fire 1"
+$Sounds:          4
+$Sound:           "Vauss_Distant_01.wav"       30 0.9
+$Sound:           "Vauss_Distant_02.wav"       30 0.9
+$Sound:           "Vauss_Distant_03.wav"       30 0.9
+$Sound:           "Vauss_Distant_04.wav"       30 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Laser Fire"
+$Sounds:          3
+$Sound:           "Laser_01.wav"            12 0.8
+$Sound:           "Laser_02.wav"            12 0.8
+$Sound:           "Laser_03.wav"            12 0.8
+
+$Name:            "Laser Loop"
+$Sound:           "Laser_Loop_01.wav"        8 0.9
+
+$Name:            "Laser Hit Default"
+$Sound:           "Laser_Hit.wav"            5 0.8
+
+$Name:            "Laser Hit Rock"
+$Sounds:          2
+$Sound:           "Laser_Hit_Rock_01.wav"    5 0.9
+$Sound:           "Laser_Hit_Rock_02.wav"    5 0.9
+
+$Name:            "Laser Hit Metal"
+$Sounds:          2
+$Sound:           "Laser_Hit_Metal_01.wav"    5 0.9
+$Sound:           "Laser_Hit_Metal_02.wav"    5 0.9
+
+$Name:            "Laser Hit Flesh"
+$Sounds:          2
+$Sound:           "Laser_Hit_Flesh_01.wav"    5 0.9
+$Sound:           "Laser_Hit_Flesh_02.wav"    5 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Tribeam Launch"
+$Sound:           "spike_attack_03.wav"        15 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Heap Launch"
+$Sound:           "HEAP_Fire.wav"             16 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Auto Turret Open"
+$Sound:           "Autoturret_Open.wav"       10 1.0
+
+$Name:            "Auto Turret Close"
+$Sound:           "Autoturret_Close.wav"      10 1.0
+
+// -----------------------------------------------------------------------------
+
+
+$Name:            "Torpedo Launch"
+$Sound:           "Torpedo_launch.wav"        18 0.9
+
+$Name:            "Torpedo Hit Default"
+$Sound:           "Torpedo_hit.wav"           20 0.8
+
+$Name:            "Torpedo Hit Flesh"
+$Sound:           "Torpedo_hit_flesh.wav"     5 0.8
+
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Missile Launch"
+$Sound:           "missile_01.wav"            20 0.8
+
+$Name:            "Missile Launch Drone"
+$Sound:           "missile_02.wav"            20 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:            "Mortar Launch"
+$Sound:           "Tank_Cannon.wav"           30 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:				"Turret Attach"
+$Sound:				"attach_01.wav"            5 0.9
+
+$Name:				"Turret Detach"
+$Sound:				"detach_01.wav"            5 0.9
+
+$Name:				"Turret Rotate"
+$Sound:				"turret_loop.wav"          4 0.9
+
+$Name:				"Turret Death"
+$Sound:				"turret_die.wav"           8 0.8
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Capek Cane Launch"
+$Sound:				"CapekCane_Fire_01.wav"		8	0.9
+
+
+// -----------------------------------------------------------------------------------------------------------------------
+// Vehicle Section
+// -----------------------------------------------------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Sub Move"
+$Sound:				"sub_move.wav"            10 0.8
+
+$Name:				"Sub Rev Forward"
+$Sound:				"sub_rev_forward.wav"     10 0.5
+
+$Name:				"Sub Rev Backward"
+$Sound:				"sub_rev_back.wav"        10 0.5
+
+$Name:				"Sub Alert"
+$Sound:				"Sub_horn_01.wav"         20 0.9
+
+$Name:				"Sub Alert Soft"
+$Sound:				"Sub_horn_01.wav"         20 0.9
+
+$Name:				"Sub Attach"
+$Sound:				"Hatch_close.wav"          5 0.9
+
+$Name:				"Sub Detach"
+$Sound:				"Hatch_open.wav"           5 0.9
+
+$Name:				"Sub Hit"
+$Sounds:			3
+$Sound:				"Sub_hit_01.wav"            10 1.0
+$Sound:				"Sub_hit_02.wav"            10 1.0
+$Sound:				"Sub_hit_03.wav"            10 1.0
+
+$Name:				"Sub Explode"
+$Sound:				"Sub_Die.wav"              20 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"APC Move"
+$Sound:				"APC_treads_01.wav"				8 1.0
+
+$Name:				"APC Rev Forward"
+$Sound:				"APC_rev_forward.wav"			8 0.7
+
+$Name:				"APC Rev Backward"
+$Sound:				"APC_rev_back.wav"				8 0.7
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Fighter Move"
+$Sound:				"Fighter_move.wav"				8 0.8
+
+$Name:				"Fighter Rev Forward"
+$Sound:				"Fighter_rev_forward.wav"		8 0.6
+
+$Name:				"Fighter Rev Backward"
+$Sound:				"Fighter_rev_back.wav"			8 0.6
+
+$Name:              "Fighter Rocket Launch"
+$Sound:             "rocket_launch_02.wav"          6 0.8
+
+$Name:				"Fighter Chaingun Start"		
+$Sound:				"Vauss_motor_start.wav"			10 0.8
+
+$Name:				"Fighter Chaingun Stop"		
+$Sound:				"Vauss_motor_stop.wav"			10 0.8
+
+$Name:				"Veh Death"
+$Sound:				"Baboom.wav"			15 0.9
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Drill Start"		
+$Sound:				"drill_up.wav"				8 0.6
+
+$Name:              "Drill Loop"
+$Sound:             "drill_loop.wav"            8 0.5
+
+$Name:				"Drill Stop"		
+$Sound:				"drill_down.wav"			8 0.6
+
+$Name:				"Driller Move"
+$Sound:				"Driller_Treads_01.wav"		8 0.8
+
+$Name:				"Driller Rev Forward"
+$Sound:				"Driller_rev_forward.wav"	8 0.8
+
+$Name:				"Driller Rev Backward"
+$Sound:				"Driller_rev_back.wav"		8 0.8
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Jeep Move"
+$Sound:				"Jeep_move.wav"			    6 0.9
+
+$Name:				"Jeep Rev Forward"
+$Sound:				"Jeep_rev_forward.wav"	    6 0.8
+
+$Name:				"Jeep Rev Backward"
+$Sound:				"Jeep_rev_backward.wav"	    6 0.8
+
+// -----------------------------------------------------------------------------------------------------------------------
+// Effects Section
+// -----------------------------------------------------------------------------------------------------------------------
+
+$Name:				"Tick"
+$Sound:				"Tick.wav"			         0.3 0.8
+
+$Name:				"Alarm 1"
+$Sound:				"Alarm_01.wav"			     10 0.9
+
+$Name:				"Alarm 2"
+$Sound:				"Alarm_02.wav"			     10 0.9
+
+$Name:				"Alarm 3"
+$Sound:				"Alarm_03.wav"			     10 0.9
+
+$Name:				"Alarm 4"
+$Sound:				"Alarm_04.wav"			     10 0.9
+
+$Name:				"Bullet Splash"
+$Sounds:				2
+$Sound:				"Gun_Hit_Water_03.wav"	     4 1.0
+$Sound:				"Gun_Hit_Water_04.wav"	     4 1.0
+	
+$Name:				"Burning"
+$Sound:				"burning_01.wav"             6 0.8
+
+$Name:				"Burn Entity"
+$Sounds:           2
+$Sound:				"burning_02.wav"             6 0.8
+$Sound:				"burning_03.wav"             6 0.8
+
+$Name:				"Camera Change"
+$Sound:				"Switch_03.wav"              4 0.7
+
+$Name:				"Crate Explode"
+$Sound:				"break_01.wav"               7 0.9
+
+$Name:				"Glass Explode_B"
+$Sound:				"Glass_Break_01.wav"               7 0.9
+
+$Name:				"Tin Hit"
+$Sounds:           3
+$Sound:				"debris_06.wav"               5 0.9
+$Sound:				"debris_07.wav"               5 0.9
+$Sound:				"debris_08.wav"               5 0.9
+
+$Name:				"Small Explosion"
+$Sounds:           2
+$Sound:				"Boom_Sm01.wav"				 12 0.9
+$Sound:				"Boom_Sm02.wav"				 12 0.9
+
+$Name:				"Medium Explosion"
+$Sounds:           2
+$Sound:				"Boom_Md01.wav"				14 0.9
+$Sound:				"Boom_Md02.wav"				14 0.9
+
+$Name:				"Large Explosion"
+$Sounds:           2
+$Sound:				"Boom_Lg01.wav"				18 0.9
+$Sound:				"Boom_Lg02.wav"				18 0.9
+
+$Name:		      "Grate Break"
+$Sound:				"Metal_hit_Metal3.wav"      5 0.9
+
+$Name:				"Glass Smash"
+$Sounds:           4
+$Sound:				"Glass_Smash_01.wav"        8 0.7
+$Sound:				"Glass_Smash_02.wav"		8 0.7
+$Sound:				"Glass_Smash_03.wav"		8 0.7
+$Sound:				"Glass_Smash_04.wav"		8 0.7
+
+$Name:				"Glass Drop"
+$Sounds:           6
+$Sound:				"Glass_Drop_01.wav"		4 0.8
+$Sound:				"Glass_Drop_02.wav"		4 0.8
+$Sound:				"Glass_Drop_03.wav"		4 0.8
+$Sound:				"Glass_Drop_04.wav"		4 0.8
+$Sound:				"Glass_Drop_05.wav"		4 0.8
+$Sound:				"Glass_Drop_06.wav"		4 0.8
+
+$Name:				"Geomod Debris Hit"
+$Sounds:           6
+$Sound:				"Geodebris_01.wav"		5 0.9
+$Sound:				"Geodebris_02.wav"		5 0.9
+$Sound:				"Geodebris_03.wav"		5 0.9
+$Sound:				"Geodebris_04.wav"		5 0.9
+$Sound:				"Geodebris_05.wav"		5 0.9
+$Sound:				"Geodebris_06.wav"		5 0.9
+
+$Name:				"Headlamp On"
+$Sound:				"Headlight_on.wav"		4 0.7
+
+$Name:				"Headlamp Off"
+$Sound:				"Headlight_off.wav"		4 0.7
+
+$Name:				"Icicle Break"
+$Sound:				"ice_break_01.wav"      10 0.9
+
+$Name:				"Jolt 1"
+$Sound:				"Jolt_01.wav"			6 0.9
+
+$Name:				"Jolt 2"
+$Sound:				"Jolt_02.wav"			6 0.9
+
+$Name:				"Jolt 3"
+$Sound:				"Jolt_03.wav"			6 0.9
+
+$Name:				"Jolt 4"
+$Sound:				"Jolt_04.wav"			6 0.9
+
+$Name:				"Monitor Break"
+$Sounds:           2
+$Sound:				"monitor_break_01.wav"		5 0.9
+$Sound:				"monitor_break_02.wav"		5 0.9
+
+$Name:				"camera explode"
+$Sound:				"camerahit.wav"			    5 0.9
+
+$Name:				"light break"
+$Sounds:           2
+$Sound:				"monitor_break_01.wav"		5 0.9
+$Sound:				"monitor_break_02.wav"		5 0.9
+
+$Name:				"light break2"
+$Sound:             "Hit_Metal.wav"				6 0.9
+
+$Name:				"metal break"
+$Sounds:           2
+$Sound:				"Monitor_Break_03.wav"		5 0.9
+$Sound:				"Monitor_Break_04.wav"		5 0.9
+
+$Name:				"Oil Drum Explode"
+$Sound:				"drumboom_01.wav"           6 0.8
+
+$Name:				"Rockfall"
+$Sound:				"rockfall.wav"             6 0.9
+
+$Name:				"Hit Flesh"
+$Sounds:			3
+$Sound:				"Hit_Flesh_01.wav"      4 0.9
+$Sound:				"Hit_Flesh_02.wav"      4 0.9
+$Sound:				"Hit_Flesh_03.wav"      4 0.9
+
+$Name:				"Steam"
+$Sounds:			5
+$Sound:				"Steam_01.wav"		4 0.7
+$Sound:				"Steam_02.wav"		4 0.7
+$Sound:				"Steam_03.wav"		4 0.7
+$Sound:				"Steam_04.wav"		4 0.7
+$Sound:				"Steam_05.wav"		4 0.7
+
+$Name:				"Small Water Splash"
+$Sounds:			4
+$Sound:				"Water_Hit_01.wav"		6 1.0
+$Sound:				"Water_Hit_02.wav"		6 1.0
+$Sound:				"Water_Hit_03.wav"		6 1.0
+$Sound:				"Water_Hit_04.wav"		6 1.0
+
+$Name:				"Medium Water Splash"
+$Sounds:				2
+$Sound:				"Gun_Hit_Water_01.wav"	4 1.0
+$Sound:				"Gun_Hit_Water_02.wav"	4 1.0
+
+$Name:				"Large Water Splash"
+$Sound:				"Splash_In.wav"			4 0.8
+
+$Name:				"Huge Water Splash"
+$Sound:				"Sub_Drop_01.wav"		4 0.8
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Solid Break"
+$Sounds:             3
+$Sound:		         "Solid_Break_01.wav"         2 0.8
+$Sound:              "Solid_Break_02.wav"         2 0.8
+$Sound:              "Solid_Break_03.wav"         2 0.8					 
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Impact Flesh"
+$Sounds:             3
+$Sound:		         "Impact_Flesh_01.wav"         2 0.9
+$Sound:		         "Impact_Flesh_02.wav"         2 0.9
+$Sound:		         "Impact_Flesh_03.wav"         2 0.9
+
+$Name:		         "Shield Loop"
+$Sound:		         "Shield.wav"               10  0.9
+
+$Name:		         "Shield Hit"
+$Sounds:             3
+$Sound:		         "ShieldHit_01.wav"         10  0.9
+$Sound:		         "ShieldHit_02.wav"         10  0.9
+$Sound:		         "ShieldHit_03.wav"         10  0.9
+
+// -----------------------------------------------------------------------------
+// Clutter Section
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Bolt Emitter 1"
+$Sound:		         "Energy_01.wav"         4 0.9
+
+$Name:		         "Bolt Emitter 2"
+$Sound:		         "Energy_02.wav"         4 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Interface Beep"
+$Sounds:             5
+$Sound:		         "Beep01.wav"           4 0.9
+$Sound:		         "Beep02.wav"           4 0.9
+$Sound:		         "Beep03.wav"           4 0.9
+$Sound:		         "Beep04.wav"           4 0.9
+$Sound:		         "Beep05.wav"           4 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Negative Beep"
+$Sound:		         "negative_beep.wav"           4 0.9
+
+// -----------------------------------------------------------------------------
+
+$Name:		         "Hud Weapon Display On"
+$Sound:		         "hud_weap_on.wav"             4 1.0
+
+$Name:		         "Hud Weapon Display Off"
+$Sound:		         "hud_weap_off.wav"            4 1.0
+
+$Name:		         "Hud Weapon Display Scroll"
+$Sound:		         "hud_weap_scroll.wav"         4 1.0
+
+$Name:		         "Hud Weapon Display Select"
+$Sound:		         "hud_weap_select.wav"         4 1.0
+
+
+// -----------------------------------------------------------------------------
+
+#End
+
+// -----------------------------------------------------------------------------
+
+// These are nice little packaged sets of impact sounds used in special circumstances
+// For example, the handgun shell casing is metal, but the metal impact sounds don't seem to 
+// apply, so we make this set and use it instead.  Simple.
+
+#Custom Sound Sets
+
+$name:			"9mm shell casings"
++sound:		    "all"	4			
+					"CasingDrop_E01.wav"		0.5 0.8
+					"CasingDrop_E02.wav"		0.5 0.8
+					"CasingDrop_E03.wav"		0.5 0.8
+					"CasingDrop_E04.wav"		0.5 0.8
++sound:		    "metal"	4
+					"CasingDrop_M01.wav"		0.5 0.8
+					"CasingDrop_M02.wav"		0.5 0.8
+					"CasingDrop_M03.wav"		0.5 0.8
+					"CasingDrop_M04.wav"		0.5 0.8
+
+$name:			"clip eject"
++sound:         "all" 4
+					"Clipdrop_01.wav"			2 0.6
+					"Clipdrop_02.wav"			2 0.6
+					"Clipdrop_03.wav"			2 0.6
+					"Clipdrop_04.wav"			2 0.6
+
+$name:          "big debris bounce"
++sound:         "all" 1
+				     "crusher_03.wav"           10 0.9
+
+$name:          "small debris bounce"
++sound:         "all" 4
+                "debris_01.wav"            5  0.9
+				"debris_02.wav"            5  0.9
+				"debris_03.wav"            5  0.9
+				"debris_04.wav"            5  0.9
+
+$name:          "large debris bounce"
++sound:         "all" 4
+                "debris_05.wav"            7  0.9
+		        "debris_06.wav"            7  0.9
+				"debris_07.wav"            7  0.9
+				"debris_08.wav"            7  0.9
+
+$name:			"helmet clatter"
++sound:		    "all" 4
+				    "DropHelmet_01.wav"         2 0.8
+                    "DropHelmet_02.wav"         2 0.8
+					"DropHelmet_03.wav"         2 0.8
+					"DropHelmet_04.wav"         2 0.8
+
+$name:			"solid clatter"
++sound:		    "all" 3
+				    "Solid_Break_01.wav"         2 0.8
+                    "Solid_Break_02.wav"        2 0.8
+					"Solid_Break_03.wav"        2 0.8
+
+$name:			"gib bounce"
++sound:		   "all" 4
+					"Gib_01.wav"                 4 0.9
+					"Gib_02.wav"                 4 0.9
+                    "Gib_03.wav"                 4 0.9
+                    "Gib_04.wav"                 4 0.9
+
+$name:			"wood break"
++sound:		   "all" 4
+					"Wood_Break_01.wav"          4 0.9
+					"Wood_Break_02.wav"          4 0.9
+                    "Wood_Break_03.wav"          4 0.9
+                    "Wood_Break_04.wav"          4 0.9
+
+$name:			"metal break"
++sound:		   "all" 3
+					"Metal_hit_Metal1.wav"       4 0.9
+					"Metal_hit_Metal2.wav"       4 0.9
+					"Metal_hit_Metal3.wav"       4 0.9
+
+$name:			"glass break"
++sound:		   "all" 3
+					"Glass_break_01.wav"       4 0.9
+					"Glass_break_02.wav"       4 0.9
+					"Glass_break_03.wav"       4 0.9
+
+#End

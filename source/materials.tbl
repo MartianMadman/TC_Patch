@@ -1,0 +1,125 @@
+//
+// materials.tbl
+//
+// file which maps bitmap prefix names to game material types
+//
+// ------------------------------------------------
+
+#Materials
+
+$name:            "default"
+$bitmap prefix:   "none"
+$elasticity:		0.5
+$friction:			0.5
+$density:			2500
+$bouyancy:        0
+$traction:        1
+$debris bitmap:   ""
+
+$name:            "rock"
+$bitmap prefix:   "rck"
+$bitmap prefix:   "rch"
+$elasticity:		0.5
+$friction:			0.5
+$density:			2500
+$bouyancy:        0.8
+$traction:        1
+$debris bitmap:   ""
+
+$name:            "metal"
+$bitmap prefix:   "mtl"
+$bitmap prefix:   "steel"
+$elasticity:		0.6
+$friction:			0.1
+$density:			1500
+$bouyancy:        0.5
+$traction:        1
+$debris bitmap:   ""
+
+$name:            "flesh"
+$bitmap prefix:   "fle"
+$bitmap prefix:   "flesh"
+$elasticity:		0.2
+$friction:			0.8
+$density:			800
+$bouyancy:        0.1
+$traction:        1
+$debris bitmap:   ""
+
+$name:            "water"
+$bitmap prefix:   "wtr"
+$elasticity:		0.2
+$friction:			0.5
+$density:			1000
+$bouyancy:        0
+$traction:        2.0
+$debris bitmap:   ""
+
+$name:            "lava"
+$bitmap prefix:   "lva"
+$elasticity:		0.2
+$friction:			1.0
+$density:			2000
+$bouyancy:        0.5
+$traction:        0.5
+$debris bitmap:   ""
+
+$name:            "solid"
+$bitmap prefix:   "pls"
+$bitmap prefix:   "sld"
+$bitmap prefix:   "cem"
+$elasticity:		0.5
+$friction:			0.2
+$density:			750
+$bouyancy:        0.5
+$traction:        1
+$debris bitmap:   ""
+
+$name:				"glass"
+$bitmap prefix:   "gls"
+$elasticity:		0.5
+$friction:			0.2
+$density:			750
+$bouyancy:        0.5
+$traction:        0.8
+$debris bitmap:   ""
+
+$name:            "sand"
+$bitmap prefix:   "snd"
+$elasticity:		0.3
+$friction:			0.3
+$density:			2000
+$bouyancy:        0.8
+$traction:        0.6
+$debris bitmap:   ""
+
+$name:            "ice"
+$bitmap prefix:   "ice"
+$elasticity:		0.5
+$friction:			0.05
+$density:			750
+$bouyancy:        -0.5
+$traction:        0.1
+$debris bitmap:   ""
+
+#End
+
+
+#Material Hit Sounds
+// The numbers in here represent the number of different impact sounds that will be
+// loaded for a particular combination of materials.
+// For example, the number 3 in the "rock" column and the "lava" row will 
+// load the sounds "rock_hit_lava1.wav" thru "rock_hit_lava3.wav".
+
+
+				"default" "rock" "metal" "flesh" "water" "lava" "solid" "glass" "sand" "ice"  
+"default"		0			0			0		0			0			0		0			0		0		0		
+"rock"			0			3			3		0			0			0		0			0		0		0		
+"metal"			0			0			3		0			0			0		0			0		0		0
+"flesh"			0			0			0		0			0			0		0			0		0		0		
+"water"			0			0			0		0			0			0		0			0		0		0
+"lava"			0			0			0		0			0			0		0			0		0		0
+"solid"			0			0			0		0			0			0		0			0		0		0		
+"glass"			0			0			0		0			0			0		0			0		0		0		
+"sand"			0			0			0		0			0			0		0			0		0		0		
+"ice"				0			0			0		0			0			0		0			0		0		3		

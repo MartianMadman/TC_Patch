@@ -1,0 +1,1439 @@
+//
+// emitters.tbl - file to specify particle emitter properties
+//
+// ----------
+//
+// valid values for dir_rand are between 1 (no randomization) to -1 (completely random)
+//
+// spawn_delay values are in seconds
+//
+// pradius is the radius of the particle in the world
+//
+// valid values for emitter flags:
+//  plane			- spew from plane rather than sphere
+//  immediate		- spew first particle when emitter is created
+//  continuous		- spew a particle every frame
+//  dirdepend		- velocity of particle is dependent on dot product with spew axis
+//  dont_move_with_parent	- emitter doesn't move with parent object
+//  accel_with_parent		- particles add velocity of parent to their own velocity
+//
+// valid values for particle flags
+//  clr_change		- bitmap color changes over life of particle
+//  gravity			- particle is affected by gravity
+//  wind				- particle is affected by wind
+//  collide			- particle collides with the world
+//  glow				- particle bitmap is drawn additive
+//  loop				- animated bitmap loops instead of playing once during life of particle
+//  explode			- particle disintegrates into smaller particles when hit
+//  random_orient - particle bitmap is drawn at a random angle
+//	 damages			- particle damages entities
+//  no_z_check		- particle is drawn without any z-buffer check
+//  fire_damage   - if particle damages an entity, it will do fire damage
+//
+// bounciness is on a scale of 0-15, 0 being no bounce, 15 being full bounce
+//
+// stickiness is on a scale of 0-15, 0 being no stickiness, 15 being totally sticky
+//
+// swirliness is on a scale of 0-15, 0 being no swirl, 15 being totally swirly
+//
+// damage_factor is on a scale of 0-15, 0 being no damage, 15 being maximum damage
+//
+// ----------------------------------------------------------------------------------
+
+#particle emitter types
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "splash"
+$pos:                <0,0,0>
+$dir:                <0,0,-1>
+$dir_rand:           0.8
+$min_vel:            3
+$max_vel:            6
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.3
+$max_life_secs:      0.7
+$min_pradius:        0.1
+$max_pradius:        0.2
+$growth_rate:        -0.2
+$acceleration:       0
+$gravity_scale:      1
+$bitmap:             "lightcorona01.tga"
+$particle color:     {255,255,255,128}
+$particle flags:		"collide, gravity, glow"
+$bounciness:         8
+$stickiness:         1
+
+// ----------------------------------------------------------------------------------
+$Name:               "flare"
+$pos:                <0,0,0>
+$dir:                <0,0,-1>
+$dir_rand:           0.8
+$min_vel:            3
+$max_vel:            6
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.3
+$max_life_secs:      0.7
+$min_pradius:        0.1
+$max_pradius:        0.2
+$growth_rate:        -0.2
+$acceleration:       0
+$gravity_scale:      1
+$bitmap:             "lightcorona01.tga"
+$particle color:     {255,255,255,128}
+$particle flags:		"collide, gravity, glow"
+$bounciness:         8
+$stickiness:         1
+
+// ----------------------------------------------------------------------------------
+$Name:               "missile"
+$pos:                <0,0,-0.5>
+$dir:                <0,0,-1>
+$dir_rand:           -1
+$min_vel:            0
+$max_vel:            0.25
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.6
+$max_life_secs:      1.3
+$min_pradius:        0.25
+$max_pradius:        0.5
+$growth_rate:        0.5
+$acceleration:       0
+$gravity_scale:      -0.05
+$bitmap:             "smoketest.tga"
+$particle color:     {255,255,255,64}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "ballistic"
+$pos:                <0,0,-0.5>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            1
+$max_vel:            1
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      3
+$min_pradius:        0.2
+$max_pradius:        0.25
+$growth_rate:        -0.1
+$acceleration:       0
+$gravity_scale:      0.05
+$bitmap:             "smoketest.tga"
+$particle color:     {255,255,255,64}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change"
+
+// ----------------------------------------------------------------------------------
+$Name:               "torpedo"
+$pos:                <0,0,-0.5>
+$dir:                <0,0,-1>
+$dir_rand:           0
+$min_vel:            0
+$max_vel:            0.1
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      1.5
+$min_pradius:        0.05
+$max_pradius:        0.1
+$growth_rate:        0.1
+$acceleration:       0
+$gravity_scale:      -0.08
+$bitmap:             "tinybubbles_A.tga"
+$particle color:     {255,255,255,70}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, glow, random_orient"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "tribeam trail"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            75
+$max_vel:            75
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      5
+$max_life_secs:      5
+$min_pradius:        0.5
+$max_pradius:        0.5
+$growth_rate:        -0.1
+$acceleration:       0
+$gravity_scale:      0
+$bitmap:             "spikefireflare.tga"
+$particle color:     {255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, glow, clr_change"
+
+// ----------------------------------------------------------------------------------
+$Name:               "drone steam"
+$pos:                <0,0.9,-0.6>
+$dir:                <0,-0.3,-1>
+$dir_rand:           0.8
+$min_vel:            0.5
+$max_vel:            0.75
+$spawn_radius:       0
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.075
+$emitter_flags:      "immediate, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.2
+$max_pradius:        0.4
+$growth_rate:        0.2
+$acceleration:       -1.2
+$gravity_scale:      -0.1
+$bitmap:             "smokedark2.tga"
+$particle color:     {255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, glow"
+
+// ----------------------------------------------------------------------------------
+$Name:               "player breath"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1.0
+$min_vel:            0.1
+$max_vel:            0.15
+$spawn_radius:       0.0
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.15
+$emitter_flags:      "dirdepend"
+$initially_on:			yes
+$alternate_states:	yes
+	$on_time:				1.0
+	$on_time_variance:	0.0
+	$off_time:				1.8
+	$off_time_variance:	0.0
+$min_life_secs:      2.0
+$max_life_secs:      2.0
+$min_pradius:        0.0
+$max_pradius:        0.0
+$growth_rate:        0.10
+$acceleration:       -1.5
+$gravity_scale:      -0.01
+$bitmap:             "smokedark2.tga"
+$particle color:     {255,255,255,32}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, glow"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "slime drool"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1.0
+$min_vel:            0.1
+$max_vel:            0.15
+$spawn_radius:       0.0
+$min_spawn_delay:    0.5
+$max_spawn_delay:    0.7
+$emitter_flags:      "dirdepend"
+$initially_on:			yes
+$alternate_states:	yes
+	$on_time:				1.0
+	$on_time_variance:	0.0
+	$off_time:				1.8
+	$off_time_variance:	0.0
+$min_life_secs:      2.0
+$max_life_secs:      2.0
+$min_pradius:        0.2
+$max_pradius:        0.3
+$growth_rate:        0.0
+$acceleration:       0.0
+$gravity_scale:      0.75
+$bitmap:             "AcidBlob04.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, explode"
+$bounciness:			4
+$stickiness:			7
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "drone smoke"
+$pos:                <0,0.9,-0.6>
+$dir:                <0,0.3,-1>
+$dir_rand:           0.8
+$min_vel:            0.5
+$max_vel:            1
+$spawn_radius:       0
+$min_spawn_delay:    0.02
+$max_spawn_delay:    0.04
+$emitter_flags:      "immediate, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      4
+$min_pradius:        0.25
+$max_pradius:        0.5
+$growth_rate:        0.3
+$acceleration:       -1.2
+$gravity_scale:      -0.1
+$bitmap:             "MissileSmoke01.vbm"
+$particle color:     {255,255,255,64}
+$particle flags:		"collide, gravity"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "turret smoke"
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           0.95
+$min_vel:            0.2
+$max_vel:            0.2
+$spawn_radius:       0.1
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.05
+$emitter_flags:      "dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      4
+$min_pradius:        0.08
+$max_pradius:        0.12
+$growth_rate:        0.2
+$acceleration:       0
+$gravity_scale:      -0.025
+$bitmap:             "MissileSmoke01.vbm"
+$particle color:     {128,128,128,64}
+$particle flags:		"collide, gravity"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "pylon smoke"
+$pos:                <0,-0.65,0.1>
+$dir:                <0,1,0>
+$dir_rand:           0.95
+$min_vel:            0.2
+$max_vel:            0.2
+$spawn_radius:       0.1
+$min_spawn_delay:    0.09
+$max_spawn_delay:    0.11
+$emitter_flags:      "dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      4
+$max_life_secs:      6
+$min_pradius:        0.25
+$max_pradius:        0.30
+$growth_rate:        0.2
+$acceleration:       0
+$gravity_scale:      -0.025
+$bitmap:             "MissileSmoke01.vbm"
+$particle color:     {128,128,128,64}
+$particle flags:		"collide, gravity"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "barrelfire"
+$pos:                <0,-0.5,0>
+$dir:                <0,1,0>
+$dir_rand:           0.985
+$min_vel:            0.05
+$max_vel:            0.1
+$spawn_radius:       0.8
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.75
+$max_life_secs:      0.75
+$min_pradius:        0.05
+$max_pradius:        0.2
+$growth_rate:        -0.3
+$acceleration:       -1
+$gravity_scale:      -0.15
+$bitmap:             "ember1_a.tga"
+$particle color:     {128,128,128,255}
+$particle flags:		"collide, gravity, glow"
+$swirliness:         2
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "barrelfire2"
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           0.985
+$min_vel:            0.25
+$max_vel:            0.5
+$spawn_radius:       1
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.75
+$max_life_secs:      0.75
+$min_pradius:        0.1
+$max_pradius:        0.3
+$growth_rate:        -0.5
+$acceleration:       -1
+$gravity_scale:      -0.15
+$bitmap:             "ember1_a.tga"
+$particle color:     {128,128,128,255}
+$particle flags:		"collide, gravity, glow"
+$swirliness:         2
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "barrelsmoke"
+$pos:                <0,-0.5,0>
+$dir:                <0,1,0>
+$dir_rand:           0.99
+$min_vel:            0.1
+$max_vel:            0.1
+$spawn_radius:       0.9
+$min_spawn_delay:    0.0
+$max_spawn_delay:    0.1
+$emitter_flags:      "immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1.5
+$max_life_secs:      2
+$min_pradius:        0.05
+$max_pradius:        0.2
+$growth_rate:        0.15
+$acceleration:       -1
+$gravity_scale:      -0.1
+$bitmap:             "smokedark.tga"
+$particle color:     {255,255,255,80}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change"
+$swirliness:         2
+
+// ----------------------------------------------------------------------------------
+
+$Name:              "pipesteam"
+$pos:               <0,0,0>
+$dir:               <1,0,0>
+$dir_rand:          1.0
+$min_vel:           3.0
+$max_vel:           3.5
+$spawn_radius:      0.1
+$min_spawn_delay:   0.09
+$max_spawn_delay:   0.11
+$emitter_flags:     "dirdepend, continuous"
+$initially_on:      no
+$alternate_states:  no
+$min_life_secs:     1
+$max_life_secs:     1.7
+$min_pradius:       0.20
+$max_pradius:       0.25
+$growth_rate:       0.35
+$acceleration:      -0.9
+$gravity_scale:     -0.025
+$bitmap:            "MissileSmoke01.vbm"
+$particle color:    {128,128,128,64}
+$particle color dest:{128,128,128,0}
+$particle flags:    "collide, clr_change, wind, glow, random_orient, accelerate, damages"
+$swirliness:        1
+$damage_factor:	  1
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "geomod smoke"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            0.1
+$max_vel:            0.3
+$spawn_radius:       1.0
+$min_spawn_delay:    1.0
+$max_spawn_delay:    1.5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1.0
+$max_life_secs:      2.0
+$min_pradius:        1.0
+$max_pradius:        1.4
+$growth_rate:        2.0
+$acceleration:       -0.5
+$gravity_scale:      .05
+$bitmap:             "MissileSmoke01.vbm"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, acceleration, gravity, clr_change, random_orient"
+$swirliness:        1
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "geomod smoke in driller"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            0.6
+$max_vel:            1.2
+$spawn_radius:       1.0
+$min_spawn_delay:    1.0
+$max_spawn_delay:    1.5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.55
+$max_life_secs:      0.9
+$min_pradius:        1.0
+$max_pradius:        1.4
+$growth_rate:        2.0
+$acceleration:       0.0
+$gravity_scale:      .1
+$bitmap:             "smokedark2.tga"
+$particle color:     {255,255,255,64}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient, no_z_check"
+$swirliness:        1
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "youfired"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            8
+$max_vel:            10
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, dont_move_with_parent"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.50
+$max_life_secs:      0.80
+$min_pradius:        0.4
+$max_pradius:        0.8
+$growth_rate:        3.5
+$acceleration:       -10
+$gravity_scale:      -0.6						
+$bitmap:             "Fire01.tga"
+$particle color:     {192,192,192,192}
+$particle color dest:{96,96,96,0}
+$particle flags:		"collide, gravity, accelerate, glow, clr_change, vel_stretch, damages, random_orient, fire_damage"
+$swirliness:         1
+$damage_factor:		10
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "youfiredtoo"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            9
+$max_vel:            9.5
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, dont_move_with_parent"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.40
+$max_life_secs:      0.75
+$min_pradius:        0.35
+$max_pradius:        0.65
+$growth_rate:        4.5
+$acceleration:       -7.5
+$gravity_scale:      -0.1
+$bitmap:					"Flame01_02.tga"
+$particle color:     {128,128,128,128}
+$particle color dest:{64,64,64,0}
+$particle flags:		"collide, gravity, accelerate, glow, clr_change, vel_stretch, damages, random_orient, fire_damage"
+$swirliness:         0
+$damage_factor:		10
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "youfired_multi"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            13
+$max_vel:            15
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, dont_move_with_parent, accel_with_parent"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.5
+$max_life_secs:      1.0
+$min_pradius:        0.2
+$max_pradius:        0.4
+$growth_rate:        3
+$acceleration:       -1.5
+$gravity_scale:      -0.1						
+$bitmap:             "Fire01.tga"
+$particle color:     {192,192,192,192}
+$particle color dest:{96,96,96,0}
+$particle flags:		"collide, gravity, accelerate, glow, clr_change, vel_stretch, damages, random_orient, fire_damage"
+$swirliness:         1
+$damage_factor:		15
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "youfiredtoo_multi"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            12
+$max_vel:            14
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, dont_move_with_parent, accel_with_parent"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.4
+$max_life_secs:      0.8
+$min_pradius:        0.175
+$max_pradius:        0.325
+$growth_rate:        3.5
+$acceleration:       -1.0
+$gravity_scale:      -0.0166
+$bitmap:					"Flame01_02.tga"
+$particle color:     {128,128,128,128}
+$particle color dest:{64,64,64,0}
+$particle flags:		"collide, gravity, accelerate, glow, clr_change, vel_stretch, damages, random_orient, fire_damage"
+$swirliness:         0
+$damage_factor:		15
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "youfiredthree"
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           1
+$min_vel:            9
+$max_vel:            9.5
+$spawn_radius:       0
+$min_spawn_delay:    0
+$max_spawn_delay:    0
+$emitter_flags:      "continuous, dont_move_with_parent"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.35
+$max_life_secs:      0.60
+$min_pradius:        0.35
+$max_pradius:        0.60
+$growth_rate:        6.5
+$acceleration:       -5.5
+$gravity_scale:      -0.3
+$bitmap:             "UnderDaCee-0031.tga"
+$particle color:		{128,128,128,128}
+$particle color dest:{64,64,64,0}
+$particle flags:		"collide, gravity, accelerate, glow, clr_change, vel_stretch, damages, random_orient, fire_damage"
+$swirliness:         0
+$damage_factor:		10
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "fighter engine steam left"
+$pos:                <-1.0,0,-3.2>
+$dir:                <0,0,-1>
+$dir_rand:           0.95
+$min_vel:            0.5
+$max_vel:            1.5
+$spawn_radius:       0
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.075
+$emitter_flags:      "immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.5
+$max_life_secs:      1.5
+$min_pradius:        0.2
+$max_pradius:        0.3
+$growth_rate:        0.2
+$acceleration:       -1.0
+$gravity_scale:      -0.1
+$bitmap:             "smoketest.tga"
+$particle color:     {128,128,128,64}
+$particle color dest:{128,128,128,0}
+$particle flags:		"gravity, clr_change, glow"							
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "fighter engine steam right"
+$pos:                <1.0,0,-3.2>
+$dir:                <0,0,-1>
+$dir_rand:           0.95
+$min_vel:            0.5
+$max_vel:            1.5
+$spawn_radius:       0
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.075
+$emitter_flags:      "immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.5
+$max_life_secs:      1.5
+$min_pradius:        0.2
+$max_pradius:        0.3
+$growth_rate:        0.2
+$acceleration:       -1.0
+$gravity_scale:      -0.1
+$bitmap:             "smoketest.tga"
+$particle color:     {128,128,128,64}
+$particle color dest:{128,128,128,0}
+$particle flags:		"gravity, clr_change, glow"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion fire leg"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.9999
+$min_vel:				1.0
+$max_vel:				1.5
+$spawn_radius:			0.1
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		3.5
+$max_life_secs:		6.0
+$min_pradius:			0.050
+$max_pradius:			0.060
+$growth_rate:			0.0
+$acceleration:			0.0
+$gravity_scale:		1.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,128}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, gravity, clr_change, glow, explode"
+$bounciness:			6
+$stickiness:			7
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion random bits"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0
+$min_vel:				1.8
+$max_vel:				2.5
+$spawn_radius:			0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.5
+$max_life_secs:		1
+$min_pradius:			0.02
+$max_pradius:			0.03
+$growth_rate:			0
+$acceleration:			0.0
+$gravity_scale:		2.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, gravity, clr_change, glow, vel_stretch"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion main part"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				-1.0
+$min_vel:				0.2
+$max_vel:				0.4
+$spawn_radius:			1.0
+$min_spawn_delay:		0.02
+$max_spawn_delay:		0.06
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.033
+$max_life_secs:		0.166
+$min_pradius:			0.6
+$max_pradius:			0.8
+$growth_rate:			0.333
+$acceleration:			-5.0
+$gravity_scale:		-0.05
+$bitmap:					"JustFire.tga"
+$particle color:		{255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, random_orient, glow"
+$swirliness:         2
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion main part 3"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				-1.0
+$min_vel:				0.2
+$max_vel:				0.4
+$spawn_radius:			0.5
+$min_spawn_delay:		0.02
+$max_spawn_delay:		0.06
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.133
+$max_life_secs:		0.366
+$min_pradius:			1.2
+$max_pradius:			2.5
+$growth_rate:			0.0
+$acceleration:			-5.0
+$gravity_scale:		-0.05
+$bitmap:					"JustFire.tga"
+$particle color:		{255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, random_orient, glow"
+$swirliness:         2
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion main_smoke center"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				-1.0
+$min_vel:				0.2
+$max_vel:				0.4
+$spawn_radius:			0.5
+$min_spawn_delay:		0.02
+$max_spawn_delay:		0.06
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		1.133
+$max_life_secs:		2.0
+$min_pradius:			0.5
+$max_pradius:		   1.9
+$growth_rate:			0.0
+$acceleration:			-5.0
+$gravity_scale:		-0.05
+$bitmap:					"JustSmoke.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, random_orient"
+$swirliness:         0
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion boom"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.8
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.7
+$max_life_secs:		0.7
+$min_pradius:			0.8
+$max_pradius:			0.8
+$growth_rate:			0.5
+$acceleration:			0.0
+$gravity_scale:		0.0
+$bitmap:					"JustSmoke.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, clr_change"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion boom 2"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			1.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.4
+$max_life_secs:		0.6
+$min_pradius:			0.8
+$max_pradius:			0.8
+$growth_rate:			0.5
+$acceleration:			0.0
+$gravity_scale:		0.0
+$bitmap:					"JustSmoke.tga"
+$particle color:		{255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, clr_change"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion flare"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.09
+$max_life_secs:		0.09
+$min_pradius:			1.3
+$max_pradius:			1.3
+$growth_rate:			0.5
+$acceleration:			0.0
+$gravity_scale:		0.0
+$bitmap:					"explosionflare01.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, random_orient, glow"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion flare 2"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.09
+$max_life_secs:		0.09
+$min_pradius:			1.3
+$max_pradius:			1.3
+$growth_rate:			0.5
+$acceleration:			0.0
+$gravity_scale:		0.0
+$bitmap:					"explosionflare01.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, random_orient, glow"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion smoke leg"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.1
+$max_vel:				0.2
+$spawn_radius:			0.0
+$min_spawn_delay:		0.04
+$max_spawn_delay:		0.06
+$emitter_flags:		""
+$initially_on:			no
+$alternate_states:	no
+$min_life_secs:		0.2
+$max_life_secs:		1.0
+$min_pradius:			0.03
+$max_pradius:			0.05
+$growth_rate:			2.0
+$acceleration:			0.0
+$gravity_scale:		-0.05
+$bitmap:					"smoketest.tga"
+$particle color:		{160,90,30,96}
+$particle color dest:{127,127,127,0}
+$particle flags:		"collide, clr_change"
+$swirliness:			4
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"flamethrower fire"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				0.1
+$max_vel:				0.5
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.15
+$max_life_secs:		0.23
+$min_pradius:			0.1
+$max_pradius:			0.10
+$growth_rate:			0.7
+$acceleration:			0.0
+$gravity_scale:		0.1
+$bitmap:					"Fire01.tga"
+$particle color:		{255,255,255,100}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, gravity, glow"
+$swirliness:			3
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"flamethrower fire_large"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				0.1
+$max_vel:				0.5
+$spawn_radius:			0.0
+$min_spawn_delay:		0.1
+$max_spawn_delay:		0.1
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.05
+$max_life_secs:		0.43
+$min_pradius:			0.8
+$max_pradius:			1.0
+$growth_rate:			1.7
+$acceleration:			12.0
+$gravity_scale:		-0.4
+$bitmap:					"Fire01.tga"
+$particle color:		{255,255,255,200}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, gravity, glow, random_orient"
+$swirliness:			3
+
+// ---------------------------------------------------------------------------------------
+
+$Name:					"flamethrower_explode"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.00001
+$max_vel:				0.00001
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.15
+$max_life_secs:		0.18
+$min_pradius:			0.01
+$max_pradius:			0.02
+$growth_rate:			6.0
+$acceleration:			0.0
+$gravity_scale:		0.00
+$bitmap:					"Fire01.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, glow, random_orient"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"flamethrower_explode_large"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.00001
+$max_vel:				0.00001
+$spawn_radius:			0.6
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.15
+$max_life_secs:		0.18
+$min_pradius:			0.90
+$max_pradius:			1.32
+$growth_rate:			8.0
+$acceleration:			0.0
+$gravity_scale:		0.00
+$bitmap:					"Fire01.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, clr_change, glow, random_orient"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"flamethrower tail"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				1.0
+$min_vel:				0.1
+$max_vel:				0.1
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		""
+$initially_on:			no
+$alternate_states:	no
+$min_life_secs:		0.4
+$max_life_secs:		0.6
+$min_pradius:			0.054
+$max_pradius:			0.057
+$growth_rate:			-0.3
+$acceleration:			0.0
+$gravity_scale:		-0.2
+$bitmap:					"Fire01.tga"
+$particle color:		{255,255,255,90}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, clr_change, random_orient, gravity, glow"
+$swirliness:			5
+
+// ---------------------------------------------------------------------------------------
+
+$Name:					"flamethrower head"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.9999
+$min_vel:				0.75
+$max_vel:				1.0
+$spawn_radius:			0.1
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous, dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		2.5
+$max_life_secs:		4.0
+$min_pradius:			0.045
+$max_pradius:			0.06
+$growth_rate:			0.0
+$acceleration:			0.0
+$gravity_scale:		1.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,164}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, gravity, clr_change, glow"
+$bounciness:			6
+$stickiness:			7
+
+// ---------------------------------------------------------------------------------------
+
+$Name:					"flamethrower smoke"
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           0.95
+$min_vel:            0.4
+$max_vel:            0.4
+$spawn_radius:       0.0
+$min_spawn_delay:    0.07
+$max_spawn_delay:    0.20
+$emitter_flags:      "dirdepend"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.4
+$max_life_secs:      0.6
+$min_pradius:        0.14
+$max_pradius:        0.32
+$growth_rate:        0.2
+$acceleration:       0
+$gravity_scale:      -0.025
+$bitmap:             "MissileSmoke01.vbm"
+$particle color:     {128,128,128,80}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, gravity, immediate, clr_change"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"explosion main part 2"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				-1.0
+$min_vel:				0.2
+$max_vel:				0.4
+$spawn_radius:			1.0
+$min_spawn_delay:		0.02
+$max_spawn_delay:		0.06
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.033
+$max_life_secs:		0.166
+$min_pradius:			0.6
+$max_pradius:			0.8
+$growth_rate:			0.333
+$acceleration:			-5.0
+$gravity_scale:		-0.05
+$bitmap:					"Obj_EXP01.tga"
+$particle color:		{255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, random_orient, hold_last_frame, glow"
+$swirliness:         2
+$age_pct_to_finish_vbm:	0.333
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit center"
+$pos:						<0, 0, 0>
+$dir:						<0, 0, 0>
+$dir_rand:				0.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.00
+$max_spawn_delay:		0.00
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.433
+$max_life_secs:		0.566
+$min_pradius:			1.0
+$max_pradius:			1.7
+$growth_rate:			0.0
+$acceleration:			0.0
+$gravity_scale:		-0.05
+$bitmap:					"HEAP.vbm"
+$particle color:		{255,255,255,200}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, glow"
+$swirliness:         0
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit center_small"
+$pos:						<0, 0, 0>
+$dir:						<0, 0, 0>
+$dir_rand:				0.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.00
+$max_spawn_delay:		0.00
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.433
+$max_life_secs:		0.566
+$min_pradius:			0.8
+$max_pradius:			1.2
+$growth_rate:			0.0
+$acceleration:			0.0
+$gravity_scale:		-0.05
+$bitmap:					"HEAP.vbm"
+$particle color:		{255,255,255,200}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, glow"
+$swirliness:         0
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit center_big"
+$pos:						<0, 0, 0>
+$dir:						<0, 0, 0>
+$dir_rand:				0.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.00
+$max_spawn_delay:		0.00
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.433
+$max_life_secs:		0.566
+$min_pradius:			3.0
+$max_pradius:			3.9
+$growth_rate:			0.0
+$acceleration:			0.0
+$gravity_scale:		-0.05
+$bitmap:					"HEAP.vbm"
+$particle color:		{255,255,255,200}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, glow"
+$swirliness:         0
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit sparks"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				16.8
+$max_vel:				19.5
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.15
+$max_life_secs:		0.15
+$min_pradius:			0.10
+$max_pradius:			0.12
+$growth_rate:			0.01
+$acceleration:			1.0
+$gravity_scale:		2.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, clr_change, glow, vel_stretch"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit sparks_small"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				16.8
+$max_vel:				19.5
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.08
+$max_life_secs:		0.08
+$min_pradius:			0.10
+$max_pradius:			0.12
+$growth_rate:			0.01
+$acceleration:			1.0
+$gravity_scale:		2.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, clr_change, glow, vel_stretch"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit sparks_big"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				16.8
+$max_vel:				19.5
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.25
+$max_life_secs:		0.58
+$min_pradius:			0.10
+$max_pradius:			0.14
+$growth_rate:			0.01
+$acceleration:			1.0
+$gravity_scale:		2.0
+$bitmap:					"Flame01_02.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{128,128,128,0}
+$particle flags:		"collide, clr_change, glow, vel_stretch, gravity,"
+
+// ----------------------------------------------------------------------------------
+
+$Name:					"gun hit smoke"
+$pos:						<0, 0, 0>
+$dir:						<0, 1, 0>
+$dir_rand:				0.0
+$min_vel:				0.0
+$max_vel:				0.0
+$spawn_radius:			0.0
+$min_spawn_delay:		0.0
+$max_spawn_delay:		0.0
+$emitter_flags:		"immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:		0.7
+$max_life_secs:		0.7
+$min_pradius:			0.8
+$max_pradius:			0.8
+$growth_rate:			0.5
+$acceleration:			0.0
+$gravity_scale:		0.0
+$bitmap:					"JustSmoke.tga"
+$particle color:		{255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, random_orient, clr_change"
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "humanoid fire 1"
+$pos:                <0,0,0>
+$dir:                <0,1.0,0>
+$dir_rand:           0
+$min_vel:            0.05
+$max_vel:            0.2
+$spawn_radius:       0.125
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.075
+$emitter_flags:      "immediate, continuous"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.25
+$max_life_secs:      0.85
+$min_pradius:        0.20
+$max_pradius:        0.50
+$growth_rate:        -0.2
+$acceleration:       -3.0
+$gravity_scale:      -0.65
+$bitmap:             "Fire01.tga"
+$particle color:     {255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, glow, random_orient, wind, damages, fire_damage"
+$swirliness:         6
+$damage_factor:		0
+
+// ----------------------------------------------------------------------------------
+
+$Name:               "humanoid fire 2"
+$pos:                <0,0,0>
+$dir:                <0,1.0,0>
+$dir_rand:           0.6
+$min_vel:            0.05
+$max_vel:            0.15
+$spawn_radius:       0
+$min_spawn_delay:    0.05
+$max_spawn_delay:    0.075
+$emitter_flags:      "immediate"
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.5
+$max_life_secs:      1.40
+$min_pradius:        0.05
+$max_pradius:        0.15
+$growth_rate:        1.25
+$acceleration:       -3.0
+$gravity_scale:      -0.6
+$bitmap:             "smoketest.tga"
+$particle color:     {150,100,10,64}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, clr_change, random_orient, wind"
+$swirliness:         2
+$damage_factor:		0
+
+// ----------------------------------------------------------------------------------
+
+#end

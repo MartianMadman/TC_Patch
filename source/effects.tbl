@@ -1,0 +1,713 @@
+//
+//		Table to handle various and sundry effects-related stuff
+//
+//
+
+
+// ---------------------------------------------------
+//	Glares and Light Coronas.  Parsed in glare.cpp.
+// ---------------------------------------------------
+
+// *** Some field explanation here ***
+//
+// $Name:					"TestGlare01"						// unique name for the glare
+// $Light Color:					{255, 255, 128}			// color of the light, used for screen glows.  {0,0,0} disables screen flashing (washing out)
+// $Corona Bitmap:				"LightCorona01.tga"		// bitmap to use for the corona
+//		$Cone Angle:					90.0						// glare visibility cone.  this is full angle.  360 degrees for all angle visibility.
+//		$Intensity:						1.0						// brightness.  higher means corona is drawn full alpha more often
+//		$Radius Distance Factor:	0.6						// how fast the corona gets bigger as you get further from it.  follows a sqrt(), in case you were wondering
+//		$Radius Scale Factor:		0.8						// scales how large the corona is overall.
+//		$Diminish Distance:			-0.05						// distance at which the corona is no longer visible.  negative means always visible, more negative means less shrinking with closeness
+//
+// $Volumetric Bitmap:				"LightBeam01.tga"		// volumetric bitmap, visible outside visibility cone
+// 	$Volumetric Height:			0.6						// how high/wide the volumetric bitmap should be in world units
+// 	$Volumetric Length:			2.4						// how long the volumetric bitmap should be in world units
+//
+// $Reflection Bitmap:           "LightCorona02.tga"  // the bitmap that will get displayed as the reflection of this corona in a mirrored floor
+
+//	NOTES:  1) You do not have to have both a corona and a volumetric bitmap, you may have one or the other singly.
+//         2) If you do not specify a reflection bitmap, the code will not attempt to render a reflection for that glare
+//			  3) FOR GLARES USED AS A MUZZLE FLASH ONLY:
+//					- Cone angle is valid both forward and reverse.  This means you will see the Corona Bitmap from behind the gun as well.
+//					- Radius Distance Factor and Diminish Distance are ignored (but must still be in the table)
+//					- Radius Scale Factor is the radius of the corona in WORLD units (ie meters).  It is not scaled.
+//					- Light Color is also ignored, since we dont flash the screen with these.
+//
+
+#Glares
+
+
+$Name:					     "lanternglow"
+$Light Color:			     {255, 255, 255}
+$Corona Bitmap:				 "LightCorona05.tga"	
+	$Cone Angle:			  105.0
+	$Intensity:				  .04
+	$Radius Distance Factor:  0.6
+	$Radius Scale Factor:	  1.0		
+	$Diminish Distance:		  -0.05
+
+
+$Name:					   "whitelightcorona"
+$Light Color:				{180, 180, 220}
+$Corona Bitmap:				"flourescentglow.tga"	
+	$Cone Angle:				180
+	$Intensity:					.2
+	$Radius Distance Factor:	 0.5
+	$Radius Scale Factor:		 1
+	$Diminish Distance:			-0.05
+
+
+$Name:						"officelampglare"
+$Light Color:				{255, 255, 128}
+$Corona Bitmap:				"Light_BlueGlo01_Dim.tga"	
+$Cone Angle:				90.0
+$Intensity:					0.02
+$Radius Distance Factor:	0.2
+$Radius Scale Factor:		1.5		
+$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam03.tga"
+	$Volumetric Height:			2.5
+	$Volumetric Length:			1
+
+
+$Name:					       "glowstickglare"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"Light_BrownGlo01.tga"	
+$Cone Angle:				180
+$Intensity:					0.02
+$Radius Distance Factor:	 0.5
+$Radius Scale Factor:		 1.0
+$Diminish Distance:			-0.05
+
+
+
+$Name:					"Sub Headlamp"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.4
+	$Radius Scale Factor:		0.6
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			0.6
+	$Volumetric Length:			3.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"Glock Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.3
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_side01.tga"
+	$Volumetric Height:			1.0
+	$Volumetric Length:			1.0
+
+$Name:					"Shotgun Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash08.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.4
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideSHTGN.tga"
+	$Volumetric Height:			1.0
+	$Volumetric Length:			1.0
+
+
+$Name:					"Sniper Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash02.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.6
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideSNPR.tga"
+	$Volumetric Height:			1.0
+	$Volumetric Length:			1.0
+
+
+$Name:					"Assault Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.5
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideASSLT.tga"
+	$Volumetric Height:			.8
+	$Volumetric Length:			.8
+
+
+$Name:					"MachinePistol01 Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash05.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.3
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideMCHNPIS01.tga"
+	$Volumetric Height:			.6
+	$Volumetric Length:			.4
+
+
+$Name:					"MachinePistol02 Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash06.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.3
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideMCHNPIS02.tga"
+	$Volumetric Height:			.5
+	$Volumetric Length:			.4
+
+
+$Name:					"HeavyMachineGun Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash07.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.4
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideHVYMCHN.tga"
+	$Volumetric Height:			.9
+	$Volumetric Length:			.9
+
+
+$Name:					"AssaultScope Muzzle Flash"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		0.3
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideASSLT.tga"
+	$Volumetric Height:			.6	
+	$Volumetric Length:			.7
+
+
+$Name:					"DroneChainGun"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"muzzleflash07.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.0
+	$Radius Scale Factor:		.7
+	$Diminish Distance:			0.0
+$Volumetric Bitmap:				"muzzleflash_sideHVYMCHN.tga"
+	$Volumetric Height:			1.2	
+	$Volumetric Length:			1.2
+
+$Name:					"Tube Light Rod Glare"
+$Light Color:						{220, 220, 255}
+$Corona Bitmap:					"whiteblu01.tga"	
+	$Cone Angle:					360.0
+	$Intensity:						0.8
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.30		
+	$Diminish Distance:			-0.05
+
+
+$Name:					"fp_gren_glare"
+$Light Color:						{255, 0, 0}
+$Corona Bitmap:					"Light_RedLargeGlo01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						0.3
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.05		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			0.025
+	$Volumetric Length:			0.070
+
+$Name:					"barndoorglare2"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"LightCorona01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						.6
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		1		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			.75
+	$Volumetric Length:			5
+$Reflection Bitmap:           "LightCorona01.tga"
+
+$Name:					"barndoorglare"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"LightCorona01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		1		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			2
+	$Volumetric Length:			2.4
+$Reflection Bitmap:           "LightCorona01.tga"
+
+
+// This one is for the vehicles (APC, Sub)
+$Name:					"TestGlare01"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"LightCorona01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			0.6
+	$Volumetric Length:			2.4
+$Reflection Bitmap:           "LightCorona01.tga"
+
+// This one is for the Security Spotlight
+
+$Name:					"securityspot"
+$Light Color:					{255, 255, 128}
+$Corona Bitmap:					"smokyCorona04.tga"	
+	$Cone Angle:				 90
+	$Intensity:					 .3
+	$Radius Distance Factor:	 .6
+	$Radius Scale Factor:		 .8
+	$Diminish Distance:			 -0.05
+$Volumetric Bitmap:				"smokebeam.tga"
+	$Volumetric Height:			2
+	$Volumetric Length:			15
+$Reflection Bitmap:           "smokyCorona04.tga"
+
+$Name:					"minelt03glare"
+$Light Color:					{255, 255, 128}
+$Corona Bitmap:					"smokyCorona04.tga"	
+	$Cone Angle:				     270
+	$Intensity:					     0.1
+	$Radius Distance Factor:	  0.8
+	$Radius Scale Factor:		  0.8
+	$Diminish Distance:			  0.05
+$Reflection Bitmap:           "smokyCorona04.tga"
+
+// This one is for the orange light fixture and others.
+
+$Name:					"TestGlare01a"
+$Light Color:						{255, 255, 128}
+$Corona Bitmap:					"LightCorona01.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.8
+	$Radius Scale Factor:		1.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			2.0
+	$Volumetric Length:			7.4
+$Reflection Bitmap:           "LightCorona01.tga"
+
+// This one is for the Blue light fixture and others.
+
+$Name:					"TestGlare01b"
+$Light Color:						{128, 128, 128}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						0.1
+	$Radius Distance Factor:	0.8
+	$Radius Scale Factor:		1.4
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			2.0
+	$Volumetric Length:			7.4
+
+$Name:					"TestGlare02"
+$Light Color:						{255, 255, 255}
+$Corona Bitmap:					"LightCorona_Blue01.tga"	
+	$Cone Angle:					30.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.4
+	$Radius Scale Factor:		1.0
+	$Diminish Distance:			0.8
+$Volumetric Bitmap:				"LightCorona_Blue01.tga"
+	$Volumetric Height:			0.3
+	$Volumetric Length:			1.3
+$Reflection Bitmap:           "LightCorona_Blue01.tga"
+	
+
+$Name:					"TestGlare03"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			0.6
+	$Volumetric Length:			3.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+$Name:					"TestGlare03_novolume"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+	
+$Name:					"TestGlare04"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					105.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam03.tga"
+	$Volumetric Height:			2.0
+	$Volumetric Length:			6.5
+$Reflection Bitmap:           "LightCorona04.tga"
+
+	
+$Name:					"RedWedge01_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_RedLargeGlo01.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						0.3
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		1.3			
+	$Diminish Distance:			-0.05
+
+
+$Name:					"RedWedge01_NoVolume_Small"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_RedLargeGlo01.tga"	
+	$Cone Angle:					220.0
+	$Intensity:						0.2
+	$Radius Distance Factor:	1.0
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.6
+$Reflection Bitmap:           "Light_RedLargeGlo01.tga"
+
+$Name:					"GreenWedge01_NoVolume_Small"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_LilGreenFlare01.tga"	
+	$Cone Angle:					220.0
+	$Intensity:						0.2
+	$Radius Distance Factor:	1.0
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.6
+$Reflection Bitmap:           "Light_RedLargeGlo01.tga"
+
+$Name:					"AmberWedge01_NoVolume_Small"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"LightCorona01.tga"	
+	$Cone Angle:					220.0
+	$Intensity:						0.2
+	$Radius Distance Factor:	1.0
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.6
+$Reflection Bitmap:           "Light_RedLargeGlo01.tga"
+
+$Name:					"WarmWedge01_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BrownGlo01_Dim.tga"	
+	$Cone Angle:					170.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "Light_BrownGlo01_Dim.tga"
+
+	
+$Name:					"CoolSpot_WideBeam"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					140.0
+	$Intensity:						0.4
+	$Radius Distance Factor:	1.2
+	$Radius Scale Factor:		0.2		
+	$Diminish Distance:			-0.01
+$Volumetric Bitmap:				"LightBeam02_Wide.tga"
+	$Volumetric Height:			3.8
+	$Volumetric Length:			3.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"CoolWedge01_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BlueGlo01_Dim.tga"	
+	$Cone Angle:					170.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+
+
+$Name:					"CoolWedge01_NoVolume_Small"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BlueGlo01_Dim.tga"	
+	$Cone Angle:					220.0
+	$Intensity:						0.2
+	$Radius Distance Factor:	1.0
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.6
+$Reflection Bitmap:           "Light_BlueGlo01_Dim.tga"
+
+
+$Name:					"SlatLight01_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BrownGlo01.tga"	
+	$Cone Angle:					155.0
+	$Intensity:						0.08
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "Light_BrownGlo01.tga"
+
+
+$Name:					"CoolWedge02_LG_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BlueGlo01_Dim.tga"	
+	$Cone Angle:					170.0
+	$Intensity:						0.080
+	$Radius Distance Factor:	1.6
+	$Radius Scale Factor:		1.8		
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "Light_BlueGlo01_Dim.tga"
+
+
+$Name:					"BIGcanyon_Light01_Glow"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BrownGlo01.tga"	
+	$Cone Angle:					170.0
+	$Intensity:						0.3
+	$Radius Distance Factor:	1.3
+	$Radius Scale Factor:		0.37	
+	$Diminish Distance:			-0.05
+
+
+$Name:					"CoolWedge01_SmallCone_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_BlueGlo01_Dim.tga"	
+	$Cone Angle:					165.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.6		
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "Light_BlueGlo01_Dim.tga"
+
+$Name:					"surgical_light"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"LightCorona03.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						1
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam01.tga"
+	$Volumetric Height:			1.0
+	$Volumetric Length:			1.0
+$Reflection Bitmap:           "Light_RedLargeGlo01.tga"
+
+$Name:					"RedMini01_NoVolume"
+$Light Color:						{0, 0, 0}
+$Corona Bitmap:					"Light_RedLargeGlo01.tga"	
+	$Cone Angle:					150.0
+	$Intensity:						0.8
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.3			
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "Light_RedLargeGlo01.tga"
+
+
+$Name:					"TransportThrusterGLO"
+$Light Color:						{0, 182, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					105.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	2.0
+	$Radius Scale Factor:		0.7		
+	$Diminish Distance:			-0.05
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"FighterEngine01_NoVolume"
+$Light Color:						{255, 255, 255}
+$Corona Bitmap:					"thruster02_cor.vbm"	
+	$Cone Angle:					180.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.4		
+	$Diminish Distance:			-0.05
+
+
+$Name:					"FighterEngine01"
+$Light Color:						{255, 255, 255}
+$Volumetric Bitmap:				"thruster02_vol.vbm"
+	$Volumetric Height:			1.0
+	$Volumetric Length:			2.0
+
+
+$Name:					"EDFEngine01"
+$Light Color:						{255, 255, 255}
+$Volumetric Bitmap:				"thruster02_vol.vbm"
+	$Volumetric Height:			9.0
+	$Volumetric Length:			7.0
+
+
+$Name:					"EDFEngine01_NoVolume"
+$Light Color:						{255, 255, 255}
+$Corona Bitmap:					"thruster02_cor.vbm"	
+	$Cone Angle:					180.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	1.5
+	$Radius Scale Factor:		1.3		
+	$Diminish Distance:			-0.09
+
+
+$Name:					"TramLights01"
+$Light Color:						{200, 200, 255}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			1.6
+	$Volumetric Length:			8.6
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"BigBeamLight_Glare01"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			1.6
+	$Volumetric Length:			18.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"BigBeamLight_Glare01_SmallBeam"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.5		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			1.6
+	$Volumetric Length:			6.9
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"BigBeamLight_Glare02_Wider"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					90.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02_Wide.tga"
+	$Volumetric Height:			4.6
+	$Volumetric Length:			13.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"BigBeamLight_Glare02_Widest"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					140.0
+	$Intensity:						0.3
+	$Radius Distance Factor:	1.3
+	$Radius Scale Factor:		0.6		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02_Wide.tga"
+	$Volumetric Height:			12.6
+	$Volumetric Length:			20.4
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"Shoplight01_Glare01"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					83.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam02.tga"
+	$Volumetric Height:			1.6
+	$Volumetric Length:		   3.2
+$Reflection Bitmap:           "LightCorona04.tga"
+
+
+$Name:					"Shoplight01_Glare01_WIDE"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					83.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam03.tga"
+	$Volumetric Height:			3.6
+	$Volumetric Length:		   5.2
+$Reflection Bitmap:           "LightCorona04.tga"
+
+$Name:					"Shoplight01_Glare01_WIDE_LONG"
+$Light Color:						{200, 154, 228}
+$Corona Bitmap:					"LightCorona04.tga"	
+	$Cone Angle:					83.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam03.tga"
+	$Volumetric Height:			7.2
+	$Volumetric Length:		   10.2
+$Reflection Bitmap:           "LightCorona04.tga"
+
+$Name:					"ShopLight01_WARM_WIDE"
+$Light Color:						{238, 156, 0}
+$Corona Bitmap:					"LightCorona02.tga"	
+	$Cone Angle:					83.0
+	$Intensity:						0.5
+	$Radius Distance Factor:	0.6
+	$Radius Scale Factor:		0.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"LightBeam03_Warm.tga"
+	$Volumetric Height:			3.6
+	$Volumetric Length:		   5.2
+$Reflection Bitmap:           "LightCorona04.tga"
+
+$Name:					"glare_center"
+$Light Color:						{238, 156, 0}
+$Corona Bitmap:					"glare_center_glow.tga"	
+	$Cone Angle:					83.0
+	$Intensity:						1.0
+	$Radius Distance Factor:	1.6
+	$Radius Scale Factor:		1.8		
+	$Diminish Distance:			-0.05
+$Volumetric Bitmap:				"glare_center.tga"
+	$Volumetric Height:			3.2
+	$Volumetric Length:		   9.2
+$Reflection Bitmap:           "LightCorona04.tga"
+
+#End

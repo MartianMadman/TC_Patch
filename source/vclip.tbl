@@ -1,0 +1,875 @@
+//
+// vclip.tbl
+//
+// file to specify vclip characteristics
+//
+// Name             - name of vclip (referenced from other .tbl files)
+// Flags				  - (OPTIONAL) vclip flags to set
+//                  "liquid_surface"			// vbm plays as a decal on the surface of a liquid
+//                  "radius_in_multiples"		// whether particlee radii are specified in meters or in multiples of the particle radius
+// Damage           - (OPTIONAL) amount of damage explosion does per meter radius
+// VBM Filename     - (OPTIONAL) disk filename of vbm animation
+// VFX Filename     - (OPTIONAL) disk filename of vfx animation
+// VFX Radius       - (OPTIONAL) vfx radius, used for culling
+// Foley Sound      - (OPTIONAL) name of foley sound (from foley.tbl)
+// Glow             - (OPTIONAL) if true, render bitmaps as glow
+// particle count   - (optional) if specified determines the number of particles 
+//                     per meter radius of the explosion. if particle count > 0
+//                     then all particle fields must be specified. see emitters.tbl
+//                     for a description of the particle fields
+//
+// note: sounds use the following fields: filename, min_distance, volume_scale
+//
+// ------------------------------------------------
+
+#Vclips
+
+$Name:               "glassboom"
+$particle count:     30
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            6
+$max_vel:            10
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.005
+$max_pradius:        0.01
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1
+$bitmap:             "brwnglass01_A.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient"
+$bounciness:         8
+$stickiness:         10
+
+$Name:               "explode"
+$Flags:				 ("code_explode")
+$Damage:			 10
+$VBM Filename:       "boom01.vbm"
+$VBM Glow:           false
+$Explosion Name:	 "generic"
+$Foley Sound:        "Oil Drum Explode"
+
+$Name:               "genericsmallboom"
+$particle count:     10
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            2
+$max_vel:            3
+$spawn_radius:       1
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.01
+$max_pradius:        0.02
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1
+$bitmap:             "genericdebris_A.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient"
+$bounciness:         3
+$stickiness:         7
+
+$Name:               "marsblobdeath"
+$particle count:     85
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            3
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:		 yes
+$alternate_states:	 no
+$min_life_secs:      .75
+$max_life_secs:      1
+$min_pradius:        0.02
+$max_pradius:        0.06
+$growth_rate:        0
+$acceleration:       0
+$gravity_scale:      1
+$bitmap:             "marsblobblood.tga"
+$particle color:     {255,255,255,255}
+$particle flags:	 "collide, gravity, explode, random_orient"
+$stickiness:		 5
+
+$Name:               "fish_death"
+$damage:             40
+$VFX Filename:       "fish_death.VFX"
+$VFX Radius:         1.0
+$Foley Sound:			 ""
+
+$Name:               "yellboom"
+//$VBM Filename:       "yelboom.vbm"
+//$VBM Glow:            true
+$Flags:					("code_explode")
+$Explosion Name:		"rocket hit"
+$Foley Sound:        "light break"
+$particle count:     60
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            2
+$max_vel:            4
+$spawn_radius:       .5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      4
+$min_pradius:        0.005
+$max_pradius:        0.05
+$growth_rate:        0
+$acceleration:       1
+$gravity_scale:      2
+$bitmap:             "hotspark.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow, vel_stretch"
+$bounciness:         7
+$stickiness:         7
+
+$Name:               "yellboom_metal"
+//$VBM Filename:       "yelboom.vbm"
+//$VBM Glow:            true
+$Flags:					("code_explode")
+$Explosion Name:		"rocket hit"
+$Foley Sound:        "metal break"
+$particle count:     60
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            2
+$max_vel:            4
+$spawn_radius:       .5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      4
+$min_pradius:        0.005
+$max_pradius:        0.05
+$growth_rate:        0
+$acceleration:       1
+$gravity_scale:      2
+$bitmap:             "hotspark.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow, vel_stretch"
+$bounciness:         7
+$stickiness:         7
+
+$Name:               "Glass Explode_B"
+$Foley Sound:        "Glass Explode_B"
+
+$Name:               "crateboom"
+$Foley Sound:        "Crate Explode"
+
+$Name:               "Tin Hit Sound"
+$Foley Sound:        "Tin Hit"
+
+$Name:               "screenboom"
+$VBM Filename:       "boom01.vbm"
+$VBM Glow:            true
+$particle count:     40
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            2
+$max_vel:            4
+$spawn_radius:       .5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      2
+$max_life_secs:      4
+$min_pradius:        0.008
+$max_pradius:        0.03
+$growth_rate:        0
+$acceleration:       1
+$gravity_scale:      2
+$bitmap:             "hotspark.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow"
+$bounciness:         7
+$stickiness:         7
+
+$Name:               "explosion 1"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"generic"
+$Foley Sound:        "Small Explosion"
+
+$Name:               "explosion 1a"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"generic"
+$Foley Sound:        "Camera Explosion"
+
+$Name:               "explosion_no_sound"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$VBM Glow:            true
+$Explosion Name:		"generic"
+
+$Name:               "explosion_space"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$VBM Glow:            true
+$Explosion Name:		"space"
+
+$Name:               "drone explode"
+$Flags:					("code_explode")
+$damage:					100
+$VBM Filename:       ""
+$Explosion Name:		"generic"
+$Foley Sound:        "Medium Explosion"
+$particle count:     7
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           -1
+$min_vel:            5
+$max_vel:            15
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.25
+$max_pradius:        0.75
+$growth_rate:        -0.35
+$acceleration:       -1
+$gravity_scale:      2
+$bitmap:             "lightcorona01.tga"
+$particle color:     {255,255,255,255}
+$particle flags:		"collide, gravity, accelerate, glow"
+
+$Name:               "objectboom3"
+$Flags:				("code_explode")
+$Damage:			 15
+$VBM Filename:       ""
+$Explosion Name:	 "generic"
+$Foley Sound:        "Small Explosion"
+$particle count:     30
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            6
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.05
+$max_pradius:        .5
+$growth_rate:        -1
+$acceleration:       -0.5
+$gravity_scale:      1
+$bitmap:             "Exp01_spewflare01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{201,66,0,0}
+$particle flags:     "collide, gravity, clr_change, glow"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "objectboom2"
+$Flags:					("code_explode")
+$Damage:					20
+$VBM Filename:       ""
+$Explosion Name:		"generic"
+$Foley Sound:        "Small Explosion"
+$particle count:     40
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            6
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.1
+$max_pradius:        1
+$growth_rate:        -1
+$acceleration:       -0.5
+$gravity_scale:      1
+$bitmap:             "Exp01_spewflare01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "objectboom"
+$Flags:					("code_explode")
+$Damage:					10.0
+$VBM Filename:       ""
+$Explosion Name:		"generic"
+$Foley Sound:        "Small Explosion"
+$particle count:     20
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            6
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.05
+$max_pradius:        0.1
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1.0
+$bitmap:             "Exp01_SpewFlare01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "geomod rocks"
+$particle count:     25
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           0
+$min_vel:            1
+$max_vel:            10
+$spawn_radius:       0.5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.05
+$max_pradius:        0.1
+$growth_rate:        0
+$acceleration:       0
+$gravity_scale:      1
+$bitmap:             "rck_debris01.tga"
+$particle color:     {128,128,128,255}
+$particle flags:		"collide, gravity"
+$bounciness:         4
+$stickiness:         8
+
+$Name:               "geomod smoke"
+$Flags:              ("radius_in_multiples")
+$particle count:     2
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           0.5
+$min_vel:            0.1
+$max_vel:            0.2
+$spawn_radius:       0.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1.5
+$max_life_secs:      3.0
+$min_pradius:        1.0
+$max_pradius:        1.4
+$growth_rate:        1.0
+$acceleration:       -0.5
+$gravity_scale:      .1
+$bitmap:             "bigboom.vbm"
+$particle color:     {255,255,255,128}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, acceleration, gravity, clr_change"
+
+$Name:               "rock crumble"
+$Foley Sound:        "Rockfall"
+$particle count:     4
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            4
+$spawn_radius:       0.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.1
+$max_pradius:        0.5
+$growth_rate:        0
+$acceleration:       0
+$gravity_scale:      2
+$bitmap:             "Rck_Debris01.tga"
+$particle color:     {128,128,128,255}
+$particle flags:		"collide, gravity"
+$bounciness:         4
+$stickiness:         8
+
+$Name:               "tribeam hit"
+$VFX Filename:       "spike_tribeamhit.vfx"
+$VFX Radius:         4.0
+
+$Name:               "laser hit"
+$VFX Filename:       "LaserHit.vfx"
+$VFX Radius:         0
+
+$Name:               "NanoAttackHit"
+$VFX Filename:       "NanoAttackHit.vfx"
+$VFX Radius:         1.5
+
+$Name:               "Nano Shield Small Hit"
+$VFX Filename:       "NanoShieldHitSmall.vfx"
+$VFX Radius:         1.0
+$Foley Sound:        "Shield Hit"
+
+$Name:               "Nano Shield Big Hit"
+$VFX Filename:       "NanoShieldHitBig.vfx"
+$VFX Radius:         1.0
+$Foley Sound:        "Shield Hit"
+
+$Name:               "Nano Shield Destroy"
+$VFX Filename:       "NanoShieldDestroy.vfx"
+$VFX Radius:         1.0
+$Foley Sound:        "Shield Hit"
+
+$Name:               "crate explode"
+$Foley Sound:        "Crate Explode"
+
+$Name:               "oil drum explode"
+$Flags:					("code_explode")
+$Damage:					30.0
+$VBM Filename:       ""
+$VBM Glow:            true
+$Explosion Name:		"generic"
+$Foley Sound:        "Oil Drum Explode"
+
+$Name:               "bloodsplat"
+$particle count:     85
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           0.5
+$min_vel:            0.8
+$max_vel:            1.3
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.5
+$max_life_secs:      1
+$min_pradius:        0.01
+$max_pradius:        0.03
+$growth_rate:        0
+$acceleration:       0
+$gravity_scale:      0.25
+$bitmap:             "bloodsplat-drop.tga"
+$particle color:     {127,127,127,255}
+$particle flags:		"collide, gravity, explode"
+$stickiness:			30
+
+$Name:               "acid splash"
+$particle count:     30
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           0.5
+$min_vel:            1.8
+$max_vel:            4.3
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1.5
+$max_life_secs:      2
+$min_pradius:        0.1
+$max_pradius:        0.3
+$growth_rate:        0
+$acceleration:       0
+$gravity_scale:      0.5
+$bitmap:             "AcidBlob03.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, explode, random_orient, clr_change"
+$stickiness:			30
+
+$Name:               "gatspark"
+$Flags:              ("no_z_check")
+$particle count:     65
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1.8
+$max_vel:            3.5
+$spawn_radius:       0.0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.12
+$max_life_secs:      0.28
+$min_pradius:        0.06
+$max_pradius:        0.09
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      0.5
+$bitmap:             "HotFlare_SP01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, clr_change, glow, vel_stretch"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "small_tommyspark"
+$Flags:              ("no_z_check")
+$particle count:     50
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            2.0
+$max_vel:            2.4
+$spawn_radius:       0.0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.06
+$max_life_secs:      0.18
+$min_pradius:        0.07
+$max_pradius:        0.10
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      0.5
+$bitmap:             "HotFlare_SP01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow, explode"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "gatsmoke"
+$Flags:              ("no_z_check")
+$particle count:     5
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           0
+$min_vel:            0.5
+$max_vel:            1.5
+$spawn_radius:       0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.25
+$max_life_secs:      1
+$min_pradius:        0.05
+$max_pradius:        0.1
+$growth_rate:        0.5
+$acceleration:       -0.5
+$gravity_scale:      -0.2
+$bitmap:             "smokedark2.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:		"collide, gravity, accelerate, clr_change"
+
+$Name:               "riotspark"
+$Flags:              ("no_z_check")
+$particle count:     60
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            0.1
+$max_vel:            1.3
+$spawn_radius:       0.0
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.14
+$max_life_secs:      0.15
+$min_pradius:        0.01
+$max_pradius:        0.02
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      0.5
+$bitmap:             "HotFlare_SP01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow, vel_stretch"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "icicleboom"
+$Foley Sound:        "Icicle Break"
+$particle count:     30
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            2
+$spawn_radius:       .5
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.008
+$max_pradius:        0.02
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1.0
+$bitmap:             "iceblast01_A.tga"
+$particle color:     {255,255,255,175}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient"
+$bounciness:         5
+$stickiness:         4
+
+$Name:               "Glassboom"
+$particle count:     40
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            2
+$spawn_radius:       .1
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      2
+$min_pradius:        0.1
+$max_pradius:        0.3
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1.0
+$bitmap:             "glasshard_A.tga"
+$particle color:     {255,255,255,200}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient"
+$bounciness:         5
+$stickiness:         4
+
+$Name:               "beerbottleboom"
+$particle count:     30
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            2
+$spawn_radius:       1
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1
+$max_life_secs:      3
+$min_pradius:        0.01
+$max_pradius:        0.02
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      .5
+$bitmap:             "brwnglass01_A.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, random_orient"
+$bounciness:         5
+$stickiness:         4
+
+
+
+$Name:               "sub_explode"
+$VFX Filename:       "Explosion_Sub.VFX"
+$VFX Radius:         10.0
+$Foley Sound:			"Sub Death"
+
+$Name:               "torpedo_explode"
+$VFX Filename:       "Explosion_TorpedoHit.VFX"
+$VFX Radius:         5.0
+
+$Name:					"water_splash_small"
+$Flags:					( "liquid_surface" )
+$VFX Filename:			"WaterRipple01.VFX"
+$VFX Radius:         3.0
+$Foley Sound:			"Small Water Splash"
+
+$Name:					"water_splash_medium"
+$Flags:					( "liquid_surface" )
+$VFX Filename:			"WaterRipple01.VFX"
+$VFX Radius:         3.0
+$Foley Sound:			"Medium Water Splash"
+
+$Name:					"water_splash_large"
+$Flags:					( "liquid_surface" )
+$VFX Filename:			"WaterSplash01.VFX"
+$VFX Radius:         5.0
+$Foley Sound:			"Large Water Splash"
+
+$Name:					"water_splash_huge"
+$Flags:					( "liquid_surface" )
+$VFX Filename:			"water_splash_huge.VFX"
+$VFX Radius:         10.0
+$Foley Sound:			"Huge Water Splash"
+
+$Name:					"bullet_splash"
+$Flags:					( "liquid_surface" )
+$VFX Filename:			"WaterRipple01.VFX"
+$VFX Radius:         3.0
+$Foley Sound:			"Bullet Splash"
+
+$Name:               "underwater geomod"
+$VFX Filename:       "Explosion_TorpedoHit.VFX"
+$VFX Radius:         5.0
+
+$Name:               "drill_particles_rocks"
+$particle count:     1
+$pos:                <0,0,0>
+$dir:                <0,1,0>
+$dir_rand:           0.53
+$min_vel:            0.5
+$max_vel:            4
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.8
+$max_life_secs:      0.8
+$min_pradius:        0.05
+$max_pradius:        0.10
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1.0
+$bitmap:             "rck_driller.tga"
+$particle color:     {64,128,170,192}
+$particle color dest:{255,255,255,255}
+$particle flags:     "collide, gravity, random_orient, clr_change, glow"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "drill_particles_smoke"
+$particle count:		1
+$pos:                <0,0,0>
+$dir:                <0.0, 0.2, -1.0>
+$dir_rand:           0
+$min_vel:            1
+$max_vel:            3
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      1.5
+$max_life_secs:      3.0
+$min_pradius:        0.4
+$max_pradius:        0.7
+$growth_rate:        6
+$acceleration:       -0.5
+$gravity_scale:      -0.2
+$bitmap:             "smokedark2.tga"
+$particle color:     {255,255,255,64}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, no_z_check"
+$bounciness:         8
+$stickiness:         7
+
+$Name:               "drill_particles_sparks"
+$particle count:     1
+$pos:                <0,0,0>
+$dir:                <0,0,1>
+$dir_rand:           -1
+$min_vel:            1
+$max_vel:            2
+$spawn_radius:       1.2
+$emitter_flags:      ""
+$initially_on:			yes
+$alternate_states:	no
+$min_life_secs:      0.8
+$max_life_secs:      0.8
+$min_pradius:        0.03
+$max_pradius:        0.06
+$growth_rate:        0
+$acceleration:       -0.5
+$gravity_scale:      1.0
+$bitmap:             "HotFlare_SP01.tga"
+$particle color:     {255,255,255,255}
+$particle color dest:{255,255,255,0}
+$particle flags:     "collide, gravity, clr_change, glow"
+$bounciness:         8
+$stickiness:         7
+
+$Name:					"transport_explode"
+$VFX Filename:			"shipexp01_anim.VFX"
+$VFX Radius:         100.0
+$Foley Sound:			"Large Explosion"
+
+$Name:					"charge_explode"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"rocket hit"
+$Foley Sound:			"Medium Explosion"
+
+$Name:					"flame_can_explode"
+$Flags:					("code_explode")
+$VBM Filename:			""
+$Explosion Name:		"flamethrower-alt"
+$Foley Sound:			"Medium Explosion"
+
+$Name:					"rocket_impact"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"rocket hit"
+$Foley Sound:			"Medium Explosion"
+
+$Name:					"big_charge_explode"
+$Flags:					("code_explode")
+$VBM Filename:			""
+$Explosion Name:		"shoulder mounted geomod"
+$Foley Sound:			""
+
+$Name:					"shoulder_cannon_explode"
+$Flags:					("code_explode")
+$VBM Filename:			""
+$Explosion Name:		"shoulder mounted geomod"
+$Foley Sound:			"Shoulder Hit Default"
+
+$Name:					"rail_rifle_hit"
+$VFX Filename:			"railriflehit.VFX"
+$VFX Radius:         10.0
+$Foley Sound:			"Rail Rifle Hit"
+
+$Name:					"HEAP"
+$VBM Filename:       "HEAP.vbm"
+$Foley Sound:			"Medium Explosion"
+
+$Name:					"SIMP"
+$Flags:					("no_z_check")
+$VBM Filename:       "HEAP.vbm"
+
+$Name:					"FGatE"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"FGatE"
+
+$Name:					"FGatE_lilspark"
+$Flags:					("code_explode")
+$VBM Filename:       ""
+$Explosion Name:		"FGatE_lilspark"
+
+$Name:					"FGatE_bigspark"
+$Flags:					("code_explode" "no_z_check")
+$VBM Filename:       ""
+$Explosion Name:		"FGatE_bigspark"
+
+$Name:					"grate break"
+$Flags:					()
+$Foley Sound:			"grate break"
+
+
+#End

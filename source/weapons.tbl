@@ -1,0 +1,2699 @@
+//
+//
+// weapons.tbl
+//
+// file to specify weapon characteristics
+//
+// --------------------
+// Ordering of entries:
+// --------------------
+//
+// All primary weapons are listed in the first section, followed by secondary weapons in the next.
+//
+//
+// note: sounds use the following fields: filename, min_distance, volume_scale
+//
+//
+// $Name:               name of the weapon type
+// $Display Name:       interface display name of weapon
+// $V3D Filename:       disk filename for model used for projectile (can be "" to not render anything)
+// $Flags:              properties of the weapon.  The following are supported
+//								"alt_fire"					-- weapon has alt fire mode
+//                      "continuous_fire"			-- weapon fires continuously (fire sound loops)
+//                      "alt_continuous_fire"   -- weapon fires continuously in alt fire mode
+//                      "flickers"              -- weapon light flickers
+//                      "thruster"              -- light cast from rear of weapon 
+//								"melee"						-- weapon is melee
+//							   "remote_charge"         -- weapon is a remote charge
+//								"player_wep"				-- weapon can be used by player
+//								"alt_zoom"					-- alt fire activates zoom
+//								"underwater"            -- weapon works underwater
+//								"from_eye"					-- weapon fires from eye (otherwise fires from muzzle)
+//								"gravity"					-- weapon projectile has gravity applied
+//								"fixed_muz_flash"			-- don't randomly rotate muzzle flash on first-person view
+//								"alt_lock"	  				-- alt fire requires a lock before can be fired
+//   		               "silent"                -- weapon doesn't make noise when fired
+//								"drill"						-- weapon has ability to drill
+//                      "detonator"             -- weapon is a detonator, used for remote charges
+//                  		"alt_custom_mode"       -- alt fire puts weapon into custom mode
+//								"ps2_fp_full_clip"		-- uses full clip renderer when rendering this weapon's first person model
+//                      "no_world_collide"      -- weapon doesn't collide with world
+//
+// $Flags2:             more properties of the weapon.  The following are supported
+//                      "pierces_all"
+//                      "random_bmp_orient"
+//                      "cycle_alpha"
+//                      "no_fire_through"
+//                      "no_world_collide"
+//                      "undeviating"
+//                      "flame" -- specifies that the weapon is to behave like the flamethrower
+//                      "has_scanner" -- specifies that the weapon has a heat scanner (like the rail gun) for its alt fire function
+//                      "damage_self" -- specifies that the weapon can damage the player - for weapons with explosive charges.
+//                      "has_pilot_flame" -- specifies that the weapon has a pilot flame (like the flamethrower)
+//						"multi_mesh_collide" -- in multiplayer, weapon must collide with player mesh to count as a hit (default is bounding box collision)
+//
+// $Cycle Position:		(required IF AND ONLY IF the "player_wep" flag is set)  This denotes where in the weapons cycle
+//								this player weapon occurs.  0-based.  Must be less than 16.
+// $Pref Position:		(required IF AND ONLY IF the "player_wep" flag is set)  This denotes the preference for this weapon (0
+//								is highest.  0-based.  Must be less than 16.
+// $Fine Aim Region Size:(required IF the "player_wep" flag is set, optional otherwise)  Size, in percentage of the screen, of the "fine aiming" window
+// $Fine Aim Region Size SS:(required IF the "player_wep" flag is set, optional otherwise)  Size, in percentage of the screen, of the "fine aiming" window -- SPLITSCREEN
+//
+// $Weapon Type:		(OPTIONAL)tells what category it should be placed in if it is a weapon used by player.  Can be the following:
+// $Weapon Icon:		(OPTIONAL)used if weapon type is defined in weapon switching
+//				"close combat"
+//				"semi-auto"
+//				"heavy"
+//				"explosive"
+// $Damage Type:			what type of damage the weapon does.  following are acceptable:
+//				"bash",				// you use this to beat on other things
+//				"bullet",			// standard round
+//				"armor piercing bullet"    	// high powered round
+//				"explosive"	   		// boom
+//				"fire"				// fire. good.
+//				"energy"			// lasers and all dat
+//              	        "electrical"			// from electrified materials
+//              	        "acid"                     	// hydrochloric, not the drug
+//                      	"scalding"                 	// steam, etc. damage
+//
+// $3rd Person V3D:                  (OPTIONAL) third person model for weapon
+// $3rd Person Muzzle Flash Glare    (OPTIONAL) muzzle flash glare name seen from third person
+// $3rd Person Muzzle Flash Radius:  (OPTIONAL) radius of third person muzzle flash bitmap
+// $1st Person Mesh:                 (OPTIONAL) weapon model seen from first person
+// $1st Person FOV:                  (OPTIONAL) FOV used when rendering the first person gun
+// $1st Person offset:               (OPTIONAL) used to tweak weapon position relative to eye pos
+// $1st Person offset SS:               (OPTIONAL) used to tweak weapon position relative to eye pos - SPLITSCREEN
+// $1st person muzzle flash bitmap:  (OPTIONAL) muzzle flash bitmap seen from first person
+// $1st person muzzle flash radius:  (OPTIONAL) radius of first person muzzle flash bitmap
+// $1st Person Alt Muzzle Flash Bitmap: (OPTIONAL) muzzle flash bitmap of the alternate fire seen from first person
+// $1st Person Alt Muzzle Flash Radius: (OPTIONAL) alternate fire radius of first person muzzle flash bitmap
+// $Spark VFX:								 (OPTIONAL) the spark vfx for the riot stick
+//		+State:    "idle"
+//		+State:    "run"
+//    +State:    "loop_fire"
+//		+Action:   "fire"             "Foley Sound"
+//		+Action:   "alt_fire"         "Foley Sound"
+//		+Action:   "fire_fail"        "Foley Sound"
+//		+Action:   "idle_1"           "Foley Sound"
+//		+Action:   "idle_2"           "Foley Sound"
+//		+Action:   "idle_3"           "Foley Sound"
+//		+Action:   "reload"           "Foley Sound"
+//		+Action:   "draw"             "Foley Sound"
+//		+Action:   "holster"          "Foley Sound"
+//		+Action:   "jump"             "Foley Sound"
+//		+Action:   "custom_start"     "Foley Sound"
+//		+Action:   "custom_leave"     "Foley Sound"
+// $Bitmap Filename:
+// $Head Radius:
+//		+Length:                     (OPTIONAL)
+//		+Tail Radius:                (OPTIONAL)
+// $HUD Icon Filename:              	(OPTIONAL) icon used on the HUD to represent weapon
+// $HUD Reticle Filename:		(OPTIONAL) reticle bitmap
+// $HUD Zoomed Reticle Filename:	(OPTIONAL) zoomed reticle bitmap
+// $HUD Locked Reticle Filename:	(OPTIONAL) reticle bitmap indicating weapon has "locked-on"
+// $PS2 Selection Icon Filemame:	(OPTIONAL) weapon icon bitmap for ps2 weapon select interface
+// $Collision Radius:				Radius of weapon (in meters) for collision detection purposes
+// $Max Ammo:                       
+// $Ammo Type:
+// $AI attack range:				The range that an AI will attempt to stay within when attacking
+// $Clip Size:                      (OPTIONAL)
+// $Clip Reload Time:               (OPTIONAL)
+// $Clip Drain Time:                (OPTIONAL) For power weapons (i.e. riot stick)
+// $Mass:
+// $Velocity:
+// $Velocity Multi:					(OPTIONAL) Defaults to $Velocity
+// $Fire Wait:
+// $Alt Fire Wait:                  	(OPTIONAL)
+// $Num Projectiles:			(OPTIONAL) Number of projectiles released when weapon fires (default is 1)
+// $Spread Degrees:                 	(OPTIONAL) default 0.0f degrees
+// $Spread Degrees Multi:				(OPTIONAL) default same as $Spread Degrees:
+// $AI Spread Degrees:              	(OPTIONAL) single, multi (multi ignored).  default 0.0f for both
+// $Alt Spread Degrees:             	(OPTIONAL) default 0.0f degrees
+// $Alt Spread Degrees Multi:          	(OPTIONAL) default same as $Alt Spread Degrees
+// $AI Alt Spread Degrees:          	(OPTIONAL) single, multi (multi ignored).  default 0.0f for both
+// $Start Sound:			(OPTIONAL) The sound of the (continuously-firing) weapon starting up
+// $Start Delay:			(OPTIONAL) The delay between when the entity wants to fire this weapon and when it starts firing
+// $Stop Sound:				(OPTIONAL) The sound of the (continuously-firing) weapon winding down
+// $Burst Mode:                     	(OPTIONAL)
+//		+Burst Count:
+//		+Burst Delay:
+//		+Burst Launch Sound:
+//		+Burst Alt Fire:
+// $Damage:						(REQUIRED) Single player damage
+// $Damage Multi:				(OPTIONAL) Multiplayer damage.  Defaults to same as single player damage
+// $Alt Damage:					(OPTIONAL) Single player alt damage.  Defaults to same as regular single player damage.
+// $Alt Damage Multi:			(OPTIONAL) Multi alt damage.  Defaults to same as single player alt damage.
+// $AI Damage Scale:			(OPTIONAL) Factor that damage is scaled by if weapon is fired by AI
+// $Lifetime:
+// $Lifetime Multi:					(OPTIONAL) Defaults to $Lifetime
+// $Homing:
+//		+Turn Time:		How quickly the weapon can turn; lower values turn quicker; 
+//					keep this a positive number; values < 1 will create rediculously agile weapons
+//		+View Cone:		FOV of the scanner of the weapon (in Degrees)
+//		+Scanning Range:	How far ahead the weapon will scan when looking for a target
+//		+Wakeup Time:		(OPTIONAL) Number of seconds before the weapon "wakes up" and begins tracking; 0 if not specified
+// $Launch:				Foley sound played when weapon is fired
+// $Alt Launch:                     	(OPTIONAL) Foley sound played when weapon is alternate fired
+// $Launch Fail:                    	(OPTIONAL) Foley sound played when weapon tries to fire but cannot (usually because out of ammo)
+// $Fly Sound:								
+// $Zoom Sound:				(OPTIONAL)
+// $Impact Delay:			(OPTIONAL) Delay in seconds before applying melee damage or creating a weapon
+// $Alt Impact Delay:			(OPTIONAL) Delay in seconds before applying melee damage or creating a weapon in alt fire mode
+// $Impact Sound:                   	"material"  num_sounds
+//					sound sound sound  (OPTIONAL)
+// $Near Miss Sound:                	(OPTIONAL) Foley sound for near-misses from this weapon
+// $Near Miss Underwater:		(OPTIONAL) Foley sound for near-misses from this weapon, underwater
+// $Geomod Sound:                   	(OPTIONAL) Foley sound for weapon making a geomod
+// $Impact Vclips:
+// $Impact Vclips Radius:
+// $Trail emitter:                  	(OPTIONAL)
+// $Damage Radius:						(REQUIRED) 
+// $Damage Radius Multi:				(OPTIONAL) Defaults to $Damage Radius: value
+//		+Crater Radius:
+// $Sticky:
+//		+Stick Sound:
+//		+Embedded V3D Filename:
+// $Glow										Light cast by projectile
+//		+Inner Radius:
+//		+Outer Radius:
+//		+Color:
+// $Muzzle Flash Light:             (OPTIONAL) Light cast by muzzle flash
+//		+Inner Radius:
+//		+Outer Radius:
+//		+Color:
+// $Scorch Bitmap:			(OPTIONAL) scorch bitmap filename
+// $Scorch Size:			(OPTIONAL) scorch size, in meters (a vector)
+// $Glass Decal Bitmap:			(OPTIONAL) glass decal bitmap filename
+// $Glass Decal Size:			(OPTIONAL) glass decal size, in meters (a vector)
+// $Shells Ejected:			(OPTIONAL) the type of shells ejected and the manner in which they eject
+//		+V3D:				
+//		+Base Dir:			
+//		+Eject Velocity:	
+//		+Custom Sound Set:	
+// $Clips Ejected:			(OPTIONAL) the type of shells ejected and the manner in which they eject
+//		+V3D:				
+//		+Drop Pause Time:			
+//		+Custom Sound Set:	
+// $Camera Shake:			(OPTIONAL) amount of camera shake for this weapon
+//		+Distance:		Shake amount in meters
+//		+Time:			Camera shake duration
+// $Tracers                         	(OPTIONAL) Whether the weapon fires tracers (default = false)
+//		+Tracer Frequency:	How many standard rounds are fired in-between tracers 
+//					(i.e. a value of 3 would mean a tracer is fired every 3 rounds)
+//		+Tracer Effect:		Name of VFX/V3D to use for the tracer...
+// $Piercing:                       	(OPTIONAL) Whether the weapon can pierce walls (default = false)
+//		+Piercing Power:        How much mass the weapon can pierce before being stopped; 
+//					piercing an object subtracts an amount from this value, and when it reaches 0 the weapon can no longer pierce
+//		+Ricochet Angle:        (OPTIONAL) Angle (in degrees) at which the bullet will no longer penetrate, but ricochet instead (default = always penetrate)
+//		+Ricochet Bitmap:       (OPTIONAL) Bitmap to use for ricochet decal (default = use $Scorch Bitmap:)
+//		+Ricochet Size:         (OPTIONAL) ricochet size, in meters (a vector)
+//	$Corona (Glare) 1:		(OPTIONAL) glare name, specified in effects.tbl.  N is the number of the prop point (ie it would be 1 for the corona_1 point)
+//	$Corona (Glare) N:		you need to have as many of these as there are prop points
+// $Reload Zero Drain:			(OPTIONAL) If this is set, then "_" seconds into the weapon's reload, it's current ammo in the current clip goes to 0, forcing it to use a whole clip on the reload. (for riot stick and flamethrower initially)
+// $Multi BBox Size Factor:		(OPTIONAL) Defaults to 1.0.  Larger numbers make it easier to hit ppl with in multi, lower numbers make it harder.
+//
+// ----------------------------------------------------------------------------------
+
+#Primary Weapons
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Remote Charge"
+$Display Name:			XSTR(296, "Remote Charge")
+$V3D Filename:          "rmt_explosive.v3d"
+$Flags:                 ("remote_charge" "alt_fire" "player_wep" "gravity" "underwater" "silent")
+$Flags2:                ("no_fire_through" "damage_self")
+$Cycle Position:			0
+$Pref Position:			13
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"explosive"
+$Weapon Icon:				"ws_remotecharge.tga"
+$Damage Type:				"explosive"
+$3rd Person V3D:        "weapon_remote_charge.v3d"
+$1st Person Mesh:        "fp_rmt_chrg.v3d"
+$1st Person FOV:        70
+$1st Person offset:     <0.3,0.0,0.2>
+$1st Person offset SS:  <0.4,0.0,0.2>
++State:                 "idle"         "fp_rmt_chrg_idle.mvf"
++State:                 "run"          "fp_rmt_chrg_run.mvf"
++Action:                "fire"         "fp_rmt_chrg_throw.mvf"      "Charge Throw"
++Action:                "alt_fire"     "fp_rmt_chrg_place.mvf"      "Charge Throw"
++Action:                "idle_1"       "fp_rmt_chrg_idlerub.mvf"    "Charge Idle Rub"
++Action:                "idle_2"       "fp_rmt_chrg_idletoss.mvf"   "Charge Idle Tap"
++Action:                "jump"         "fp_rmt_chrg_jump.mvf"       ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_remcharge.tga"
+$Collision Radius:      0.051
+$Max Ammo:				   20 21
+$Ammo Type:             "remote charge"
+$AI attack range:			10.0 10.0
+$Mass:                  0.2
+$Velocity:              10
+$Fire Wait:             0.75
+$Damage:                500
+$Damage Multi:			350
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                "Remote Charge Launch"
+$Alt Launch:            "Remote Charge Alt Launch"
+$Fly Sound:             ""
+$Impact Delay:          0.35
+$Alt Impact Delay:      0.25
+$Impact Sound:          "default"	"Remote Charge Hit Default"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("charge_explode")
+$Impact Vclips Radius:   (2.0)
+$Damage Radius:			5.0
+$Damage Radius Multi:			8.0
+	+Crater Radius:      5.0
+$Sticky:                true
+	+Stick Sound:		"default"	"attach_02.wav"		5 0.8
+	+Embedded V3D Filename: ""
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<10.0, 10.0, 10.0>
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Remote Charge Detonator"
+$V3D Filename:          ""
+$Flags:                 ("detonator" "alt_fire" "underwater" "silent")
+$Flags2:                ("no_fire_through")
+$Weapon Type:				"explosive"
+$Weapon Icon:				""
+$Damage Type:				"explosive"
+$3rd Person V3D:        "weapon_remote_detonate.v3d"
+$1st Person Mesh:        "fp_rmt_det.v3d"
+$1st Person FOV:        70
+$1st Person offset:     <0.00,0.05,-0.2>
+$1st Person offset SS:  <0.10,0.05,-0.2>
++State:                 "idle"       "fp_rmt_det_idle.mvf"
++State:                 "run"        "fp_rmt_det_run.mvf"
++Action:                "fire"       "fp_rmt_det_fire.mvf"         "detonator fire"
++Action:                "idle_1"     "fp_rmt_det_idlestretch.mvf"  "detonator idle stretch"
++Action:                "idle_2"     "fp_rmt_det_idlecheck.mvf"    "detonator idle check"
++Action:                "jump"       "fp_rmt_det_jump.mvf"         ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$Collision Radius:      0.051
+$Max Ammo:				   20 21
+$Ammo Type:             "remote charge"
+$AI attack range:			50.0 50.0
+$Mass:                  0.2
+$Velocity:              10
+$Fire Wait:             0.75
+$Damage:                200 
+$Damage Multi:			200
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                ""
+$Launch Fail:           ""
+$Fly Sound:             ""
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  (2.0)
+$Damage Radius:			5.0
+	+Crater Radius:      5.0
+$Sticky:                true
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<10.0, 10.0, 10.0>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Riot Stick"
+$Display Name:			XSTR(299, "Control Baton")
+$V3D Filename:          ""
+$Flags:						("melee" "alt_fire"  "alt_continuous_fire" "underwater" "player_wep" "from_eye")
+$Flags2:                ("no_fire_through")
+$Cycle Position:			1
+$Pref Position:			12
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"close combat"
+$Weapon Icon:				"ws_riotstick.tga"
+$Damage Type:				"bash"
+$3rd Person V3D:        "weapon_riotstick.v3d"
+$1st Person Mesh:        "fp_riot.vcm"
+$1st Person FOV:        40
+$1st Person offset:     <-0.178,-0.418,0.072>
+$1st Person offset SS:  <-0.038,-0.418,0.072>
+$1st Person Muzzle Flash Bitmap:   "rstick_prepflare.vbm"
+$1st Person Muzzle Flash Radius:   0.4
+$1st Person Alt Muzzle Flash Bitmap:   "rstick_prepflare.vbm"
+$1st Person Alt Muzzle Flash Radius:   3.0
+$Spark VFX:					"rstick_bolt.vfx"
++State:                 "idle"             "fp_riot_idle.mvf"
++State:                 "run"              "fp_riot_run.mvf"   
++State:                 "loop_fire"        "fp_riot_attack_taserB.mvf"
++Action:                "idle_1"           "fp_riot_idle_hit.mvf"      "Riot Idle Hit"
++Action:                "idle_2"           "fp_riot_idle_toss.mvf"     "Riot Idle Toss"
++Action:                "fire"             "fp_riot_attack.mvf"        "Riot Attack"
++Action:                "reload"           "fp_riot_reload.mvf"        "Riot Reload"
++Action:                "jump"             "fp_riot_jump.mvf"          ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$PS2 Selection Icon Filemame:	"ws_rstick.tga"
+$Collision Radius:      0.25
+$Max Ammo:				   900 900
+$Ammo Type:             "power cell"
+$AI attack range:			2.6 2.6
+$Clip Size:             100 100
+$Clip Reload Time:      2.7
+$Clip Drain Time:       2.5
+$Mass:                  5.0
+$Velocity:              1.5
+$Fire Wait:             1.0
+$Alt Fire Wait:         0.5
+$Damage:                60.0
+$Damage Multi:			60.0
+$Alt Damage:            120.0
+$Alt Damage Multi:		80.0
+$AI Damage Scale:		0.1 0.1
+$Lifetime:              1
+$Homing:                false
+$Launch:                ""
+$Alt Launch:            "Riot Attack Taser"
+$Fly Sound:	            ""
+$Impact Delay:          0.15
+$Impact Delay:          0.6
+$Alt Impact Delay:		0.01
+$Impact Sound:          "default"    "Riot Impact Default"
+$Impact Sound:          "flesh"		 "Riot Impact Flesh"
+$Impact Sound:          "metal"		 "Riot Impact Metal"
+$Impact Sound:          "rock"		 "Riot Impact Rock"
+$Impact Sound:          "water"		 "Small Water Splash"
+$Impact Sound:			"glass"		 "Gun Hit Glass"
+$Impact Vclips:         ("riotspark")
+$Impact Vclips Radius:  (0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"scrape.tga"
+$Scorch Size:			<0.3, 0.3, 0.3>
+$Glass Decal Bitmap:	"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Reload Zero Drain:     1.3
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "12mm handgun"
+$Display Name:          XSTR(301, "12mm pistol")
+$V3D Filename:          ""
+$Flags:                 ("alt_custom_mode" "player_wep" "from_eye" "underwater" "semi_automatic" "autoaim")
+$Flags2:                ("undeviating")
+$Cycle Position:			2
+$Pref Position:			11
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"semi-auto"
+$Weapon Icon:				"ws_pistol.tga"
+$Damage Type:				"bullet"
+$3rd Person V3D:	      "weapon_ultorgun.v3d"
+$3rd Person Muzzle Flash Glare:   "Glock Muzzle Flash"
+$1st Person Mesh:        "fp_glock.v3d"
+$1st Person FOV:        65
+$1st Person offset:     <-0.110,-0.140,-0.342>
+$1st Person offset SS:  <-0.110,-0.140,-0.342>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash01.tga"
+$1st Person Muzzle Flash Radius:   0.3
+$Silencer V3D:          "silencer.v3d"
++State:                 "idle"             "fp_glock_idle.mvf"
++State:                 "run"              "fp_glock_run.mvf"
++Action:                "fire"             "fp_glock_fire.mvf"          ""
++Action:                "fire_fail"        "fp_glock_fire_fail.mvf"     ""
++Action:                "idle_1"           "fp_glock_flex.mvf"          "Glock Flex"
++Action:                "idle_2"           "fp_glock_gunlook.mvf"       "Glock Look"
++Action:                "reload"           "fp_glock_reload.mvf"        "Glock Reload"
++Action:                "jump"             "fp_glock_jump.mvf"          ""
++Action:                "custom_start"     "fp_glock_silencer_add.mvf"  "Silencer On"
++Action:                "custom_leave"     "fp_glock_silencer_off.mvf"  "Silencer Off"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_pistol.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   125 210
+$Ammo Type:             "12mm"
+$AI attack range:			20.0 20.0
+$Clip Size:             16 16
+$Clip Reload Time:      1.1
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.50
+$Alt Fire Wait:         0.20
+$Spread Degrees:        0.5 
+$Spread Degrees Multi:	0.5
+$AI Spread Degrees:     3.0 4.0
+$Damage:                40 
+$Damage Multi:			25
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                "Glock Launch"
+$Alt Launch:            "Glock Switch"
+$Silent Launch:         "Silencer Launch"
+$Underwater Launch:     "Glock Alt Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"               "Gun Hit Default"
+$Impact Sound:          "flesh"                 "Gun Hit Flesh"
+$Impact Sound:          "metal"                 "Gun Hit Metal"
+$Impact Sound:          "rock"                  "Gun Hit Rock"
+$Impact Sound:          "water"	                "Gun Hit Water"
+$Impact Sound:			"glass"		            "Gun Hit Glass"
+$Impact Sound:			"default underwater"    "Gun Hit Default"
+$Near Miss Sound:       "Glock Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {128,128,96}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.1, 0.1, 0.1>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_glock_shell.v3d"
+	+Base Dir:				<0.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_GunClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+$Reload Zero Drain:	.45
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Undercover 12mm handgun"
+$Display Name:          XSTR(303, "Silenced 12mm Pistol")
+$V3D Filename:          ""
+$Flags:                 ("alt_custom_mode" "from_eye" "underwater" "semi_automatic" "autoaim")
+$Flags2:                ("undeviating")
+$Weapon Type:				"semi-auto"
+$Weapon Icon:				"ws_pistol.tga"
+$Damage Type:				"bullet"
+$3rd Person V3D:	      "weapon_ultorgun.v3d"
+//$3rd Person V3D:	      "weapon_silenced.v3d"
+$3rd Person Muzzle Flash Glare:   ""
+$1st Person Mesh:        "fp_ugun.vcm"
+$1st Person FOV:        65
+$1st Person offset:     <-0.110,-0.140,-0.342>
+$1st Person offset SS:  <-0.010,-0.140,-0.342>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash01.tga"
+$1st Person Muzzle Flash Radius:   0.3
+$Silencer V3D:          "silencer.v3d"
++State:                 "idle"             "fp_glock_idle.mvf"
++State:                 "run"              "fp_glock_run.mvf"
++Action:                "fire"             "fp_glock_fire.mvf"          ""
++Action:                "fire_fail"        "fp_glock_fire_fail.mvf"     ""
++Action:                "idle_1"           "fp_glock_flex.mvf"          "Glock Flex"
++Action:                "idle_2"           "fp_glock_gunlook.mvf"       ""
++Action:                "reload"           "fp_glock_reload.mvf"        "Glock Reload"
++Action:                "jump"             "fp_glock_jump.mvf"          ""
++Action:                "custom_start"     "fp_glock_silencer_add.mvf"  "Silencer On"
++Action:                "custom_leave"     "fp_glock_silencer_off.mvf"  "Silencer Off"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   125 210
+$Ammo Type:             "12mm"
+$AI attack range:			20.0 20.0
+$Clip Size:             16 16
+$Clip Reload Time:      1.1
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.50
+$Alt Fire Wait:         0.20
+$Spread Degrees:        0.5 
+$Spread Degrees Multi:	0.5
+$AI Spread Degrees:     3.0 3.0
+$Damage:                20 
+$Damage Multi:			20
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                "Glock Launch"
+$Alt Launch:            "Glock Switch"
+$Silent Launch:         "Silencer Launch"
+$Underwater Launch:     "Glock Alt Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"               "Gun Hit Default"
+$Impact Sound:          "flesh"                 "Gun Hit Flesh"
+$Impact Sound:          "metal"                 "Gun Hit Metal"
+$Impact Sound:          "rock"                  "Gun Hit Rock"
+$Impact Sound:          "water"	                "Gun Hit Water"
+$Impact Sound:			"glass"		            "Gun Hit Glass"
+$Impact Sound:			"default underwater"    "Gun Hit Default"
+$Near Miss Sound:       "Glock Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {128,128,96}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.1, 0.1, 0.1>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_glock_shell.v3d"
+	+Base Dir:				<0.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_GunClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+$Reload Zero Drain:	.45
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Shotgun"
+$Display Name:          XSTR(305, "Automatic Shotgun")
+$V3D Filename:          ""
+$Flags:                 ("alt_fire" "from_eye" "player_wep" "autoaim")
+$Flags2:                ("undeviating")
+$Cycle Position:			3
+$Pref Position:			5
+$Fine Aim Region Size:	0.55
+$Fine Aim Region Size SS:	0.55
+$Weapon Type:				"semi-auto"
+$Weapon Icon:				"ws_shotgun.tga"
+$Damage Type:				"bullet"
+$3rd Person V3D:	      "weapon_shotgun.v3d"
+$3rd Person Muzzle Flash Glare:   "Shotgun Muzzle Flash"
+$1st Person Mesh:        "fp_shotgun.vcm"
+$1st Person FOV:        55
+$1st Person offset:     <-0.020,0.056,1.071>
+$1st Person offset SS:  <0.080,0.056,1.071>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash08.tga"
+$1st Person Muzzle Flash Radius:   .8
++State:                 "idle"       "fp_shotgun_idle.mvf"
++State:                 "run"        "fp_shotgun_run.mvf"
++Action:                "idle_1"     "fp_shotgun_idle_sweep.mvf"    "Shotgun Idle Sweep"
++Action:                "idle_2"     "fp_shotgun_idle_stretch.mvf"  "Shotgun Idle Stretch"
++Action:                "fire"       "fp_shotgun_fire_slow.mvf"     "Shotgun Fire Slow"
++Action:                "alt_fire"   "fp_shotgun_fire_fast.mvf"     ""
++Action:                "reload"     "fp_shotgun_reload.mvf"		"Shotgun Reload Finish"
++Action:			         "jump"       "fp_shotgun_jump.mvf"          ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_shotgun.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   48 48
+$Ammo Type:             "10 gauge buckshot"
+$AI attack range:			15.0 15.0
+$Clip Size:             8 8
+$Clip Reload Time:      2.0	
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             1.50
+$Alt Fire Wait:         0.225
+$Num Projectiles:       4
+$Spread Degrees:        3.0 
+$Spread Degrees Multi:	2.75
+$AI Spread Degrees:     5.0 6.0
+$Alt Spread Degrees:    6.0 
+$Alt Spread Degrees Multi:	4.0
+$AI Alt Spread Degrees: 10.0 8.0
+$Damage:                40 
+$Damage Multi:			35
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "Shotgun Fire"
+$Alt Launch:            "Shotgun Fire 2"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Medium Water Splash"
+$Impact Sound:			   "glass"		 "Gun Hit Glass"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE" "gatsmoke")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:			"buckshot_A.tga"
+$Scorch Size:				<0.2, 0.2, 0.2>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_shotgun_shell.v3d"
+	+Base Dir:				<0.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+	+Primary Pause Time Before Eject:	0.8
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Sniper Rifle"
+$Display Name:          XSTR(307, "Sniper Rifle")
+$V3D Filename:          ""
+$Flags:                 ("player_wep" "alt_zoom" "from_eye" "fixed_muz_flash")
+$Flags2:                ("undeviating")
+$Cycle Position:			4
+$Pref Position:			6
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.55
+$Weapon Type:				"semi-auto"
+$Weapon Icon:				"ws_sniper.tga"
+$Damage Type:				"armor piercing bullet"
+$3rd Person V3D:	      "Weapon_SniperRifle.v3d"
+$3rd Person Muzzle Flash Glare:   "Sniper Muzzle Flash"
+$1st Person Mesh:        "fp_SniperRifle.v3d"
+$1st Person FOV:        65
+$1st Person offset:     <-0.05,.07,-.22>
+$1st Person offset SS:  <0.05,.07,-.22>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash02.tga"
+$1st Person Muzzle Flash Radius:   1.4
++State:                 "idle"       "fp_SniperRifle_idle.mvf"
++State:                 "run"        "fp_SniperRifle_run.mvf"
++Action:                "fire"       "fp_SniperRifle_fire.mvf"           ""
++Action:                "idle_1"     "fp_SniperRifle_scopeadjust.mvf"    "Sniper Scope Adjust" 
++Action:                "idle_2"     "fp_SniperRifle_scratch.mvf"        "Sniper Scratch"
++Action:                "reload"     "fp_SniperRifle_reload.mvf"         "Sniper Reload"
++Action:						"jump"       "fp_SniperRifle_jump.mvf"           ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:			"scope_ret.tga"
+$HUD Zoomed Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_sniper.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   36 36
+$Ammo Type:             ".50 cal AP"
+$AI attack range:			100.0 100.0
+$Clip Size:             6 6
+$Clip Reload Time:      2.25
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.70
+$Spread Degrees:        1.5 
+$Spread Degrees Multi:	0.25
+$AI Spread Degrees:     2.0 2.0
+$Damage:                250 
+$Damage Multi:			150
+$AI Damage Scale:			0.5 1.0
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "Sniper Launch"
+$Alt Launch:            "Sniper Alt Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Zoom Sound:				"sniper_aim_01.wav"				 4 0.8
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Gun Hit Water"
+$Impact Sound:			"glass"		 "Gun Hit Glass"
+$Near Miss Sound:       "Glock Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.2, 0.2, 0.2>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_sniper_shell.v3d"
+	+Base Dir:				<0.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_SniperClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+//$Camera Shake:
+//	+Distance:				0.0025	
+//	+Time:					0.07
+$Piercing:				true
+	+Piercing Power:	1.0
+	+Ricochet Angle:	45.0
+	+Ricochet Bitmap:	"scrape.tga"
+	+Ricochet Size:		<0.3, 0.3, 0.3>
+$Reload Zero Drain:  	.6
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Rocket Launcher"
+$Display Name:          XSTR(309, "Rocket Launcher")
+$V3D Filename:          "DrillMissile01.VFX"
+$Flags:                 ("thruster" "player_wep" "infrared" "alt_fire" "alt_lock")
+$Flags2:				("no_fire_through" "damage_self")
+$Cycle Position:			5
+$Pref Position:			1
+$Fine Aim Region Size:	0.60
+$Fine Aim Region Size SS:	0.40
+$Weapon Type:				"explosive"
+$Weapon Icon:				"ws_rocketlauncher.tga"
+$Damage Type:				"explosive"
+$3rd Person V3D:	      "Weapon_RocketLauncher.v3d"
+$1st Person Mesh:        "fp_rocketlauncher.v3d"
+$1st Person FOV:        70
+$1st Person offset:     <0.05, 0.03, -.08>
+$1st Person offset SS:  <0.15, 0.03, -.08>
++State:                 "idle"       "fp_rocket_hold.mvf"
++State:                 "run"        "fp_rocket_run.mvf"
++Action:                "fire"       "fp_rocket_fire.mvf"         "Rocket Fire"
++Action:                "reload"     "fp_rocket_reload.mvf"       "Rocket Reload"
++Action:                "idle_1"     "fp_rocket_screenwipe.mvf"   "Rocket Screen Wipe"
++Action:                "idle_2"     "fp_rocket_ammocheck.mvf"    "Rocket Ammo Check"
++Action:				"jump"       "fp_rocket_jump.mvf"         ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle_rocket.tga"
+$HUD Locked Reticle Filename: "reticle_rocketlock.tga"
+$PS2 Selection Icon Filemame:	"ws_rcklauncher.tga"
+$Collision Radius:      0.051
+$Max Ammo:              18 18
+$Ammo Type:             "15cm rocket"
+$AI attack range:			30.0 30.0
+$Clip Size:             6 6
+$Clip Reload Time:      1.7
+$Mass:                  200.0
+$Velocity:              20.0
+$Fire Wait:             1.25
+$Spread Degrees:        0.0 
+$Spread Degrees Multi:	0.0
+$AI Spread Degrees:     1.0 1.0
+$Damage:                400 
+$Damage Multi:			275
+$AI Damage Scale:			0.1 0.4
+$Lifetime:              15.0
+$Homing:                false
+$Launch:                "Rocket Launcher"
+$Alt Launch:            "Rocket Launcher"
+$Fly Sound:             "missile_loop.wav"               6 0.9
+$Impact Sound:          "default"  ""
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("rocket_impact")
+$Impact Vclips Radius:   (1.5)
+$Trail emitter:         "missile"
+$Damage Radius:         5.0
+   +Crater Radius:      5.0
+$Sticky:                false
+$Glow:                  true
+	+Inner Radius:			1.0
+	+Outer Radius:			3.0
+	+Color:					{100,50,100}
+$Muzzle Flash Light:    true
+   +Inner Radius:       4.0
+   +Outer Radius:       7.0
+   +Color:              {255,255,255}
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+$Thrust Lifetime:       3.0
+$Reload Zero Drain:	.73
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Assault Rifle"
+$Display Name:          XSTR(311, "Assault Rifle")
+$V3D Filename:          ""
+$Flags:                 ("alt_fire" "alt_continuous_fire" "player_wep" "from_eye" "fixed_muz_flash" "autoaim")
+$Flags2:                ("undeviating")
+$Cycle Position:			6
+$Pref Position:			7
+$Fine Aim Region Size:	0.50
+$Fine Aim Region Size SS:	0.50
+$Weapon Type:				"heavy"
+$Weapon Icon:				"ws_assault.tga"
+$Damage Type:				"armor piercing bullet"
+$3rd Person V3D:	      "Weapon_Aslt_Rifle.V3D"
+$3rd Person Muzzle Flash Glare:   "Assault Muzzle Flash"
+$1st Person Mesh:        "fp_aslt_rfl.v3d"
+$1st Person FOV:        65
+$1st Person offset:     <-0.064,0.1,-0.28>
+$1st Person offset SS:  <0.0,0.1,-0.25>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash04.tga"
+$1st Person Muzzle Flash Radius:   0.4
++State:                "idle"      "fp_aslt_rfl_idle.mvf"
++State:                "run"       "fp_aslt_rfl_run.mvf"
++State:                "loop_fire" "fp_aslt_rfl_fire.mvf"
++Action:               "fire"      "fp_aslt_rfl_fire_burst.mvf"      ""
+//+Action:               "idle_1"    "fp_aslt_rfl_ammocheck.mvf"      "ARifle Ammo Check"
++Action:               "idle_3"    "fp_aslt_rfl_gripopen.mvf"       "ARifle Grip Open"  
++Action:               "idle_2"    "fp_aslt_rfl_handstretch.mvf"    "ARifle Hand Stretch"
++Action:               "reload"    "fp_aslt_rfl_reload.mvf"         "ARifle Reload"
++Action:               "jump"      "fp_aslt_rfl_jump.mvf"           ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_aslrifle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   200 210
+$Ammo Type:             "5.65mm AP"
+$AI attack range:			30.0 30.0
+$Clip Size:             42 42
+$Clip Reload Time:      1.35
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.75
+$Alt Fire Wait:         0.1
+$Spread Degrees:        0.8 
+$Spread Degrees Multi:	.25
+$AI Spread Degrees:     2.0 2.0
+$Alt Spread Degrees:    4.0 
+$Alt Spread Degrees Multi:	.75
+$AI Alt Spread Degrees: 5.0 5.0
+$Start Sound:           "Assault Attack"
+$Start Delay:           0.10
+$Stop Sound:			"Assault Decay"
+$Burst Mode:            true
+	+Burst Count:        3
+	+Burst Delay:        0.1
+	+Burst Launch Sound: "assault_burst.wav"                 8 0.9
+	+Burst Alt Fire:     false
+$Damage:                60 
+$Damage Multi:			40
+$AI Damage Scale:			0.4 0.4
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "Assault Loop"
+$Alt Launch:            "Assault Loop"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:          ("FGatE")
+$Impact Vclips Radius:   (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {128,128,96}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.15, 0.15, 0.15>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:				<1.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_assaultClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+$Camera Shake:
+	+Distance:				0.0005	
+	+Time:					0.04
+$Tracers:				true
+	+Tracer Frequency:	4
+	+Tracer Effect:		"Tracer01.VFX"
+$Piercing:				true
+	+Piercing Power:	0.25
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.3, 0.3, 0.3>
+$Reload Zero Drain:	.65
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Machine Pistol"
+$Display Name:          XSTR(313, "Submachine Gun")
+$V3D Filename:          ""
+$Flags:                 ("alt_custom_mode" "alt_fire" "continuous_fire" "from_eye" "player_wep" "autoaim")
+$Flags2:                ("undeviating")
+$Cycle Position:			7
+$Pref Position:			9
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.55
+$Weapon Type:				"heavy"
+$Weapon Icon:				"ws_machpistol.tga"
+$Damage Type:				"bullet"
+$3rd Person V3D:	      "weapon_machinep.v3d"
+$3rd Person Muzzle Flash Glare:   "MachinePistol01 Muzzle Flash"
+$1st Person Mesh:        "fp_mp.vcm"
+$1st Person FOV:        40
+$1st Person offset:     <-0.294,0.08, 0.056>
+$1st Person offset SS:  <-0.194,0.08, 0.056>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash05.tga"
+$1st Person Muzzle Flash Radius:   0.3
++State:                 "idle"         "fp_mp_idle.mvf"
++State:                 "run"          "fp_mp_run.mvf"
++State:                 "loop_fire"    "fp_mp_fireslow.mvf"
++Action:                "idle_1"       "fp_mp_idletop_flex.mvf"  "Machine Pistol Idletop Flex"
++Action:                "idle_2"       "fp_mp_idletop_hit.mvf"   "Machine Pistol Idletop Hit"
++Action:                "reload"       "fp_mp_reloadtop.mvf"     "Machine Pistol Reload Top"
++Action:                "jump"         "fp_mp_jump.mvf"          ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_machpistol.tga"
+$Collision Radius:      0.02
+$Max Ammo:		  200 192
+$Ammo Type:             "12mm"
+$AI attack range:	30.0 30.0
+$Clip Size:             30 64
+$Clip Reload Time:      1.2
+$Mass:                  0.2
+$Velocity:              320.0
+$Fire Wait:             0.09
+$Spread Degrees:        2.0 
+$Spread Degrees Multi:	1.0
+$AI Spread Degrees:     3.0 3.0
+$Damage:                40 
+$Damage Multi:			30
+$AI Damage Scale:       0.7 0.7
+$Lifetime:              1.5
+$Homing:                false
+$Launch:                "Machine Pistol Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Gun Hit Water"
+$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE_lilspark")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.1, 0.1, 0.1>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_glock_shell.v3d"
+	+Base Dir:				<-2, 1, 0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_GunClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+$Camera Shake:
+	+Distance:				0.0003	
+	+Time:					0.04
+$Reload Zero Drain:	.48
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Machine Pistol Special"
+$V3D Filename:          ""
+$Flags:                 ("alt_custom_mode" "alt_fire" "continuous_fire" "from_eye" "fixed_muz_flash" "autoaim")
+$Flags2:                ("undeviating")
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.55
+$Weapon Type:				"heavy"
+$Weapon Icon:				"ws_machpistol.tga"
+$Damage Type:				"bullet"
+$3rd Person V3D:	      "weapon_machinep.v3d"
+$3rd Person Muzzle Flash Glare:   "MachinePistol02 Muzzle Flash"
+$1st Person Mesh:        "fp_mp.vcm"
+$1st Person FOV:        40
+$1st Person offset:     <-0.294,0.08, 0.056>
+$1st Person offset SS:  <-0.194,0.08, 0.056>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash06.tga"
+$1st Person Muzzle Flash Radius:   0.3
++State:                 "idle"         "fp_mp_idle.mvf"
++State:                 "run"          "fp_mp_run.mvf"
++State:                 "loop_fire"    "fp_mp_fireslowbottom.mvf"
++Action:                "idle_1"       "fp_mp_idletop_flexbottom.mvf"  "Glock Flex"
++Action:                "idle_2"       "fp_mp_idletop_hitbottom.mvf"   "Machine Pistol Idletop Hit"
++Action:                "reload"       "fp_mp_reloadbottom.mvf"       "Machine Pistol Reload Bottom"
++Action:                "jump"         "fp_mp_jump.mvf"               ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:		   200 210
+$Ammo Type:             "5.65mm AP"
+$AI attack range:	30.0 30.0
+$Clip Size:             20 21
+$Clip Reload Time:      1.5
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.12
+$Spread Degrees:        2.0 
+$Spread Degrees Multi:	3.0
+$AI Spread Degrees:     5.0 5.0
+$Damage:                45 
+$Damage Multi:			50
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "Machine Pistol Alt Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Gun Hit Water"
+$Impact Sound:          "glass"      "Gun Hit Glass"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE_lilspark" "gatsmoke")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:		"bullethole01_A.tga"
+$Scorch Size:		<0.15, 0.15, 0.15>
+$Glass Decal Bitmap:	"bullethole02glass_A.tga"
+$Glass Decal Size:	<0.3, 0.3, 0.3>
+$Shells Ejected:	
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:	<-2, 1, 0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_assaultClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+$Camera Shake:
+	+Distance:				0.0003	
+	+Time:					1.0
+$Tracers:				true
+	+Tracer Frequency:	4
+	+Tracer Effect:		"Tracer01.VFX"
+$Piercing:				true
+	+Piercing Power:	0.25
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.3, 0.3, 0.3>
+$Reload Zero Drain:	.48
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Grenade"
+$Display Name:          XSTR(315, "Grenade")
+$V3D Filename:          "weapon_grenade.v3d"
+$Flags:                 ("from_eye" "player_wep" "gravity" "underwater" "silent" "alt_fire")
+$Flags2:				("no_fire_through" "damage_self")
+$Cycle Position:			8
+$Pref Position:			10
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"explosive"
+$Weapon Icon:				"ws_grenade.tga"
+$Damage Type:				"explosive"
+$3rd Person V3D:        "weapon_grenade.v3d"
+$1st Person Mesh:        "fp_gren.v3d"
+$1st Person FOV:        70
+$1st Person offset:     <-0.202,-0.336,0.206>
+$1st Person offset SS:  <-0.102,-0.336,0.206>
++State:                 "idle"         "fp_gren_idle.mvf"
++State:                 "run"          "fp_gren_run.mvf"
++Action:                "fire"         "fp_gren_throw.mvf"      "grenade pinpull toss"
++Action:                "alt_fire"     "fp_gren_twistthrow.mvf" "grenade twist throw"
++Action:                "idle_1"       "fp_gren_idlecheck.mvf"  "grenade idle check"
++Action:                "idle_2"       "fp_gren_spin.mvf"       "grenade spin"
++Action:                "jump"         "fp_gren_jump.mvf"       ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$PS2 Selection Icon Filemame:	"ws_grenade.tga"
+$Collision Radius:      0.15
+$Max Ammo:              8 9
+$Ammo Type:             "grenade"
+$AI attack range:			30.0 30.0
+$Mass:                  1.5
+$Velocity:              10.0
+$Velocity Multi:		12.5
+$Fire Wait:             3.0
+$Damage:                150 
+$Damage Multi:			250
+$Lifetime:              5.0
+$Lifetime Multi:		3.0
+$Homing:                false
+$Launch:                ""
+$Alt Launch:            ""
+$Fly Sound:             "Grenade_tick.wav"               6 0.9
+$Impact Delay:          1.7
+$Alt Impact Delay:      1.6
+$Impact Sound:          "default"  "Grenade Bounce"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("rocket_impact")
+$Impact Vclips Radius:   (1.5)
+$Trail emitter:         ""
+$Damage Radius:         8.0
+$Damage Radius Multi: 12.0
+   +Crater Radius:      5.0
+$Sticky:                false
+$Glow:                  true
+   +Inner Radius:			0.4
+   +Outer Radius:			1.5
+   +Color:					{255,0,0}
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Flamethrower"
+$Display Name:          XSTR(318, "Flamethrower")
+$V3D Filename:          "powerup_flamecan.V3D"
+$Flags:                 ("continuous_fire" "player_wep" "alt_fire" "gravity")
+$Flags2:				("no_fire_through" "flame" "damage_self" "has_pilot_flame")
+$Cycle Position:			9
+$Pref Position:			8
+$Fine Aim Region Size:	0.54
+$Fine Aim Region Size SS:	0.60
+$Weapon Type:				"close combat"
+$Weapon Icon:				"ws_flamethrow.tga"
+$Damage Type:				"fire"
+$3rd Person V3D:	      "weapon_fthrower.v3d"
+$3rd Person Muzzle Flash Glare:   ""
+$1st Person Mesh:        "fp_flame.vcm"
+$1st Person FOV:			 65
+$1st Person offset:     <0.144,-1.476,0.220>
+$1st Person offset SS:  <0.244,-1.476,0.220>
++State:                 "idle"         "fp_flame_idle.mvf"
++State:                 "run"          "fp_flame_run.mvf"
++State:                 "loop_fire"    "fp_flame_fire.mvf"
++Action:                "alt_fire"     "fp_flame_altfire.mvf" "Flame Alt Fire"
++Action:                "idle_1"       "fp_flame_idletap.mvf"  "Flame Idle Tap"
++Action:                "idle_2"       "fp_flame_idlecheck.mvf"   "Flame Idle Check"
++Action:                "reload"       "fp_flame_reload.mvf"     "Flame Reload"
++Action:                "jump"         "fp_flame_jump.mvf"      ""
++Action:                "custom_start" "fp_flame_switch.mvf"    "Flame Switch"
++Action:                "custom_leave" "fp_flame_switch.mvf"    "Flame Switch"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_flamethrow.tga"
+$Collision Radius:      0.051
+$Max Ammo:				   1000 1000
+$Ammo Type:             "gas"
+$AI attack range:			5.0 5.0
+$Clip Size:             100 200
+$Clip Reload Time:      2.6
+$Clip Drain Time:			2.0
+$Mass:                  0.2
+$Velocity:              10.0
+$Fire Wait:             0.10
+$Alt Fire Wait:         4.0
+$Start Sound:				"Flame Thrower Ignite 1"
+$Start Delay:				0.10
+$Stop Sound:				"Flame Thrower Ignite 3"
+$Damage:                20 
+// Damage Multi is set on lines 548 and 576 in emitters.tbl 
+$Damage Multi:		60
+$Alt Damage:				100 
+$Alt Damage Multi:		150
+$Lifetime:              10.0
+$Homing:                false
+$Launch:                "Flame Thrower Ignite 2"
+$Launch Fail:           ""
+$Fly Sound:	            ""
+$Alt Impact Delay:      1.8
+$Near Miss Sound:       ""
+$Near Miss Underwater:  ""
+$Impact Vclips:          ("flame_can_explode")
+$Impact Vclips Radius:   (8.0)
+$Damage Radius:         7.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<2.0, 2.0, 2.0>
+$Reload Zero Drain:     1.2
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "riot shield"
+$Display Name:          XSTR(320, "Riot Shield")
+$V3D Filename:          ""
+$Flags:                 ("player_wep" "melee" "from_eye" "ps2_fp_full_clip")
+$Flags2:                ("no_fire_through")
+$Cycle Position:			10
+$Pref Position:			14
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"close combat"
+$Weapon Icon:				"ws_riotshield.tga"
+$Damage Type:				"bash"
+$3rd Person V3D:	      "weapon_riotshield.v3d"
+$3rd Person Muzzle Flash Glare:   ""
+$1st Person Mesh:        "fp_riotshield.vcm"
+$1st Person FOV:        65
+$1st Person offset:     <0.066,-.242,0.154>
+$1st Person offset SS:  <0.166,-.242,0.154>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash05.tga"
+$1st Person Muzzle Flash Radius:   0.3
++State:                 "idle"         "fp_riotshield_idle.mvf"
++State:                 "run"          "fp_riotshield_run.mvf"
++Action:                "fire"         "fp_riotshield_attack.mvf"        "Riot Shield Attack"
++Action:                "alt_fire"     "fp_riotshield_altfire.mvf" 		""
++Action:                "idle_1"       "fp_riotshield_idleflex.mvf"      "Riot Shield Idle Flex"
++Action:                "idle_2"       "fp_riotshield_idlelow.mvf"       "Riot Shield Idle Low"
++Action:                "jump"         "fp_riotshield_jump.mvf"          ""
++Action:                "custom_start" "fp_riotshield_block.mvf"         "Riot Shield Impact"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$PS2 Selection Icon Filemame:	"ws_riotshield.tga"
+$Collision Radius:      0.25
+$Max Ammo:				   0 0
+$Ammo Type:             ""
+$AI attack range:			2.0 2.0
+$Clip Size:             32 32
+$Clip Reload Time:      1.5
+$Mass:                  5.0
+$Velocity:              1.5
+$Fire Wait:             0.5
+$Damage:                10 
+$Damage Multi:	60
+$Lifetime:              1
+$Homing:                false
+$Launch:                ""
+$Launch Fail:           ""
+$Fly Sound:	            ""
+$Impact Delay:          0.2
+$Impact Sound:          "default"    "Riot Shield Impact"
+$Near Miss Sound:       ""
+$Impact Vclips:         ()
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "rail_gun"
+$Display Name:          XSTR(322, "Rail Driver")
+$V3D Filename:          ""
+$Flags:                 ("alt_fire" "player_wep" "from_eye")
+$Flags2:						("pierces_all" "undeviating" "has_scanner")
+$Cycle Position:			11
+$Pref Position:			3
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"heavy"
+$Weapon Icon:				"ws_railgun.tga"
+$Damage Type:				"armor piercing bullet"
+$3rd Person V3D:	      "weapon_railrifle.v3d"
+$1st Person Mesh:        "fp_railgun.vcm"
+$1st Person FOV:        70
+$1st Person offset:     <1.43,.096,0.277>
+$1st Person offset SS:  <1.53,.096,0.277>
++State:                 "idle"       "fp_railgun_idle.mvf"
++State:                 "run"        "fp_railgun_run.mvf"
++Action:                "fire"       "fp_railgun_fire.mvf"          ""
++Action:                "reload"     "fp_railgun_reload.mvf"        "Rail Reload"
++Action:                "idle_1"     "fp_railgun_idlecheck.mvf"     "Rail Idle Check"
++Action:                "idle_2"     "fp_railgun_idleturn.mvf"      "Rail Idle Turn"
++Action:                "jump"       "fp_railgun_jump.mvf"          ""
+$Bitmap Filename:       "railrifle1TrailAlpha.tga"
+$Head Radius:           0.051
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_railgun.tga"
+$Collision Radius:      0.02
+$Max Ammo:			   10 6
+$Ammo Type:             "aluminum slug"
+$AI attack range:		50.0 50.0
+$Clip Size:             1 1
+$Clip Reload Time:      3.0
+$Mass:                  0.2
+$Velocity:              600.0
+$Fire Wait:             1.00
+$Alt Fire Wait:         0.30
+$Damage:                2550 
+$Damage Multi:			587
+$AI Damage Scale:       0.7 0.7
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "Rail Fire 1"
+$Alt Launch:            "Camera Change"
+$Launch Fail:           "Rail Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Medium Water Splash"
+$Impact Sound:				"glass"		 "Gun Hit Glass"
+$Near Miss Sound:       "Rail Flyby"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("rail_rifle_hit")
+$Impact Vclips Radius:  (1.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {192,192,255}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.4, 0.4, 0.4>
+$Piercing:					true
+	+Piercing Power:		100.0
+	+Ricochet Angle:		180.0
+	+Ricochet Size:		<0.5, 0.5, 0.5>
+$Multi BBox Size Factor:	0.75
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "heavy_machine_gun"
+$Display Name:          XSTR(324, "Heavy Machine Gun")
+$V3D Filename:          ""
+$Flags:                 ("alt_fire" "player_wep" "continuous_fire" "alt_continuous_fire" "from_eye")
+$Flags2:                ("undeviating")
+$Cycle Position:			12
+$Pref Position:			2
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"heavy"
+$Weapon Icon:				"ws_machinegun.tga"
+$Damage Type:				"armor piercing bullet"
+$3rd Person V3D:	      "weapon_heavymgun.v3d"
+$3rd Person Muzzle Flash Glare:   "HeavyMachineGun Muzzle Flash"
+$1st Person Mesh:        "fp_hmac.vcm"
+$1st Person FOV:        65
+$1st Person offset:     <0.168,0.000,0.085>
+$1st Person offset SS:  <0.268,0.000,0.085>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash07.tga"
+$1st Person Muzzle Flash Radius:   .6
++State:                 "idle"       "fp_hmac_idle.mvf"
++State:                 "run"        "fp_hmac_run.mvf"
++State:                "loop_fire"   "fp_hmac_fire.mvf"
++Action:                "idle_2"     "fp_hmac_idlesweep.mvf"     "HMG Idle Sweep"
++Action:                "idle_1"     "fp_hmac_idlecheck.mvf"     "HMG Idle Check"
++Action:                "reload"     "fp_hmac_reload.mvf"        "HMG Reload"
++Action:                "jump"       "fp_hmac_jump.mvf"          ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_heavymacgun.tga"
+$Collision Radius:      0.02
+$Max Ammo:		240 297
+$Ammo Type:             "7.62mm AP"
+$AI attack range:	30.0 30.0
+$Clip Size:             99 99
+$Clip Reload Time:      3.85
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.10
+$Alt Fire Wait:         0.2
+$Spread Degrees:        2.0
+$Spread Degrees Multi:	1.25
+$AI Spread Degrees:     1.0 5.0
+$Alt Spread Degrees:    1.0 
+$Alt Spread Degrees Multi:	0.25
+$Start Sound:           "SAssault Attack"
+$Start Delay:           0.1
+$Stop Sound:            "SAssault Decay"
+$Damage:                75 
+$Damage Multi:			45
+$AI Damage Scale:			0.7 0.5
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "HMG Launch 1"
+$Alt Launch:            "HMG Launch 2"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Impact Sound:          "default"    "Gun Hit Default"
+$Impact Sound:          "flesh"		 "Gun Hit Flesh"
+$Impact Sound:          "metal"		 "Gun Hit Metal"
+$Impact Sound:          "rock"		 "Gun Hit Rock"
+$Impact Sound:          "water"		 "Medium Water Splash"
+$Impact Sound:			   "glass"		 "Gun Hit Glass"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:  (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       1.5
+   +Outer Radius:       3.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.2, 0.2, 0.2>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:				<0.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Piercing:				true
+	+Piercing Power:	0.25
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.3, 0.3, 0.3>
+$Reload Zero Drain:	1.45
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "scope_assault_rifle"
+$Display Name:          XSTR(326, "Precision Rifle")
+$V3D Filename:          ""
+$Flags:                 ("player_wep" "alt_zoom" "from_eye" "fixed_muz_flash" "autoaim" "semi_automatic")
+$Flags2:                ("undeviating")
+$Cycle Position:			13
+$Pref Position:			4
+$Fine Aim Region Size:	0.57
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"semi-auto"
+$Weapon Icon:				"ws_precision.tga"
+$Damage Type:				"armor piercing bullet"
+$3rd Person V3D:	      "Weapon_Aslt_Rifle2.V3D"
+$3rd Person Muzzle Flash Glare:   "AssaultScope Muzzle Flash"
+$1st Person Mesh:        "fp_ass2.vcm"
+$1st Person FOV:        85
+$1st Person offset:     <-0.130,-0.080,-0.150>
+$1st Person offset SS:  <-0.030,-0.080,-0.150>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash04.tga"
+$1st Person Muzzle Flash Radius:   0.8
++State:                "idle"      "fp_ass2_idle.mvf"
++State:                "run"       "fp_ass2_run.mvf"
++Action:               "fire"  	  "fp_ass2_fire.mvf"      ""
++Action:               "idle_1"    "fp_ass2_idleturn.mvf"       "SAssault Idle Turn"
++Action:               "idle_2"    "fp_ass2_idlescope.mvf"      "SAssault Idle Scope"
++Action:               "reload"    "fp_ass2_reload.mvf"         "SAssault Reload"
++Action:               "jump"      "fp_ass2_jump.mvf"           ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$PS2 Selection Icon Filemame:	"ws_scoperifle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   80 80
+$Ammo Type:             "explosive AP"
+$AI attack range:			30.0 30.0
+$Clip Size:             20 20
+$Clip Reload Time:      1.2
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.5
+$Spread Degrees:        0.75 
+$Spread Degrees Multi:	0.25
+$AI Spread Degrees:     0.5 0.5
+$Start Sound:           "SAssault Attack"
+$Start Delay:           0.1
+$Stop Sound:            "SAssault Decay"
+$Damage:                125 
+$Damage Multi:			60
+$AI Damage Scale:			0.5 0.8
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "Sniper 2 Launch"
+$Alt Launch:            ""
+$Launch Fail:           "Glock Fail"
+$Fly Sound:	            ""
+$Zoom Sound:		"sniper_aim_01.wav"				 4 0.8
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Near Miss Sound:       "Assault Ricochet"
+$Near Miss Underwater:  "Glock Alt Launch"
+$Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:   (0.25 0.25)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:		"bullethole01_A.tga"
+$Scorch Size:		<0.15, 0.15, 0.15>
+$Glass Decal Bitmap:	"bullethole02glass_A.tga"
+$Glass Decal Size:	<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:				<-2, 1, 0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Clips Ejected:
+	+V3D:						"powerup_assaultClip.v3d"
+	+Drop Pause Time:    0.75
+	+Custom Sound Set:	"clip eject"
+//$Camera Shake:
+//	+Distance:				0.0005	
+//	+Time:					0.04
+$Tracers:				true
+	+Tracer Frequency:	4
+	+Tracer Effect:		"Tracer01.VFX"
+$Piercing:				true
+	+Piercing Power:	0.25
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.3, 0.3, 0.3>
+$Reload Zero Drain:	.5
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "shoulder_cannon"
+$Display Name:          XSTR(328, "Fusion Rocket Launcher")
+$V3D Filename:          "ShellTest.vfx"
+$Flags:                 ("player_wep" "infrared" "ps2_fp_full_clip")
+$Flags2:						("no_fire_through" "damage_self")
+$Cycle Position:	14
+$Pref Position:		0
+$Fine Aim Region Size:	0.65
+$Fine Aim Region Size SS:	0.65
+$Weapon Type:				"explosive"
+$Weapon Icon:				"ws_fusion.tga"
+$Damage Type:				"explosive"
+$3rd Person V3D:			"Weapon_shoulder.v3d"
+$1st Person Mesh:        "fp_shol.vcm"
+$1st Person FOV:        68
+$1st Person offset:     <0.448,0.050,-0.064>
+$1st Person offset SS:  <0.548,0.050,-0.064>
+$1st Person Muzzle Flash Bitmap:   "explosionflare01.tga"
+$1st Person Muzzle Flash Radius:		4.0
++State:                 "idle"       "fp_shol_idle.mvf"
++State:                 "run"        "fp_shol_run.mvf"
++Action:                "reload"     "fp_shol_reload.mvf"        "Shoulder Reload"
++Action:                "fire"       "fp_shol_fire.mvf"          "Shoulder Fire"
++Action:                "idle_1"     "fp_shol_idlemonitor.mvf"   "Shoulder Idle Monitor"
++Action:                "idle_2"     "fp_shol_idlewipe.mvf"      "Shoulder Idle Wipe"
++Action:						"jump"	    "fp_shol_jump.mvf"			  ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle_rocket.tga"
+$HUD Locked Reticle Filename: "reticle_rocketlock.tga"
+$PS2 Selection Icon Filemame:	"ws_bigboy.tga"
+$Collision Radius:      0.051
+$Max Ammo:              5 1
+$Ammo Type:             "shell"
+$AI attack range:	30.0 30.0
+$Clip Size:             1 1
+$Clip Reload Time:      1.0
+$Mass:                  200.0
+$Velocity:              20.0
+$Fire Wait:             0.8
+$Damage:                1000 
+$Damage Multi:			1500
+$AI Damage Scale:	      0.16  0.65
+$Lifetime:              15.0
+$Homing:                false
+$Launch:                "Shoulder Launch"
+$Fly Sound:             "missile_loop.wav"               10 1.0
+$Impact Sound:          "default"  ""
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("shoulder_cannon_explode")
+$Impact Vclips Radius:   (9.0)
+$Trail emitter:         ""
+$Damage Radius:         25.0
+$Damage Radius Multi:         30.0
+   +Crater Radius:      7.0
+$Sticky:                false
+$Glow:                  true
+   +Inner Radius:       4.0
+   +Outer Radius:       7.0
+   +Color:              {255,255,63}
+$Muzzle Flash Light:    true
+   +Inner Radius:       4.0
+   +Outer Radius:       7.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:		"missileblastmk01_A.tga"
+$Scorch Size:		<8.0, 8.0, 8.0>
+$Thrust Lifetime:       3.0
+
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Vauss"
+$V3D Filename:          ""
+$Flags:                 ("continuous_fire" "from_eye")
+$Flags2:                ("undeviating")
+$Damage Type:				"bullet"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   170 170
+$Ammo Type:             "turret_ammo"
+$AI attack range:			30.0 30.0
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.08
+$Spread Degrees:        1.5 
+$Spread Degrees Multi:	1.5
+$AI Spread Degrees:     1.5 1.5
+$Damage:                100 
+$Damage Multi:			100
+$AI Damage Scale:       0.2 0.2
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "Vauss5 Fire"
+$Launch Fail:				"Glock Fail"
+$Fly Sound:             ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:   (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:		"bullethole01_A.tga"
+$Scorch Size:		<0.1, 0.1, 0.1>
+$Shells Ejected:
+	+V3D:			"fp_aslt_rfl_shell.v3d"
+	+Base Dir:		<1.5, 2.5, 1.0>
+	+Eject Velocity:	4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Camera Shake:
+	+Distance:				0.001	
+	+Time:					0.04
+$Tracers:               true
+	+Tracer Frequency:	0
+	+Tracer Effect:		"Tracer01.VFX"
+$Piercing:				true
+	+Piercing Power:	0.1
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.2, 0.2, 0.2>
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Tankbot Chaingun"
+$V3D Filename:          ""
+$Flags:                 ("continuous_fire" "from_eye")
+$Flags2:                ("undeviating")
+$Damage Type:				"bullet"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   170 170
+$Ammo Type:             "turret_ammo"
+$AI attack range:			50.0 50.0
+$Mass:                  0.2
+$Velocity:              250.0
+$Fire Wait:             1
+$Spread Degrees:        1.5 
+$Spread Degrees Multi:	1.5
+$AI Spread Degrees:     1.5 1.5
+$Burst Mode:            true
+	+Burst Count:			16
+	+Burst Delay:			0.1
+	+Burst Launch Sound: "tankbot_attack_guns.wav"        7 0.9
+	+Burst Alt Fire:     false
+$Damage:                100 
+$Damage Multi:			100
+$AI Damage Scale:       0.2 0.2
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "TBot attack guns"
+$Launch Fail:				"Rail Fail"
+$Fly Sound:             ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:   (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       3.0
+   +Outer Radius:       6.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:		"bullethole01_A.tga"
+$Scorch Size:		<0.1, 0.1, 0.1>
+$Shells Ejected:
+	+V3D:			"fp_aslt_rfl_shell.v3d"
+	+Base Dir:		<1.5, 2.5, 1.0>
+	+Eject Velocity:	4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Camera Shake:
+	+Distance:				0.001	
+	+Time:					0.04
+$Tracers:               true
+	+Tracer Frequency:	0
+	+Tracer Effect:		"Tracer01.VFX"
+$Piercing:				true
+	+Piercing Power:	0.1
+	+Ricochet Angle:  45.0
+	+Ricochet Bitmap: "Scrape.tga"
+	+Ricochet Size:   <0.2, 0.2, 0.2>
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "TriBeam Laser"
+$V3D Filename:          "spikeprojectile.vfx"
+$Flags:                 ()
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:				"energy"
+$Bitmap Filename:       ""
+$Collision Radius:      0.2
+$Max Ammo:              200 200
+$Ammo Type:             "power cell"
+$AI attack range:			30.0 30.0
+$Mass:                  0.2
+$Velocity:              30.0
+$Fire Wait:             5.0
+$Damage:                225 
+$Damage Multi:			225
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                "Spike Attack"
+$Fly Sound:             "spike_attack_02.wav"           8 0.9
+$Impact Delay:				2.5
+$Impact Sound:          "default"	   "Laser Hit Default"
+$Impact Sound:          "flesh"        "Laser Hit Flesh"
+$Impact Sound:          "metal"        "Laser Hit Metal"
+$Impact Sound:          "rock"         "Laser Hit Rock"
+$Impact Sound:          "water"        "Laser Hit Water"
+$Impact Vclips:          ("tribeam hit")
+$Impact Vclips Radius:   (4.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Laser"
+$V3D Filename:          "laser01.vfx"
+$Flags:                 ()
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:				"bullet"
+$Bitmap Filename:       ""
+$Collision Radius:      0.2
+$Max Ammo:              200 200
+$Ammo Type:             "power cell"
+$AI attack range:			5.0 5.0
+$Mass:                  0.2
+$Velocity:              20.0
+$Fire Wait:             0.4	
+$Spread Degrees:        2.5 
+$Spread Degrees Multi:	2.5
+$Damage:                80 
+$Damage Multi:			80
+$Lifetime:              20.0
+$Homing:                false
+$Launch:                "Laser fire"              
+$Fly Sound:             "Laser loop.wav"         8 0.9
+$Impact Sound:          "default"	   "Laser Hit Default"
+$Impact Sound:          "flesh"        "Laser Hit Flesh"
+$Impact Sound:          "metal"        "Laser Hit Metal"
+$Impact Sound:          "rock"         "Laser Hit Rock"
+$Impact Sound:          "water"        "Laser Hit Water"
+$Impact Vclips:         ("Laser Hit" "small_tommyspark")
+$Impact Vclips Radius:  (1.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Capek Cane"
+$V3D Filename:          "NanoAttackMissile.vfx"
+$Flags:                 ()
+$Flags2:                ()
+$Damage Type:				"energy"
+$3rd Person V3D:			"capekscane.V3D"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "power cell"
+$AI attack range:			15.0 15.0
+$Mass:                  0.2
+$Velocity:              20.0
+$Fire Wait:             3.0
+$Damage:                225 
+$Damage Multi:			225
+$Lifetime:              2.5
+$Homing:                true
+   +Turn Time:			6
+   +View Cone:			120.0
+   +Scanning Range:		40.0
+   +Wakeup Time:		0.0
+$Launch:                "Capek Cane Launch"
+$Fly Sound:             "Capekcane_Fire_02.wav"         8 1.0
+$Impact Delay:				1.5
+$Impact Sound:				"default"	   "Riot Impact"
+$Impact Vclips:          ("NanoAttackHit")
+$Impact Vclips Radius:   (1.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+
+
+// ----------------------------------------------------------------------------------
+// Creature Melee Attacks
+
+$Name:                  "Reeper Claw"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:                ("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			3.8 3.8
+$Mass:                  5.0
+$Velocity:              3.5
+$Fire Wait:             2.0
+// JA: Reduced damage from 80.0 80.0  to 40.0 40.0  Jan 15, 01
+$Damage:                40.0
+$Damage Multi:			40.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Riot Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.4
+$Impact Delay:          0.8
+$Impact Sound:          "default"    "Riot Impact Default"
+$Impact Sound:          "flesh"		 "Impact Flesh"
+$Impact Sound:          "metal"		 "Riot Impact Metal"
+$Impact Sound:          "rock"		 "Riot Impact Rock"
+$Impact Sound:          "water"		 "Small Water Splash"
+$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Impact Vclips:         ("riotspark")
+$Impact Vclips Radius:  (0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"scrape.tga"
+$Scorch Size:				<0.3, 0.3, 0.3>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Baby Reeper Claw"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:                ("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              100 100
+$Ammo Type:             "12mm"
+$AI attack range:			2.5 2.5
+$Mass:                  5.0
+$Velocity:              1.5
+$Fire Wait:             2.0
+// JA: Reduced damage from 40.0 40.0  to 10.0 10.0  Jan 15, 01
+$Damage:                10.0
+$Damage Multi:			10.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Riot Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.3
+$Impact Delay:          0.6
+$Impact Sound:          "default"    "Riot Impact Default"
+$Impact Sound:          "flesh"		 "Scrape Flesh"
+$Impact Sound:          "metal"		 "Riot Impact Metal"
+$Impact Sound:          "rock"		 "Riot Impact Rock"
+$Impact Sound:          "water"		 "Small Water Splash"
+$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Impact Vclips:         ("riotspark")
+$Impact Vclips Radius:  (0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"scrape.tga"
+$Scorch Size:				<0.3, 0.3, 0.3>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Rock Snake Smash"
+$V3D Filename:          ""
+$Flags:						("melee")
+$Flags2:                ("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      1
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			7.0 7.0
+$Mass:                  5.0
+$Velocity:              5
+$Fire Wait:             2.5
+$Damage:                1600.0
+$Damage Multi:			1600.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Sea Creature Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.8
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Rock Snake Spit"
+$V3D Filename:          "SpitAttack.vfx"
+$Flags:						()
+$Flags2:                ("no_fire_through")
+$Damage Type:				"armor piercing bullet"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			50.0 50.0
+$Mass:                  5.0
+$Velocity:              30.0
+$Fire Wait:             3.0
+$Damage:                80.0
+$Damage Multi:			80.0
+$Lifetime:              10.0
+$Homing:                false
+$Launch:                "RSnake Spit"
+$Fly Sound:             ""           
+$Impact Delay:          1.0
+$Impact Sound:          "default"		 "Spit Hit"
+$Impact Sound:          "flesh"			 "Impact Flesh"
+$Impact Vclips:         ("acid splash")
+$Impact Vclips Radius:  (5.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"AcidBlob.tga"
+$Scorch Size:				<3.0, 3.0, 3.0>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Big Rock Snake Smash"
+$V3D Filename:          ""
+$Flags:						("melee")
+$Flags2:                ("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      2
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			10.0 10.0
+$Mass:                  5.0
+$Velocity:              10
+$Fire Wait:             2.5
+$Damage:                1600.0
+$Damage Multi:			1600.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Sea Creature Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.6
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Big Rock Snake Spit"
+$V3D Filename:          "SpitAttack.vfx"
+$Flags:						()
+$Flags2:                ("no_fire_through")
+$Damage Type:				"armor piercing bullet"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			50.0 50.0
+$Mass:                  5.0
+$Velocity:              30.0
+$Fire Wait:             2.5
+$Damage:                80.0
+$Damage Multi:			80.0
+$Lifetime:              10.0
+$Homing:                false
+$Launch:                "BSnake Spit"
+$Fly Sound:             ""
+$Impact Delay:          0.8
+$Impact Sound:          "default"		 "Spit Hit"
+$Impact Sound:          "flesh"			 "Impact Flesh"
+$Impact Vclips:         ("acid splash")
+$Impact Vclips Radius:  (3.0)
+$Damage Radius:         3.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"AcidBlob.tga"
+$Scorch Size:				<3.0, 3.0, 3.0>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Sea Creature Sonar Attack"
+$V3D Filename:          "SonarAttack.VFX"
+$Flags:						("underwater" "from_eye" "torpedo")
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:				"energy"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			15.0 15.0
+$Mass:                  5.0
+$Velocity:              20.0
+$Fire Wait:             2.5
+$Damage:                80.0
+$Damage Multi:			80.0
+$Lifetime:              3.0
+$Homing:                false
+$Launch:                ""
+$Fly Sound:	            ""
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Drone Smash"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:				("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			5.0 5.0
+$Mass:                  5.0
+$Velocity:              5
+$Fire Wait:             1.5
+$Damage:                1600.0
+$Damage Multi:			1600.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Sea Creature Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.4
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Tankbot Smash"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:						("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			5.0 5.0
+$Mass:                  5.0
+$Velocity:              5
+$Fire Wait:             1.5
+$Damage:                1200.0
+$Damage Multi:			1200.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                "Sea Creature Attack"
+$Fly Sound:	            ""
+$Impact Delay:          0.4
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Mutant Attack 1"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:				("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			2.5 2.5
+$Mass:                  5.0
+$Velocity:              1.5
+$Fire Wait:             1.5
+$Damage:                40.0
+$Damage Multi:			40.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                ""
+$Fly Sound:	            ""
+$Impact Delay:          0.15
+$Impact Delay:          0.5
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Riot Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Mutant Attack 2"
+$V3D Filename:          ""
+$Flags:						("melee" "underwater" "from_eye")
+$Flags2:				("no_fire_through")
+$Damage Type:				"bash"
+$Bitmap Filename:       ""
+$Collision Radius:      0.5
+$Max Ammo:              200 200
+$Ammo Type:             "12mm"
+$AI attack range:			2.5 2.5
+$Mass:                  5.0
+$Velocity:              2
+$Fire Wait:             1.5
+$Damage:                40.0
+$Damage Multi:			40.0
+$Lifetime:              1
+$Homing:                false
+$Launch:                ""
+$Fly Sound:	            ""
+$Impact Delay:          0.15
+$Impact Sound:          "default"		 ""
+$Impact Sound:          "flesh"			"Riot Impact Flesh"
+$Impact Vclips:         ("")
+$Impact Vclips Radius:  ()
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "HEAP"
+$V3D Filename:          ""
+$Flags:                 ("from_eye")
+$Flags2:                ("undeviating")
+$Damage Type:				"explosive"
+$3rd Person V3D:        ""
+$Bitmap Filename:       ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:	           20 20
+$Ammo Type:             "15cm rocket"
+$AI attack range:	30.0 30.0
+$Mass:                  2.0
+$Velocity:              200.0
+$Fire Wait:             0.80
+$Spread Degrees:        0.0 
+$Spread Degrees Multi:	0.0
+$AI Spread Degrees:     2.0 2.0
+$Damage:                250 
+$Damage Multi:			250
+$AI Damage Scale:			0.2 0.2
+$Lifetime:              5.0
+$Homing:                false
+$Launch:                "Heap Launch"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:             ""
+$Impact Sound:          "default"	"Rocket Hit Default"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:         ("charge_explode")
+$Impact Vclips Radius:  (2.0)
+$Damage Radius:         5.0
+   +Crater Radius:      4.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:		"missileblastmk01_A.tga"
+$Scorch Size:		<4.0, 4.0, 4.0>
+$Tracers:				true
+	+Tracer Frequency:	0
+	+Tracer Effect:		"Tracer01.VFX"
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Torpedo"
+$V3D Filename:          "torpedo01.v3d"
+$Flags:                 ("underwater" "torpedo")
+$Flags2:				("no_fire_through")
+$Damage Type:				"explosive"
+$3rd Person V3D:        ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$Collision Radius:      0.15
+$Max Ammo:              20 20
+$Ammo Type:             "torpedo"
+$AI attack range:			50.0 50.0
+$Mass:                  2.0
+$Velocity:              7.0
+$Fire Wait:             3.0
+$Damage:                200 
+$Damage Multi:			200
+$AI Damage Scale:			0.8 0.8
+$Lifetime:              10.0
+$Homing:                true
+   +Turn Time:				12.0
+   +View Cone:				110.0
+   +Scanning Range:		30.0
+   +Wakeup Time:			0.10
+$Launch:		        "Torpedo Launch"
+$Underwater Launch:		"Torpedo Launch"
+$Fly Sound:             "Torpedo_loop.wav"          10 0.9
+$Impact Sound:          "default"	 "Torpedo Hit Default"
+$Impact Sound:          "flesh"		 "Torpedo Hit Flesh"
+$Geomod Sound:          "Weapon Geomod Large"
+$Impact Vclips:          ("charge_explode")
+$Impact Vclips Radius:   (2.0)
+//$Impact Vclips:         ("torpedo_explode")
+//$Impact Vclips Radius:  (1.5)
+$Trail emitter:         "torpedo"
+$Damage Radius:         5.0
+   +Crater Radius:      5.0
+$Sticky:                false
+$Glow:                  false
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "APC Minigun"
+$V3D Filename:          ""
+$Flags:                 ("continuous_fire" "from_eye" "fixed_muz_flash")
+$Flags2:                ("undeviating")
+$Damage Type:				"armor piercing bullet"
+$3rd Person Muzzle Flash Glare:   "Assault Muzzle Flash"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   999 999
+$Ammo Type:             "turret_ammo"
+$AI attack range:			40.0 40.0
+$Mass:                  0.2
+$Velocity:              250.0
+$Fire Wait:             0.08
+$Spread Degrees:        1.0 
+$Spread Degrees Multi:	1.0
+$AI Spread Degrees:     1.0 1.0
+$Damage:                150 
+$Damage Multi:			100
+$AI Damage Scale:			0.3 0.3
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "Vauss2 Fire"
+$Fly Sound:             ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Impact Vclips:          ("gatspark" "gatsmoke")
+$Impact Vclips Radius:   (0.6 0.6)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.3, 0.3, 0.3>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Tracers:				true
+	+Tracer Frequency:	1
+	+Tracer Effect:		"Tracer01.VFX"
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Jeep Gun"
+$V3D Filename:          ""
+$Flags:                 ("continuous_fire" "from_eye")
+$Flags2:                ("undeviating")
+$Damage Type:				"armor piercing bullet"
+$3rd Person Muzzle Flash Glare:   "Assault Muzzle Flash"
+$1st Person Mesh:        "fp_jgun.vcm"
+$1st Person FOV:        65
+$1st Person offset:     <0.192,0.228,0.885>
+$1st Person offset SS:  <0.292,0.228,0.885>
+$1st Person Muzzle Flash Bitmap:   "muzzleflash07.tga"
+$1st Person Muzzle Flash Radius:   .5
++State:                 "idle"        "fp_jgun_idle.mvf"
++Action:                "fire"        "fp_jgun_fire.mvf"         ""
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.02
+$Max Ammo:				   999 999
+$Ammo Type:             "turret_ammo"
+$AI attack range:			40.0 40.0
+$Mass:                  0.2
+$Velocity:              250.0
+$Fire Wait:             0.12
+$Spread Degrees:        0.9
+$Spread Degrees Multi:	0.5
+$AI Spread Degrees:     2.0 2.0
+$Start Sound:           "Jeep Gun Attack"
+$Start Delay:           0.10 
+$Stop Sound:            "Jeep Gun Release"
+$Damage:                100 
+$Damage Multi:			100
+$Lifetime:              0.5
+$Homing:                false
+$Launch:                "Jeep Gun Loop"
+$Launch Fail:           "Glock Fail"
+$Fly Sound:             ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:   (0.3 0.3)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Muzzle Flash Light:    true
+   +Inner Radius:       1.5
+   +Outer Radius:       3.0
+   +Color:              {255,255,192}
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.2, 0.2, 0.2>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:				<1.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Fighter Minigun"
+$V3D Filename:          ""
+$Flags:                 ("continuous_fire" "fixed_muz_flash")
+$Flags2:                ("undeviating")
+$Damage Type:				"armor piercing bullet"
+$3rd Person Muzzle Flash Glare:   "Assault Muzzle Flash"
+$1st Person Muzzle Flash Bitmap:   "muzzleflash07.tga"
+$1st Person Muzzle Flash Radius:   1.0
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	""
+$Collision Radius:      0.02
+$Max Ammo:				   900 900
+$Ammo Type:             "turret_ammo"
+$AI attack range:			25.0 25.0
+$Mass:                  0.2
+$Velocity:              275.0
+$Fire Wait:             0.05
+$Spread Degrees:        1.5 
+$Spread Degrees Multi:	1.5
+$AI Spread Degrees:     1.5 1.5
+$Start Sound:				"Fighter Chaingun Start"
+$Start Delay:				0.10
+$Stop Sound:				"Fighter Chaingun Stop"
+$Damage:                100 
+$Damage Multi:			100
+$AI Damage Scale:			0.20 0.20
+$Lifetime:              2.0
+$Homing:                false
+$Launch:						"Vauss1 Fire"
+$Fly Sound:             ""
+$Impact Sound:          "default"	   "Gun Hit Default"
+$Impact Sound:          "flesh"        "Gun Hit Flesh"
+$Impact Sound:          "metal"        "Gun Hit Metal"
+$Impact Sound:          "rock"         "Gun Hit Rock"
+$Impact Sound:          "water"        "Gun Hit Water"
+$Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
+$Impact Vclips Radius:  (0.3 0.4)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"bullethole01_A.tga"
+$Scorch Size:				<0.3, 0.3, 0.3>
+$Glass Decal Bitmap:		"bullethole02glass_A.tga"
+$Glass Decal Size:		<0.3, 0.3, 0.3>
+$Shells Ejected:
+	+V3D:						"fp_aslt_rfl_shell.v3d"
+	+Base Dir:				<1.5, 2.5, 1.0>
+	+Eject Velocity:		4.0
+	+Custom Sound Set:	"9mm shell casings"
+$Tracers:				true
+	+Tracer Frequency:	1
+	+Tracer Effect:		"Tracer01.VFX"
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Drill"
+$V3D Filename:          ""
+$Flags:						("melee" "continuous_fire" "underwater")
+$Flags2:				("no_fire_through")
+$Damage Type:				"bash"
+$3rd Person V3D:			"Driller01_Drillbit.v3d"
+$Bitmap Filename:       ""
+$Collision Radius:      0.2
+$Max Ammo:				   0 0
+$Ammo Type:             ""
+$AI attack range:			1.0 1.0
+$Mass:                  0.0
+$Velocity:              0.0
+$Fire Wait:             0.5
+$Start Sound:				"Drill Start"
+$Start Delay:				1.0
+$Stop Sound:				"Drill Stop"
+$Damage:                30.0
+$Damage Multi:			30.0
+$Alt Damage:            50.0
+$Alt Damage Multi:      50.0
+$Lifetime:              2.0
+$Homing:                false
+$Launch:                "Drill Loop"
+$Alt Launch:            "Drill Loop"
+$Fly Sound:	            ""
+$Impact Delay:          0.2
+$Impact Sound:          "default"	"Shovel Hit Rock"
+$Impact Sound:          "flesh"		"Shovel Hit Flesh"
+$Impact Sound:          "metal"		"Shovel Hit Metal"
+$Impact Sound:          "rock"		"Shovel Hit Rock"
+$Impact Sound:          "water"		"Shovel Hit Water"
+$Impact Sound:          "ice"       "Shovel Hit Ice"
+//$Impact Vclips:         ( "drill_particles_smoke" "drill_particles_sparks" "drill_particles_rocks" )
+$Impact Vclips:         ("drill_particles_sparks" "drill_particles_rocks" )
+$Impact Vclips Radius:  (1.0 1.0)
+$Damage Radius:         0.0
+$Sticky:                false
+$Glow:                  false
+
+#End
+
+// ----------------------------------------------------------------------------------
+
+#Secondary Weapons
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Drone Missile"
+$V3D Filename:          "DrillMissile01.VFX"
+$Flags:                 ("flickers" "thruster")
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:				"explosive"
+$Bitmap Filename:       ""
+$Collision Radius:      0.15
+$Max Ammo:              12 12
+$Ammo Type:             "15cm rocket"
+$AI attack range:			30.0 30.0
+$Mass:                  2.0
+$Velocity:              20.0
+$Fire Wait:             4.0
+$Damage:                15 
+$Damage Multi:			15
+$Lifetime:              5.0
+$Homing:                false
+$Launch:                "Missile Launch Drone"
+$Fly Sound:             "missile_loop.wav"              10 0.9
+$Impact Sound:          "default"	"Small Explosion"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("big_charge_explode")
+$Impact Vclips Radius:   (7.0)
+$Trail emitter:         "missile"
+$Damage Radius:         2.0
+   +Crater Radius:      5.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Tankbot Missile"
+$V3D Filename:          "DrillMissile01.VFX"
+$Flags:                 ("flickers" "thruster")
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:		"explosive"
+$Bitmap Filename:       ""
+$Collision Radius:      0.15
+$Max Ammo:              36 36
+$Ammo Type:             "15cm rocket"
+$AI attack range:	150.0 150.0
+$Mass:                  2.0
+$Velocity:              15.0
+$Fire Wait:             4.0
+$Damage:                25 
+$Damage Multi:			25
+$Lifetime:              6.0
+$Homing:                false
+$Launch:                "Missile Launch Drone"
+$Fly Sound:             "missile_loop.wav"              10 0.9
+$Impact Sound:          "default"	"Small Explosion"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("big_charge_explode")
+$Impact Vclips Radius:   (7.0)
+$Trail emitter:         "missile"
+$Damage Radius:         3.0
+   +Crater Radius:      5.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "Fighter Rocket"
+$V3D Filename:          "DrillMissile01.VFX"
+$Flags:                 ("flickers" "thruster")
+$Flags2:                ("undeviating" "no_fire_through")
+$Damage Type:				"explosive"
+$Bitmap Filename:       ""
+$Collision Radius:      0.15
+$Max Ammo:              20 20
+$Ammo Type:             "15cm rocket"
+$AI attack range:			25.0 25.0
+$Mass:                  2.0
+$Velocity:              25.0
+$Fire Wait:             3
+$Damage:                200 
+$Damage Multi:			200
+$AI Damage Scale:			0.2 0.2
+$Lifetime:              5.0
+$Homing:                true
+   +Turn Time:				8.0
+   +View Cone:				110.0
+   +Scanning Range:		30.0
+   +Wakeup Time:			0.25
+$Launch:                "Fighter Rocket Launch"
+$Fly Sound:             "missile_loop.wav"						10 0.9
+$Impact Sound:          "default"	"Small Explosion"
+$Impact Sound:          "flesh"		"Rocket Hit Flesh"
+$Geomod Sound:          "Weapon Geomod Small"
+$Impact Vclips:          ("rocket_impact")
+$Impact Vclips Radius:   (1.5)
+$Trail emitter:         "missile"
+$Damage Radius:         15.0
+   +Crater Radius:      8.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+
+// ----------------------------------------------------------------------------------
+
+$Name:                  "APC Rocket"
+$V3D Filename:          "Morter01.V3D"
+$Flags:                 ("gravity")
+$Flags2:                 ("no_fire_through")
+$Damage Type:				"explosive"
+$Bitmap Filename:       ""
+$HUD Icon Filename:     ""
+$HUD Reticle Filename:	"reticle.tga"
+$Collision Radius:      0.15
+$Max Ammo:              15 15
+$Ammo Type:             "shell"
+$AI attack range:			50.0 50.0
+$Mass:                  2.0
+$Velocity:              30.0
+$Fire Wait:             1.5
+$Damage:                500 
+$Damage Multi:			300
+$Lifetime:              5.0
+$Homing:                false
+$Launch:                "Mortar Launch"
+$Fly Sound:             "missile_loop.wav"					10 0.9
+$Impact Sound:          "default"	""
+$Geomod Sound:          "Weapon Geomod Large"
+$Impact Vclips:          ("charge_explode")
+$Impact Vclips Radius:   (2.5)
+$Trail emitter:         "ballistic"
+$Damage Radius:         10.0
+   +Crater Radius:      8.0
+$Sticky:                false
+$Glow:                  false
+$Scorch Bitmap:			"missileblastmk01_A.tga"
+$Scorch Size:				<4.0, 4.0, 4.0>
+
+#End
