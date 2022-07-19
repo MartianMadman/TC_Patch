@@ -388,7 +388,7 @@ $Impact Sound:          "flesh"		 "Riot Impact Flesh"
 $Impact Sound:          "metal"		 "Riot Impact Metal"
 $Impact Sound:          "rock"		 "Riot Impact Rock"
 $Impact Sound:          "water"		 "Small Water Splash"
-$Impact Sound:			"glass"		 "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Impact Vclips:         ("riotspark")
 $Impact Vclips Radius:  (0.3)
 $Damage Radius:         0.0
@@ -464,8 +464,8 @@ $Impact Sound:          "default"               "Gun Hit Default"
 $Impact Sound:          "flesh"                 "Gun Hit Flesh"
 $Impact Sound:          "metal"                 "Gun Hit Metal"
 $Impact Sound:          "rock"                  "Gun Hit Rock"
-$Impact Sound:          "water"	                "Gun Hit Water"
-$Impact Sound:			"glass"		            "Gun Hit Glass"
+$Impact Sound:          "water"                 "Gun Hit Water"
+$Impact Sound:          "glass"                 "Gun Hit Glass"
 $Impact Sound:			"default underwater"    "Gun Hit Default"
 $Near Miss Sound:       "Glock Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
@@ -554,7 +554,7 @@ $Impact Sound:          "flesh"                 "Gun Hit Flesh"
 $Impact Sound:          "metal"                 "Gun Hit Metal"
 $Impact Sound:          "rock"                  "Gun Hit Rock"
 $Impact Sound:          "water"	                "Gun Hit Water"
-$Impact Sound:			"glass"		            "Gun Hit Glass"
+$Impact Sound:          "glass"                 "Gun Hit Glass"
 $Impact Sound:			"default underwater"    "Gun Hit Default"
 $Near Miss Sound:       "Glock Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
@@ -646,7 +646,7 @@ $Impact Sound:          "flesh"		 "Gun Hit Flesh"
 $Impact Sound:          "metal"		 "Gun Hit Metal"
 $Impact Sound:          "rock"		 "Gun Hit Rock"
 $Impact Sound:          "water"		 "Medium Water Splash"
-$Impact Sound:			   "glass"		 "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Near Miss Sound:       "Assault Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:         ("FGatE" "gatsmoke")
@@ -730,7 +730,7 @@ $Impact Sound:          "flesh"		 "Gun Hit Flesh"
 $Impact Sound:          "metal"		 "Gun Hit Metal"
 $Impact Sound:          "rock"		 "Gun Hit Rock"
 $Impact Sound:          "water"		 "Gun Hit Water"
-$Impact Sound:			"glass"		 "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Near Miss Sound:       "Glock Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
@@ -910,7 +910,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"        "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Near Miss Sound:       "Assault Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:          ("FGatE")
@@ -1007,7 +1007,7 @@ $Impact Sound:          "flesh"		 "Gun Hit Flesh"
 $Impact Sound:          "metal"		 "Gun Hit Metal"
 $Impact Sound:          "rock"		 "Gun Hit Rock"
 $Impact Sound:          "water"		 "Gun Hit Water"
-$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Near Miss Sound:       "Assault Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:         ("FGatE_lilspark")
@@ -1378,7 +1378,7 @@ $Impact Sound:          "flesh"		 "Gun Hit Flesh"
 $Impact Sound:          "metal"		 "Gun Hit Metal"
 $Impact Sound:          "rock"		 "Gun Hit Rock"
 $Impact Sound:          "water"		 "Medium Water Splash"
-$Impact Sound:				"glass"		 "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Near Miss Sound:       "Rail Flyby"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:         ("rail_rifle_hit")
@@ -1464,7 +1464,7 @@ $Impact Sound:          "flesh"		 "Gun Hit Flesh"
 $Impact Sound:          "metal"		 "Gun Hit Metal"
 $Impact Sound:          "rock"		 "Gun Hit Rock"
 $Impact Sound:          "water"		 "Medium Water Splash"
-$Impact Sound:			   "glass"		 "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Near Miss Sound:       "Assault Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
@@ -1556,7 +1556,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Near Miss Sound:       "Assault Ricochet"
 $Near Miss Underwater:  "Glock Alt Launch"
 $Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
@@ -1699,7 +1699,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
 $Impact Vclips Radius:   (0.3 0.3)
 $Damage Radius:         0.0
@@ -1767,7 +1767,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
 $Impact Vclips Radius:   (0.3 0.3)
 $Damage Radius:         0.0
@@ -1930,7 +1930,7 @@ $Impact Sound:          "flesh"		 "Impact Flesh"
 $Impact Sound:          "metal"		 "Riot Impact Metal"
 $Impact Sound:          "rock"		 "Riot Impact Rock"
 $Impact Sound:          "water"		 "Small Water Splash"
-$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Impact Vclips:         ("riotspark")
 $Impact Vclips Radius:  (0.3)
 $Damage Radius:         0.0
@@ -1970,7 +1970,7 @@ $Impact Sound:          "flesh"		 "Scrape Flesh"
 $Impact Sound:          "metal"		 "Riot Impact Metal"
 $Impact Sound:          "rock"		 "Riot Impact Rock"
 $Impact Sound:          "water"		 "Small Water Splash"
-$Impact Sound:			   "glass"	    "Gun Hit Glass"
+$Impact Sound:          "glass"      "Gun Hit Glass"
 $Impact Vclips:         ("riotspark")
 $Impact Vclips Radius:  (0.3)
 $Damage Radius:         0.0
@@ -2377,7 +2377,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Impact Vclips:          ("gatspark" "gatsmoke")
 $Impact Vclips Radius:   (0.6 0.6)
 $Damage Radius:         0.0
@@ -2436,7 +2436,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Impact Vclips:          ("FGatE_bigspark" "gatsmoke")
 $Impact Vclips Radius:   (0.3 0.3)
 $Damage Radius:         0.0
@@ -2494,7 +2494,7 @@ $Impact Sound:          "flesh"        "Gun Hit Flesh"
 $Impact Sound:          "metal"        "Gun Hit Metal"
 $Impact Sound:          "rock"         "Gun Hit Rock"
 $Impact Sound:          "water"        "Gun Hit Water"
-$Impact Sound:			"glass"		   "Gun Hit Glass"
+$Impact Sound:          "glass"        "Gun Hit Glass"
 $Impact Vclips:         ("FGatE_bigspark" "gatsmoke")
 $Impact Vclips Radius:  (0.3 0.4)
 $Damage Radius:         0.0
