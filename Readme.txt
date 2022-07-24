@@ -1,6 +1,6 @@
 Mod that aims to fix additional game issues that Dash Faction cannot due to needing level modifications or sophisticated .tbl edits.
 
-\Changes/
+\Changelog v0.1/
 *Fix all geometry holes in levels l1s1, l4s4, l12s1, l5s2, and l4s3.
 *Fix grenades sticking to surfaces using wtr_ material textures.
 *Implement use key patch for medlabs stealth section by Goober.
@@ -21,6 +21,9 @@ Mod that aims to fix additional game issues that Dash Faction cannot due to need
 *Better mouse input for vehicles.
 *Add collision to all particles.
 *Instant weapon swapping.
+
+\Changelog v0.2/
+*Add missing glass bullet impact sounds to weapons.tbl
 
 \Usage/
 Move TC_Patch_v0.1 to the mods folder of your RF installation and start game with mod using Dash Faction.
