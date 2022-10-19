@@ -23,6 +23,7 @@ Mod that aims to fix additional game issues that Dash Faction cannot due to need
 *Instant weapon swapping.
 
 \Changelog v0.2/
+*Fix Gryphon dying when skipping cutscene in levels l7s1 and l7s2.
 *Add missing glass bullet impact sounds to weapons.tbl
 
 \Usage/
