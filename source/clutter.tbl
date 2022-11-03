@@ -3198,7 +3198,7 @@ $Class Name:           "Body Bag"
 $V3D Filename:         "bodybag1.V3D"
 $Material:             "flesh"
 $Life:                 -1
-$Flags:                ()
+$Flags:                ("collide_object")
 $RFE Level1:           "Misc"
 
 $Class Name:           "Bag of Chow"
