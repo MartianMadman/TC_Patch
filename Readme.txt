@@ -24,7 +24,8 @@ Mod that aims to fix additional game issues that Dash Faction cannot due to need
 
 \Changelog v0.2/
 *Fix Gryphon dying when skipping cutscene in levels l7s1 and l7s2.
-*Add missing glass bullet impact sounds to weapons.tbl
+*Add missing glass bullet impact sounds to weapons.tbl.
+*Improve watermist and waterdrop alpha fade in.
 *Use collisions for body bags.
 
 \Usage/
