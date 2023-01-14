@@ -5024,8 +5024,8 @@
 	$Max Vel:				   6.5
 	   +slow factor:        0.25
 	$Acceleration:          3.0
-	$Max Rot Vel:           5.3
-	$Rot Acceleration:      5.3
+	$Max Rot Vel:           6.5
+	$Rot Acceleration:      8.0
 	$Allowed Weapons:       ("APC Minigun" "APC Rocket" "Vauss")
 	$Default Primary:       "APC Minigun"
 	$Default Secondary:     "APC Rocket"
@@ -5104,8 +5104,8 @@
 	$Max Relative Eye PHB:  <0, 0, 0>
 	$Max Vel:				   7.0
 	$Acceleration:          4.5
-	$Max Rot Vel:           5.3
-	$Rot Acceleration:      5.3
+	$Max Rot Vel:           6.5
+	$Rot Acceleration:      8.0
 	$Allowed Weapons:       ("Jeep Gun")
 	$Default Primary:       "Jeep Gun"
 	$Default Secondary:     ""
@@ -5353,8 +5353,8 @@
 	$Max Relative Eye PHB:  <0, 0, 0>
 	$Max Vel:				   6.0
 	$Acceleration:          3.0
-	$Max Rot Vel:           5.3
-	$Rot Acceleration:      5.3
+	$Max Rot Vel:           6.5
+	$Rot Acceleration:      8.0
 	$Allowed Weapons:       ("Drill")
 	$Default Primary:       "Drill"
 	$Default Secondary:     ""
