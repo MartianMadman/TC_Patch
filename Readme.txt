@@ -23,10 +23,13 @@ Mod that aims to fix additional game issues that Dash Faction cannot due to need
 *Instant weapon swapping.
 
 \Changelog v0.2/
+*Add textured eyes to lods of mutant1, mutant2, and default miner1.
 *Fix Gryphon dying when skipping cutscene in levels l7s1 and l7s2.
 *Add missing glass bullet impact sounds to weapons.tbl.
+*Improve quality of waterfalls in levels l9s4 & l18s1.
 *Improve watermist and waterdrop alpha fade in.
-*Use collisions for body bags.
+*Add object collision to body bags.
+*Improve lighting in level l18s1.
 
 \Usage/
-Move TC_Patch_v0.1 to the mods folder of your RF installation and start game with mod using Dash Faction.
+Move TC_Patch to the mods folder of your RF installation and start game with mod using Dash Faction.
